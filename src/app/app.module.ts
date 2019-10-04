@@ -18,6 +18,8 @@ import { JobPosterComponent } from './admin/job-poster/job-poster.component';
 import { JobsComponent } from './admin/jobs/jobs.component';
 import { ArtisanProfileComponent } from './client/artisan-profile/artisan-profile.component';
 import { PostedJobsComponent } from './client/posted-jobs/posted-jobs.component';
+import { RegisterComponent } from './client/register/register.component';
+import { LoginComponent } from './client/login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { PostedJobsComponent } from './client/posted-jobs/posted-jobs.component'
     JobPosterComponent,
     JobsComponent,
     ArtisanProfileComponent,
-    PostedJobsComponent
+    PostedJobsComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

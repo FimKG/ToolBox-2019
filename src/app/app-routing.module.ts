@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './client/home/home.component';
 import { HeaderComponent } from './client/header/header.component';
 import {PostedJobsComponent } from './client/posted-jobs/posted-jobs.component';
+import {RegisterComponent} from './client/register/register.component';
+import {LoginComponent} from './client/login/login.component';
 
 //Admin Components
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
@@ -22,7 +24,11 @@ const routes: Routes = [
     children: [ // all childrens components below
       { path: '', component: HomeComponent },
       { path: 'artisan-profile', component: ArtisanProfileComponent },
-      { path: 'posted-jobs', component: ArtisanProfileComponent },
+      { path: 'posted-jobs', component: PostedJobsComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+      {path: '', redirectTo: 'login', pathMatch: 'full' },
+      {path: '**', redirectTo: 'login', pathMatch: 'full' }
     ]
   },
 
