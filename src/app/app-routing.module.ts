@@ -1,33 +1,40 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { AdminSigninComponent } from './admin-signin/admin-signin.component';
-import { AdminHeaderComponent } from './admin-header/admin-header.component';
-import { AdminSidenavComponent } from './admin-sidenav/admin-sidenav.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { AdminComplaintsComponent } from './admin-complaints/admin-complaints.component';
-import { AdminComplimentsComponent } from './admin-compliments/admin-compliments.component';
-import { AdminSuggestionsComponent } from './admin-suggestions/admin-suggestions.component';
+import { HomeComponent } from './client/home/home.component';
+import { HeaderComponent } from './client/header/header.component';
+import {PostedJobsComponent } from './client/posted-jobs/posted-jobs.component';
+
+//Admin Components
+import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
+import { AdminSidenavComponent } from './admin/admin-sidenav/admin-sidenav.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { ArtisansComponent} from './admin/artisans/artisans.component';
+import {JobPosterComponent} from  './admin/job-poster/job-poster.component';
+import {JobsComponent} from './admin/jobs/jobs.component';
+import { ArtisanProfileComponent} from './client/artisan-profile/artisan-profile.component'
+
 
 
 
 const routes: Routes = [
   {
     path: '', component: HeaderComponent,
-    children: [
+    children: [ // all childrens components below
       { path: '', component: HomeComponent },
+      { path: 'artisan-profile', component: ArtisanProfileComponent },
+      { path: 'posted-jobs', component: ArtisanProfileComponent },
     ]
   },
 
-  //no layout routes
-  { path: 'admin-signin', component: AdminSigninComponent },
+  //Admin Components
+
   { path: 'admin-header', component: AdminHeaderComponent },
   { path: 'admin-sidenav', component: AdminSidenavComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'admin-complaints', component: AdminComplaintsComponent },
-  { path: 'admin-compliments', component: AdminComplimentsComponent },
-  { path: 'admin-suggestions', component: AdminSuggestionsComponent }
+  { path: 'artisans', component: ArtisansComponent },
+  { path: 'job-poster', component: JobPosterComponent },
+  { path: 'jobs', component: JobsComponent },
+
 ];
 
 @NgModule({
