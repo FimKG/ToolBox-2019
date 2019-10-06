@@ -1,0 +1,72 @@
+<app-admin-header></app-admin-header>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      
+    <br>
+    <div class="col-4" style="float: right">
+
+        <button class="btn btn-success" routerLink="/artisans">All Artisans</button>&nbsp;
+        <button class="btn btn-danger" routerLink="/approved-artisans">Approved Artisans</button>
+      </div>    
+  <br><br>
+      <h4 class="text-center  bg-light">All Declined Artisans </h4>
+      
+    <hr>
+      <div class="dropdown text-center">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categorize Artisans
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+      <br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Firstname</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Qualification</th>
+            <th scope="col">Reason</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>
+            
+              <a href="#" class="badge badge-success">Approved</a>
+             
+             
+            <td>
+                <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
+                <button class="btn- btn-danger btn-sm">Delete</button>
+               
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td> <a href="#" class="badge badge-danger">Declined</a></td>
+            <td>   <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
+              <button class="btn- btn-danger btn-sm">Delete</button></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td> <a href="#" class="badge badge-danger">Declined</a></td>
+            <td>
+                <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
+                <button class="btn- btn-danger btn-sm">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</main>

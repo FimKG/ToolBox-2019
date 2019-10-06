@@ -1,7 +1,19 @@
 <div class="container-fluid">
+
   <div class="row">
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
       <div class="sidebar-sticky">
+        <hr>
+        <div class="col-md-4">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPoiOPl_l2kX5BZsLACATzipLjD92P6m7t7ZmZzwJ-g_47dIGF" style="width:80px; height: 80px; border-radius: 50%; margin-left: 60px">
+        </div>
+
+        <div>
+          <p class="text-center">Hello Admin</p>
+        </div>
+
+
+<hr>
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link active" routerLink="/admin-dashboard">
@@ -9,6 +21,13 @@
               Dashboard <span class="sr-only"> (current)</span>
             </a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/artisan-applications">
+                <span data-feather="users"></span>
+                Artisan Applications
+              </a>
+            </li>
+            
           <li class="nav-item">
             <a class="nav-link" routerLink="/artisans">
               <span data-feather="file"></span>
@@ -27,6 +46,10 @@
               Manage Jobs
             </a>
           </li>
+
+         
+
+          
 
         </ul>
       </div>

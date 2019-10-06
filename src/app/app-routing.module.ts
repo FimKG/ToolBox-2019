@@ -6,6 +6,7 @@ import {PostedJobsComponent } from './client/posted-jobs/posted-jobs.component';
 import {RegisterComponent} from './client/register/register.component';
 import {LoginComponent} from './client/login/login.component';
 
+
 //Admin Components
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
 import { AdminSidenavComponent } from './admin/admin-sidenav/admin-sidenav.component';
@@ -13,9 +14,10 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
 import { ArtisansComponent} from './admin/artisans/artisans.component';
 import {JobPosterComponent} from  './admin/job-poster/job-poster.component';
 import {JobsComponent} from './admin/jobs/jobs.component';
-import { ArtisanProfileComponent} from './client/artisan-profile/artisan-profile.component'
-
-
+import { ArtisanProfileComponent} from './client/artisan-profile/artisan-profile.component';
+import { ArtisanApplicationsComponent} from './admin/artisan-applications/artisan-applications.component';
+import {ApprovedComponent} from './admin/approved/approved.component';
+import {DeclinedComponent} from './admin/declined/declined.component';
 
 
 const routes: Routes = [
@@ -27,8 +29,8 @@ const routes: Routes = [
       { path: 'posted-jobs', component: PostedJobsComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
-      {path: '', redirectTo: 'login', pathMatch: 'full' },
-      {path: '**', redirectTo: 'login', pathMatch: 'full' }
+     
+    
     ]
   },
 
@@ -40,6 +42,8 @@ const routes: Routes = [
   { path: 'artisans', component: ArtisansComponent },
   { path: 'job-poster', component: JobPosterComponent },
   { path: 'jobs', component: JobsComponent },
+  { path: 'artisan-applications', component: ArtisanApplicationsComponent },
+  { path: 'approved-artisans', component: ApprovedComponent }, { path: 'declined-artisans', component: DeclinedComponent },
 
 ];
 

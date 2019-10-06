@@ -20,6 +20,9 @@ import { ArtisanProfileComponent } from './client/artisan-profile/artisan-profil
 import { PostedJobsComponent } from './client/posted-jobs/posted-jobs.component';
 import { RegisterComponent } from './client/register/register.component';
 import { LoginComponent } from './client/login/login.component';
+import { ArtisanApplicationsComponent } from './admin/artisan-applications/artisan-applications.component';
+import { ApprovedComponent } from './admin/approved/approved.component';
+import { DeclinedComponent } from './admin/declined/declined.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,11 @@ import { LoginComponent } from './client/login/login.component';
     ArtisanProfileComponent,
     PostedJobsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ArtisanApplicationsComponent,
+    ApprovedComponent,
+    DeclinedComponent,
+    
   ],
   imports: [
     BrowserModule,
