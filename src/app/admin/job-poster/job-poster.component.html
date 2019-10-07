@@ -33,7 +33,14 @@
                 <td>{{jobposter.name}}</td>
                 <td>{{jobposter.surname}}</td>
                 <td>{{jobposter.email}}</td>
-                <td>{{jobposter.status}}</td>
+                <td>
+                  <div *ngIf="jobposter.status === 0">
+                    <a href="#" class="badge badge-danger">Inactive</a>
+                </div>
+                <div *ngIf="jobposter.status === 1">
+                    <a href="#"class="badge badge-success">active</a>
+                </div>
+                </td>
                 
               
              
