@@ -8,6 +8,12 @@ export class AdminServiceService {
 
   constructor(private http: HttpClient) { }
 
+  GetAllApplications()
+  {
+    return this.http.get<any>('http://168.172.186.39:5000/artisan');
+
+  }
+
   GetAllApprovedArtisans()
   {
     return this.http.get<any>('http://168.172.186.39:5000/approvedClient');
