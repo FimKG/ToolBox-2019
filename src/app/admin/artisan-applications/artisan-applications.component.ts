@@ -36,9 +36,9 @@ export class ArtisanApplicationsComponent implements OnInit {
   artApplications() {
 
       this.lists.GetAllApplications().subscribe(
-      data => {
-        console.log("fgdfhfthdfh",data)
-        this.users = data.data;
+      respone => {
+        // console.log("fgdfhfthdfh",data)
+        this.users = respone.data;
       }
     )
   
