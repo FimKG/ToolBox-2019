@@ -8,24 +8,23 @@
       <h4 class="text-center  bg-light">All Job Posters </h4>
       
     <hr>
-      <div class="dropdown text-center">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categorize Job Posters
-          </button>
-          
-              
-              <option *ngFor="let category of  categoryArray" ng-value="category.catID">{{category.categoryName}}</option>
-            
-          
-        </div>
-      <br>
+    <div class="dropdown text-center">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categorize Artisans
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" *ngFor="let category of categories">{{category.categoryName}}</a>
+        
+      </div>
+    </div>
+    <br>
     <table class="table">
         <thead>
           <tr>
             <th scope="col">Firstname</th>
             <th scope="col">Lastname</th>
             <th scope="col">Email</th>
-            <th scope="col">Status</th>
+          
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -34,15 +33,9 @@
                 <td>{{jobposter.name}}</td>
                 <td>{{jobposter.surname}}</td>
                 <td>{{jobposter.email}}</td>
-                <td>{{jobposter.status}}</td>
-              
-             
             
-            
-              
-             
-             
             <td>
+                <button class="btn-sm btn-info btn-sm">view</button>&nbsp;
                 <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
                 <button class="btn- btn-danger btn-sm">Delete</button>
                

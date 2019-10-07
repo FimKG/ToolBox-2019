@@ -3,3 +3,10 @@ img{
     height: 50%;
     text-align: center;
 }
+.box{
+    width: 600px;
+    height: 759px;
+    padding: 20px;
+    margin: 100px auto;
+    box-shadow: 0px 0px 10px 2px grey;
+}
