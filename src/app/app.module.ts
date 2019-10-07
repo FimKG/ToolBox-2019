@@ -1,11 +1,8 @@
 import { BrowserModule }  from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
 
 
-=======
->>>>>>> a7b91738a08aac59117a3ce7965ac0cf7a82abce
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './client/home/home.component';
