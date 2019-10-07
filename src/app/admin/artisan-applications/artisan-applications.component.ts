@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UserService } from '../../user.service'
+
+
 @Component({
   selector: 'app-artisan-applications',
   templateUrl: './artisan-applications.component.html',
@@ -7,19 +10,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtisanApplicationsComponent implements OnInit {
 
-  user: any;
+  users: any;
 
-  constructor() { 
+  constructor(private lists: UserService) {
 
-      // this.user = {
+    // this.user = {
 
-      //  Details : ['Sandile']
+    //  Details : ['Sandile']
 
-      // }
+    // }
+
+    //   const users = [
+    //     {Firstname:'Sandile'},
+    //     {Lastname:'kheswa'},
+    //     {Category:'Plumber'},
+    //     {IdentityNo:'2365654875298'},
+    //     {Action:''}
+    // ];
 
   }
 
   ngOnInit() {
+    this.userDetails();
+  }
+
+
+  userDetails() {
+    
+    // .subscribe(
+    //   data => {
+        console.log("fgdfhfthdfh", this.lists.getAnonymous())
+      // }
+    // )
+  
   }
 
 }
