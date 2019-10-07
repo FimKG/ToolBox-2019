@@ -11,7 +11,7 @@
             Categorize Artisans
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" *ngFor="let category of categories">{{category.categoryName}}</a>
+            <a class="dropdown-item" *ngFor="let category of categories" (click)="getSelectedCat(category)">{{category.categoryName}}</a>
             
           </div>
         </div>

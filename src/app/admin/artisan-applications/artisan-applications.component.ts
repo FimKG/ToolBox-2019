@@ -8,6 +8,7 @@ import {AdminServiceService} from '../../admin-service.service';
 })
 export class ArtisanApplicationsComponent implements OnInit {
 
+  selectedCategory: number;
   applications: any;
   categories: any;
   constructor(private adminservice: AdminServiceService) { }
@@ -15,6 +16,7 @@ export class ArtisanApplicationsComponent implements OnInit {
   ngOnInit() {
     this.GetAllApplications();
     this. GetAllCategories();
+    this.getArtisansBasedOnCategory();
   }
 
   GetAllApplications()
@@ -30,6 +32,19 @@ export class ArtisanApplicationsComponent implements OnInit {
     this.adminservice.GetAllCategories().subscribe(data=>{
       this.categories = data.data;
       console.log(data.data);
+    })
+  }
+
+  getSelectedCat(category)
+  {
+    this.selectedCategory = category.catID;
+    console.log(this.selectedCategory);
+  }
+
+  getArtisansBasedOnCategory()
+  {
+    this.adminservice.GetArtsansbasedOnCatgory(this.selectedCategory).subscribe(data=>{
+      console.log(data);
     })
   }
 
