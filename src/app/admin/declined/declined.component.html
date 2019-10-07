@@ -17,9 +17,8 @@
             Categorize Artisans
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" *ngFor="let cat of categories">{{cat.categoryName}}</a>
+           
           </div>
         </div>
       <br>
@@ -28,20 +27,19 @@
           <tr>
             <th scope="col">Firstname</th>
             <th scope="col">Lastname</th>
-            <th scope="col">Qualification</th>
-            <th scope="col">Reason</th>
+           <th scope="col">Reason</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
+          <tr *ngFor="let declined of DeclienArtisans">
+            <th>{{declined.name}}</th>
+            <td>{{declined.surname}}</td>
+            <td>{{declined.reason}}</td>
             <td>
             
               <a href="#" class="badge badge-success">Approved</a>
-             
+            </td>
              
             <td>
                 <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
@@ -49,24 +47,10 @@
                
             </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td> <a href="#" class="badge badge-danger">Declined</a></td>
-            <td>   <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
-              <button class="btn- btn-danger btn-sm">Delete</button></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td> <a href="#" class="badge badge-danger">Declined</a></td>
-            <td>
-                <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
-                <button class="btn- btn-danger btn-sm">Delete</button>
-            </td>
-          </tr>
+         
+          
         </tbody>
       </table>
+
+
 </main>

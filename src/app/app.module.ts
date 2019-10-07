@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './client/home/home.component';
-import { UserService } from './user.service';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './client/header/header.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -53,7 +53,7 @@ import { DeclinedComponent } from './admin/declined/declined.component';
     ReactiveFormsModule 
 
   ],
-  providers: [UserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
