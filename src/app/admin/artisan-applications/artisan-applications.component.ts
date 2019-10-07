@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AdminServiceService} from '../../admin-service.service';
 
 @Component({
   selector: 'app-artisan-applications',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtisanApplicationsComponent implements OnInit {
 
-  users: any;
+  users: [];
 
-  constructor() {
+  constructor(private lists: AdminServiceService) {
 
     // this.user = {
 
@@ -28,17 +29,19 @@ export class ArtisanApplicationsComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.userDetails();
+    this.artApplications();
   }
 
 
-  // userDetails() {
-  //   this.lists.GetAllApprovedArtisans().subscribe(
-  //     data => {
-  //       console.log("fgdfhfthdfh",data)
-  //     }
-  //   )
+  artApplications() {
+
+      this.lists.GetAllApplications().subscribe(
+      data => {
+        console.log("fgdfhfthdfh",data)
+        this.users = data.data;
+      }
+    )
   
-  // }
+  }
 
 }
