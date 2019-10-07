@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  visible = false;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  UserType()
+  {
+    this.visible = !this.visible;
+  }
+
+
 
 }
