@@ -24,7 +24,7 @@
             <th scope="col">Firstname</th>
             <th scope="col">Lastname</th>
             <th scope="col">Email</th>
-            <th scope="col">Status</th>
+          
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -33,23 +33,9 @@
                 <td>{{jobposter.name}}</td>
                 <td>{{jobposter.surname}}</td>
                 <td>{{jobposter.email}}</td>
-                <td>
-                  <div *ngIf="jobposter.status === 0">
-                    <a href="#" class="badge badge-danger">Inactive</a>
-                </div>
-                <div *ngIf="jobposter.status === 1">
-                    <a href="#"class="badge badge-success">active</a>
-                </div>
-                </td>
-                
-              
-             
             
-            
-              
-             
-             
             <td>
+                <button class="btn-sm btn-info btn-sm">view</button>&nbsp;
                 <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
                 <button class="btn- btn-danger btn-sm">Delete</button>
                
