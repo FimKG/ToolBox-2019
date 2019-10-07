@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+ import { Injectable } from '@angular/core';
+ import {HttpClient} from '@angular/common/http'
 import {Post} from '../app/Post';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+ @Injectable({
+   providedIn: 'root'
+ })
 export class UserService {
 
   anonymousUrl ='http://localhost:1313/anonymous';

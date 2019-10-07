@@ -7,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtisanApplicationsComponent implements OnInit {
 
-  constructor() { }
+  user: any;
+
+  constructor() { 
+
+      // this.user = {
+
+      //  Details : ['Sandile']
+
+      // }
+
+  }
 
   ngOnInit() {
   }
