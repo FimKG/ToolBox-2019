@@ -20,3 +20,22 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+<section>
+  <div class="row col-12" style="margin-left: 60px">
+    <div *ngFor="let record of Artisans" [ngClass]="col-md-2" id="spacing">
+    <div class="card" style="width: 16rem;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjgMdfloucvzb8STD7HKhov-qoC8sJ0iJ3k1DlvB2G_t8rCB68" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title" *ngFor="let cat of categories">
+          
+          <h5 *ngIf="record.catID === cat.catID" class="card-text">{{cat.categoryName}}</h5>
+          <h5 *ngIf="record.catID === cat.catID" class="card-text">{{cat.artisan}}</h5>
+      </h5>
+   
+      <a href="artisan-profile" class="btn btn-primary">View All</a>
+    </div>
+ 
+  </div> 
+</div>
+</div>  
+</section>
