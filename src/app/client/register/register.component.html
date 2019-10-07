@@ -1,1 +1,113 @@
-<p>register works!</p>
+<main role="main" class="container">
+    <div class="loader" *ngIf="dataLoading"></div>
+    <div class="alert alert-danger" role="alert" *ngIf="error">
+      An error occured. Here is the error : {{ errorMessage }}.
+    </div>
+    <div *ngIf="savedChanges else showForm">
+      New Account is created. Please login.
+      <button class="btn btn-lg btn-primary btn-block" routerLink="/login" type="button">Login</button>
+  </div>
+    
+    <form class="form-signin" #newUserForm="ngForm" (ngSubmit)="setUser(newUserForm.value)">
+        <!-- div style="text-align: center; display:block">
+            <img src="../../assets/images/logo2.png" alt="">
+          </div>< -->
+          <h2><i class="glyphicon glyphicon-log-in"></i>Application Form</h2>	
+<br>
+    <div  class="form-label-group">
+        <Label for="userType" class="text-secondary">User:</Label>
+        <select required name="inputUserType" id="inputUserType" class="form-control" #inputUserType="ngModel" autofocus required userType ngModel (click)="UserType(value)">
+        <option value="">-UserType-</option>
+        <option value="0">Job-Poster</option>
+        <option value="1">Artisan</option>
+       </select>
+    </div>
+    <br>
+    <div *ngIf="visible">
+        <div class="row" >
+          <div class="col" >
+              <label for="inputFN">First Name</label>
+            <input type="text" name="inputFN" id="inputFN" class="form-control" placeholder="First name" #inputFN="ngModel"
+            autofocus required FN ngModel>
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="inputFN.invalid && (inputFN.dirty || inputFN.touched)">
+              Please enter a First Name.
+            </div>
+          <div class="col" >
+              <label for="inputLN">Last Name</label>
+            <input type="text" name="inputLN" id="inputLN" class="form-control" placeholder="Last name" #inputLN="ngModel"
+            autofocus required LN ngModel>
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="inputLN.invalid && (inputLN.dirty || inputLN.touched)">
+              Please enter a Last Name.
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6" >
+              <label for="inputEmail">Email</label>
+              <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email" #inputEmail="ngModel"
+              autofocus required email ngModel>
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="inputEmail.invalid && (inputEmail.dirty || inputEmail.touched)">
+                Please enter a valid email.
+              </div>
+            <div class="form-group col-md-6" >
+              <label for="inputPassword">Password</label>
+              <input type="password" class="form-control" name="inputPassword" id="inputPassword" placeholder="Password" #inputPassword="ngModel"
+              required minlength="3" maxlength="20" ngModel>
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="inputPassword.invalid && (inputPassword.dirty || inputPassword.touched)">
+                Please enter a valid password between 3 to 20 chars.
+              </div>
+          </div>
+          <div class="form-label-group">
+            <label for="inputAddress">Address</label>
+            <input type="text" class="form-control" name="inputAddress" id="inputAddress" placeholder="1234 Main St" #inputAddress="ngModel"
+            autofocus required Address ngModel>
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="inputAddress.invalid && (inputAddress.dirty || inputAddress.touched)">
+            Please enter valid Str Address.
+          </div>
+          
+          <div class="form-group">
+            <label for="inputAddress2">Address 2</label>
+            <input type="text" class="form-control" name="inputAddress2" id="inputAddress2" placeholder="Apartment, studio, or floor" #inputAddress2="ngModel"
+            autofocus required Address2 ngModel>
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="inputAddress2.invalid && (inputAddress2.dirty || inputAddress2.touched)">
+            Please enter a valid Address.
+          </div>
+          
+      <div class="form-group">
+          <label for="Pass" class="control-label"> Confirm Password</label>
+          <input [(ngModel)]="registerData.password" type="password" required name="password" class="form-control" placeholder="Password" #PassControl="ngModel">
+          </div>
+          <label for="ID" class="control-label"> ID Copy</label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+              </div>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+              </div>
+            </div>
+          
+            <br/>
+            <button type="submit" class="btn btn-secondary btn-lg btn-block" disabled>Send Application</button>
+            <br>
+    </div>
+      Existing User ? <a data toggle="modal" data-target=".bd-example-modal-lg" href="/login">Login</a> <br><br>
+            <!-- <div *ngIf="!loginForm.valid else showSubmitButton">
+                <button type="submit" class="btn btn-secondary btn-lg btn-block" disabled>Send Application</button>
+            </div> -->
+            <!-- <ng-template #showSubmitButton>
+                <button class="btn btn-lg btn-secondary btn-block" type="submit">Send Application</button>
+              </ng-template> -->
+      </form>
+      <br>
+      <br>
+ </main>
+
+
