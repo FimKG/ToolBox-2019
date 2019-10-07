@@ -29,6 +29,8 @@ const routes: Routes = [
       { path: 'posted-jobs', component: PostedJobsComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'home', component: HomeComponent },
+      
      
     
     ]
