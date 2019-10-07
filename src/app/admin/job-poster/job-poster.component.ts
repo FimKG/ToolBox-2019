@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AdminServiceService} from '../../admin-service.service';
 
-import {UserService} from '../../user.service'
-
 @Component({
   selector: 'app-job-poster',
   templateUrl: './job-poster.component.html',
@@ -11,10 +9,7 @@ import {UserService} from '../../user.service'
 export class JobPosterComponent implements OnInit {
   jobposterArray: any;
   categories: any;
-  
-  
-
-  constructor(private adminservice: AdminServiceService) { }
+ constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
     this.getClients();
