@@ -11,9 +11,8 @@
             Categorize Artisans
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" *ngFor="let category of categories">{{category.categoryName}}</a>
+            
           </div>
         </div>
         <br>
@@ -23,34 +22,29 @@
                     <th scope="col">Firstname</th>
                     <th scope="col">Lastname</th>
                     <th scope="col">Category</th>
-                    <th scope="col">Identity No</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                  <tr *ngFor="let application of applications">
+                    <td >{{application.name}}</td>
+                    <td>{{application.surname}}</td>
+                    <td>
+                      <div *ngFor="let category of categories">
+                          <div *ngIf="application.catID === category.catID">
+                              {{category.categoryName}}
+                          </div> 
+                      </div>
+                    </td>
+                   
                     <td>
                         <button type="button" class="btn btn-outline-success">Approve</button>&nbsp;
                         <button type="button" class="btn btn-outline-danger"  data-toggle="modal" data-target="#exampleModal">Decline</button>
         
                     </td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                  
+                  
                 </tbody>
               </table>
 
