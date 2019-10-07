@@ -11,9 +11,10 @@ import {UserService} from '../../user.service'
 export class JobPosterComponent implements OnInit {
   jobposterArray: any;
   categories: any;
-  adminservice: any;
+  
+  
 
-  constructor(private http: UserService) { }
+  constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
     this.getClients();

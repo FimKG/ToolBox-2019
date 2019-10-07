@@ -36,4 +36,8 @@ export class AdminServiceService {
     {
       return this.http.get<any>('http://168.172.186.39:5000/artisan');
     }
-}
+    getClients()
+    {
+      return this.http.get<any>('http://168.172.186.39:5000/client');
+    }
+}  
