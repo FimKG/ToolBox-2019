@@ -1,3 +1,4 @@
+<!-- <body background="../../../assets/images/logbg2.jpg"> -->
 <main role="main" class="container">
     <div class="loader" *ngIf="dataLoading"></div>
     <div class="alert alert-danger" role="alert" *ngIf="error">
@@ -7,23 +8,23 @@
       New Account is created. Please login.
       <button class="btn btn-lg btn-primary btn-block" routerLink="/login" type="button">Login</button>
   </div>
-    
+  <div class="box">
     <form class="form-signin" #newUserForm="ngForm" (ngSubmit)="setUser(newUserForm.value)">
         <!-- div style="text-align: center; display:block">
             <img src="../../assets/images/logo2.png" alt="">
-          </div>< -->
-          <h2><i class="glyphicon glyphicon-log-in"></i>Application Form</h2>	
-<br>
-    <div  class="form-label-group">
-        <Label for="userType" class="text-secondary">User:</Label>
-        <select required name="inputUserType" id="inputUserType" class="form-control" #inputUserType="ngModel" autofocus required userType ngModel (click)="UserType(value)">
-        <option value="">-UserType-</option>
-        <option value="" name="Job-Poster">Job-Poster</option>
-        <option value="" name="Artisan">Artisan</option>
-       </select>
+          </div>-->
+          <h2><i class="glyphicon glyphicon-log-in"></i>Loxion Member Application Form</h2>	
+          <br>
+         <div  class="form-label-group">
+              <Label for="userType" class="text-secondary">User:</Label>
+              <select required name="inputUserType" id="inputUserType" class="form-control" #inputUserType="ngModel" autofocus required userType ngModel (click)="UserType(value)">
+              <option value="">-UserType-</option>
+               <option value="no">Job-Poster</option>
+               <option value="yes">Artisan</option>
+             </select>
     </div>
     <br>
-    <div *ngIf="visible">
+    <div>
         <div class="row" >
           <div class="col" >
               <label for="inputFN">First Name</label>
@@ -99,18 +100,91 @@
             <br>
     </div>
       Existing User ? <a data toggle="modal" data-target=".bd-example-modal-lg" href="/login">Login</a> <br><br>
-            <!-- <div *ngIf="!loginForm.valid else showSubmitButton">
+             <div *ngIf="!loginForm.valid else showSubmitButton">
                 <button type="submit" class="btn btn-secondary btn-lg btn-block" disabled>Send Application</button>
-            </div> -->
-            <!-- <ng-template #showSubmitButton>
+            </div> 
+             <ng-template #showSubmitButton>
                 <button class="btn btn-lg btn-secondary btn-block" type="submit">Send Application</button>
-              </ng-template> -->
+              </ng-template> 
       </form>
-      <ng-template #showSubmitButton>
-        <button class="btn btn-lg btn-secondary btn-block" type="submit">Login</button>
-      </ng-template>
+  </div>
+       <ng-template #showArtisan>
+        <form>
+            <div style="text-align: center; display:block">
+                <img src="../../assets/images/logo2.png" alt="">
+              </div> -
+              <h2><i class="glyphicon glyphicon-log-in"></i> Artisan Application Form</h2>	
+<br>
+            <div class="row">
+              <div class="col">
+                  <label for="inputFN">First Name</label>
+                <input type="text" class="form-control" placeholder="First name">
+              </div>
+              <div class="col">
+                  <label for="inputLN">Last Name</label>
+                <input type="text" class="form-control" placeholder="Last name">
+              </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Password</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              </div>
+              <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+              </div>
+            
+              <div  class="form-group ">
+                <Label for="Profession" >Profession</Label>
+                <select [(ngModel)]="registerData.catID" required name="catID" id="category" class="form-control" (change)="getCatId(cat.catID)" #ProfessionControl="ngModel">
+                <option value="">-Select JobType-</option>
+                  <option *ngFor="let cat of categories" [value]="cat.catID">{{cat.categoryName}}</option>
+                </select>
+                </div>
+            
+          <div class="form-group">
+              <label for="Pass" class="control-label"> Confirm Password</label>
+              <input [(ngModel)]="registerData.password" type="password" required name="password" class="form-control" placeholder="Password" #PassControl="ngModel">
+              </div>
+              <label for="ID" class="control-label"> ID Copy</label>
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  </div>
+                </div>
+                <label for="qualification" class="control-label">Qualification</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                  </div>
+              
+              <button type="submit" class="btn btn-secondary btn-lg btn-block" disabled>Send Application</button>
+          </form>
+      </ng-template> 
       <br>
       <br>
+
  </main>
 
+      
 
