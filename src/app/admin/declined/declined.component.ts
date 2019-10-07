@@ -8,7 +8,7 @@ import {AdminServiceService} from '../../admin-service.service';
 })
 export class DeclinedComponent implements OnInit {
 
-  DeclienArtisans:any;
+  DeclinedArtisans:any;
   categories:any;
 
   constructor(private adminservice: AdminServiceService) { }
@@ -29,8 +29,8 @@ export class DeclinedComponent implements OnInit {
   getDeclineArtisans()
   {
     this.adminservice.GetAllDeclinedArtisans().subscribe(data=>{
-     this.DeclienArtisans = data
-     console.log(this.DeclienArtisans);
+     this.DeclinedArtisans = data.data;
+     console.log(this.DeclinedArtisans);
     })
   }
 }

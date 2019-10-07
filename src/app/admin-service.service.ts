@@ -8,20 +8,10 @@ export class AdminServiceService {
 
   constructor(private http: HttpClient) { }
 
-  GetAllJobPosters()
-  {
-    return this.http.get<any>('http://168.172.186.39:5000/client');
-  }
-
-  GetAllApplications()
-  {
-    return this.http.get<any>('http://168.172.186.39:5000/artisan');
-
-  }
-
+  //get all approved artisans
   GetAllApprovedArtisans()
   {
-    return this.http.get<any>('http://168.172.186.39:5000/approvedClient');
+    return this.http.get<any>('http://168.172.186.39:5000/aprovedArt');
   }
 
   //get all categories
@@ -33,6 +23,17 @@ export class AdminServiceService {
   //get all declined artisans
   GetAllDeclinedArtisans()
   {
-    return this.http.get<any>('http://168.172.186.39:5000/declinedClient');
+    return this.http.get<any>('http://168.172.186.39:5000/declinedartisan');
   }
+
+  //get all  clients Applications
+  getAllArtisanApplication()
+    {
+      return this.http.get<any>('http://168.172.186.39:5000/artisan');
+    }
+
+    GetAllArtisans()
+    {
+      return this.http.get<any>('http://168.172.186.39:5000/artisan');
+    }
 }

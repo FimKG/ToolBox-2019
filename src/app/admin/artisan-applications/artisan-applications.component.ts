@@ -8,40 +8,29 @@ import {AdminServiceService} from '../../admin-service.service';
 })
 export class ArtisanApplicationsComponent implements OnInit {
 
-  users: [];
-
-  constructor(private lists: AdminServiceService) {
-
-    // this.user = {
-
-    //  Details : ['Sandile']
-
-    // }
-
-    //   const users = [
-    //     {Firstname:'Sandile'},
-    //     {Lastname:'kheswa'},
-    //     {Category:'Plumber'},
-    //     {IdentityNo:'2365654875298'},
-    //     {Action:''}
-    // ];
-
-  }
+  applications: any;
+  categories: any;
+  constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
-    this.artApplications();
+    this.GetAllApplications();
+    this. GetAllCategories();
   }
 
+  GetAllApplications()
+  {
+    this.adminservice.getAllArtisanApplication().subscribe(data=>{
+      this.applications = data.data;
+      console.log(this.applications);
+    })
+  }
 
-  artApplications() {
-
-      this.lists.GetAllApplications().subscribe(
-      respone => {
-        // console.log("fgdfhfthdfh",data)
-        this.users = respone.data;
-      }
-    )
-  
+  GetAllCategories()
+  {
+    this.adminservice.GetAllCategories().subscribe(data=>{
+      this.categories = data.data;
+      console.log(data.data);
+    })
   }
 
 }

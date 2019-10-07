@@ -28,17 +28,25 @@
             <th scope="col">Firstname</th>
             <th scope="col">Lastname</th>
            <th scope="col">Reason</th>
+           <th scope="col">Status</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let declined of DeclienArtisans">
+          <tr *ngFor="let declined of DeclinedArtisans">
             <th>{{declined.name}}</th>
             <td>{{declined.surname}}</td>
             <td>{{declined.reason}}</td>
             <td>
-            
-              <a href="#" class="badge badge-success">Approved</a>
+              <div *ngIf="declined.status === 0">
+                  <a href="#" class="badge badge-danger">Inactive</a>
+              </div>
+
+              <div *ngIf="declined.status === 1">
+                  <a href="#" class="badge badge-success">active</a>
+              </div>
+           
+
             </td>
              
             <td>
