@@ -8,17 +8,16 @@
       <h4 class="text-center  bg-light">All Job Posters </h4>
       
     <hr>
-      <div class="dropdown text-center">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categorize Job Posters
-          </button>
-          
-              
-              <option *ngFor="let category of  categoryArray" ng-value="category.catID">{{category.categoryName}}</option>
-            
-          
-        </div>
-      <br>
+    <div class="dropdown text-center">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categorize Artisans
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" *ngFor="let category of categories">{{category.categoryName}}</a>
+        
+      </div>
+    </div>
+    <br>
     <table class="table">
         <thead>
           <tr>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AdminServiceService} from '../../admin-service.service';
 
 import {UserService} from '../../user.service'
 
@@ -9,27 +10,30 @@ import {UserService} from '../../user.service'
 })
 export class JobPosterComponent implements OnInit {
   jobposterArray: any;
-  categoryArray: any;
+  categories: any;
+  adminservice: any;
 
   constructor(private http: UserService) { }
 
   ngOnInit() {
-    this.http.getClients()
-      .subscribe((data) => {
-        this.jobposterArray = data.data;
-        console.log(this.jobposterArray);
-
-      })
+    this.getClients();
+    this. GetAllCategories();
+   
+  }
+  getClients()
+  {
+    this.adminservice.getClients().subscribe(data=>{
+      this.jobposterArray = data.data;
+      console.log(data.data);
+    })
   }
 
-  
-   ngOnIn() {
-     this.http.getCategory()
-       .subscribe((data) => {
-        this.categoryArray = data.data;
-        console.log(this.categoryArray);
-
-     })
-   }
+  GetAllCategories()
+  {
+    this.adminservice.GetAllCategories().subscribe(data=>{
+      this.categories = data.data;
+      console.log(data.data);
+    })
+  }
 }
 
