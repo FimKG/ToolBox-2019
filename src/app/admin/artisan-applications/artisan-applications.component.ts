@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserService } from '../../user.service'
-
-
 @Component({
   selector: 'app-artisan-applications',
   templateUrl: './artisan-applications.component.html',
@@ -12,7 +9,7 @@ export class ArtisanApplicationsComponent implements OnInit {
 
   users: any;
 
-  constructor(private lists: UserService) {
+  constructor() {
 
     // this.user = {
 
@@ -31,18 +28,17 @@ export class ArtisanApplicationsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userDetails();
+    // this.userDetails();
   }
 
 
-  userDetails() {
-    
-    // .subscribe(
-    //   data => {
-        console.log("fgdfhfthdfh", this.lists.getAnonymous())
-      // }
-    // )
+  // userDetails() {
+  //   this.lists.GetAllApprovedArtisans().subscribe(
+  //     data => {
+  //       console.log("fgdfhfthdfh",data)
+  //     }
+  //   )
   
-  }
+  // }
 
 }
