@@ -1,18 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule }  from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+<<<<<<< HEAD
+import { HttpClientModule } from '@angular/common/http';
 
 
+=======
+>>>>>>> a7b91738a08aac59117a3ce7965ac0cf7a82abce
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './client/home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './client/header/header.component';
-import {HttpClientModule} from '@angular/common/http';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
 import { AdminSidenavComponent } from './admin/admin-sidenav/admin-sidenav.component';
-
 import { ArtisansComponent } from './admin/artisans/artisans.component';
 import { JobPosterComponent } from './admin/job-poster/job-poster.component';
 import { JobsComponent } from './admin/jobs/jobs.component';
@@ -50,8 +53,9 @@ import { DeclinedComponent } from './admin/declined/declined.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule 
+     FormsModule,
+    ReactiveFormsModule
+
 
   ],
   providers: [],
