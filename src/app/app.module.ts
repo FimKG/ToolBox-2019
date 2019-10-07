@@ -21,6 +21,7 @@ import { ArtisanApplicationsComponent } from './admin/artisan-applications/artis
 import { ApprovedComponent } from './admin/approved/approved.component';
 import { DeclinedComponent } from './admin/declined/declined.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
