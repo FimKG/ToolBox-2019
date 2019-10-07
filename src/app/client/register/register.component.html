@@ -18,8 +18,8 @@
         <Label for="userType" class="text-secondary">User:</Label>
         <select required name="inputUserType" id="inputUserType" class="form-control" #inputUserType="ngModel" autofocus required userType ngModel (click)="UserType(value)">
         <option value="">-UserType-</option>
-        <option value="0">Job-Poster</option>
-        <option value="1">Artisan</option>
+        <option value="" name="Job-Poster">Job-Poster</option>
+        <option value="" name="Artisan">Artisan</option>
        </select>
     </div>
     <br>
