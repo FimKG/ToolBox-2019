@@ -20,7 +20,7 @@ export class ArtisanProfileComponent implements OnInit {
   gettingAllArtisans()
   {
     this.userService.getAllArtisans().subscribe(data=>{
-      this.Artisans = data,
+      this.Artisans = data.results,
       console.log(this.Artisans);
     });
   }
