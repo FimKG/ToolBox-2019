@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AdminServiceService} from '../../admin-service.service'
 
 @Component({
   selector: 'app-job-poster',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobPosterComponent implements OnInit {
 
-  constructor() { }
+  users: [];
+
+  constructor(private lists: AdminServiceService) { }
 
   ngOnInit() {
+
+    this.jobPosters();
+  }
+
+  jobPosters()
+  {
+    this.lists.GetAllJobPosters().subscribe(
+      response => {
+        // console.log("fgdfhfthdfh",data)
+        this.users = response.data;
+      }
+    )
   }
 
 }

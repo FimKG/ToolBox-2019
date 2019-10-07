@@ -8,6 +8,11 @@ export class AdminServiceService {
 
   constructor(private http: HttpClient) { }
 
+  GetAllJobPosters()
+  {
+    return this.http.get<any>('http://168.172.186.39:5000/client');
+  }
+
   GetAllApplications()
   {
     return this.http.get<any>('http://168.172.186.39:5000/artisan');
