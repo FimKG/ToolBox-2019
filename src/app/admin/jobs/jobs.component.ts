@@ -15,7 +15,7 @@ export class JobsComponent implements OnInit {
 
   ngOnInit() {
     this. getCategories();
-    this.getAllPostedJobs();
+    this.getPostedJobs();
   }
 
   getCategories()
@@ -27,14 +27,12 @@ export class JobsComponent implements OnInit {
     })
   }
 
-  getAllPostedJobs()
+  getPostedJobs()
   {
-    this.adminservice.GetAllJobsPosted().subscribe(data=>{
-      this.postedJobs = data.results;
-      console.log(this.postedJobs);
-    
-     
-    })
+  this.adminservice.GetAllJobs().subscribe(data =>{
+    this.postedJobs= data.results;
+  })
+   
   }
 
 }
