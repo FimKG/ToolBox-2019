@@ -12,6 +12,8 @@ export class UserService {
   categoryUrl = 'http://localhost:1313/category';
   recognizedUrl ='http://localhost:1313/recognized/GetAll';
   AdminLogInUrl = 'http://localhost:1313/admin';
+  clientUrl ='http://168.172.188.153:5000/';
+  catUrl ='http://168.172.188.153:5000/';
   // anonymousUrl ='http://192.168.137.1:1313/anonymous';
   // categoryUrl = 'http://192.168.137.1:1313/category';
   // recognizedUrl ='http://192.168.137.1:1313/recognized/GetAll';
@@ -51,6 +53,13 @@ public getAnonymous()
   return this.http.get<any>(this.anonymousUrl);
 }
 
-
+public getClient()
+{
+  return this.http.get<any>(this.clientUrl + 'client');
+}
+public getCat()
+{
+  return this.http.get<any>(this.catUrl + 'category');
+}
  
 }

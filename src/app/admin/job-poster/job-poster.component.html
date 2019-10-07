@@ -24,7 +24,7 @@
           <tr>
             <th scope="col">Firstname</th>
             <th scope="col">Lastname</th>
-            <th scope="col">Qualification</th>
+            <th scope="col">Email</th>
             <th scope="col">Status</th>
             <th scope="col">Action</th>
           </tr>
@@ -45,24 +45,13 @@
                
             </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td> <a href="#" class="badge badge-danger">Danger</a></td>
-            <td>   <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
-              <button class="btn- btn-danger btn-sm">Delete</button></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td> <a href="#" class="badge badge-danger">Danger</a></td>
-            <td>
-                <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
-                <button class="btn- btn-danger btn-sm">Delete</button>
-            </td>
-          </tr>
+          <tr *ngFor="let jobposter of jobposterArray">
+            <td>{{jobposter.name}}</td>
+            <td>{{jobposter.surname}}</td>
+            <td>{{jobposter.email}}</td>
+            <td>{{jobposter.status}}</td>
+            <td>{{jobposter.action}}</td>
+         </tr>
         </tbody>
       </table>
 </main>
