@@ -16,7 +16,7 @@ export class UserService {
   // categoryUrl = 'http://192.168.137.1:1313/category';
   // recognizedUrl ='http://192.168.137.1:1313/recognized/GetAll';
   // AdminLogInUrl = 'http://192.168.137.1:1313/admin';
-
+  artisanUrl ='http://168.172.188.153:5000/artisan';
 
   
 
@@ -51,6 +51,10 @@ public getAnonymous()
   return this.http.get<any>(this.anonymousUrl);
 }
 
+public getAllArtisans()
+{
+  return this.http.get<any>(this.artisanUrl);
+}
 
  
 }
