@@ -14,7 +14,7 @@ export class JobPosterComponent implements OnInit {
   constructor(private http: UserService) { }
 
   ngOnInit() {
-    this.http.getClient()
+    this.http.getClients()
       .subscribe((data) => {
         this.jobposterArray = data.data;
         console.log(this.jobposterArray);
@@ -23,13 +23,13 @@ export class JobPosterComponent implements OnInit {
   }
 
   
-  // ngOnIn() {
-  //   this.http.getCat()
-  //     .subscribe((data) => {
-  //       this.categoryArray = data.data;
-  //       console.log(this.categoryArray);
+   ngOnIn() {
+     this.http.getCategory()
+       .subscribe((data) => {
+        this.categoryArray = data.data;
+        console.log(this.categoryArray);
 
-  //     })
-  // }
+     })
+   }
 }
 
