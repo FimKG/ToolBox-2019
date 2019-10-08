@@ -16,22 +16,19 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  UserType(value)
-  {
-    //  this.visible = !this.visible;
-    if( value == "yes"){
-      this.visible = true;
+  // UserType(value)
+  // {
+  //   //  this.visible = !this.visible;
+  //   if( value == "yes"){
+  //     this.visible = true;
 
-    }
-    if( value == "no"){
-      this.visible = true;
+  //   }
+  //   if( value == "no"){
+  //     this.visible = true;
 
-    }
-    
-      
-
-
-  }
+  //   }
+   
+  // }
 
 
 

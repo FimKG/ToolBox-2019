@@ -1,18 +1,16 @@
-<!-- <body background="../../../assets/images/logbg2.jpg"> -->
+
 <main role="main" class="container">
     <div class="loader" *ngIf="dataLoading"></div>
     <div class="alert alert-danger" role="alert" *ngIf="error">
       An error occured. Here is the error : {{ errorMessage }}.
     </div>
     <div *ngIf="savedChanges else showForm">
-      New Account is created. Please login.
+      New Account is created. Please wait for an email confirming your application.
       <button class="btn btn-lg btn-primary btn-block" routerLink="/login" type="button">Login</button>
   </div>
   <div class="box">
     <form class="form-signin" #newUserForm="ngForm" (ngSubmit)="setUser(newUserForm.value)">
-        <!-- div style="text-align: center; display:block">
-            <img src="../../assets/images/logo2.png" alt="">
-          </div>-->
+       
           <h2><i class="glyphicon glyphicon-log-in"></i>ToolBox Member Application Form</h2>	
           <br>
          <div  class="form-label-group">
@@ -108,11 +106,8 @@
               </ng-template> 
       </form>
   </div>
-       <ng-template #showArtisan>
+       <!-- <ng-template #showArtisan>
         <form>
-            <!-- <div style="text-align: center; display:block">
-                <img src="../../assets/images/logo2.png" alt="">
-              </div>  -->
               <h2><i class="glyphicon glyphicon-log-in"></i> Artisan Application Form</h2>	
 <br>
             <div class="row">
@@ -180,7 +175,7 @@
               
               <button type="submit" class="btn btn-secondary btn-lg btn-block" disabled>Send Application</button>
           </form>
-      </ng-template> 
+      </ng-template>  -->
       <br>
       <br>
 

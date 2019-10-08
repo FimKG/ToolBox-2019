@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpHeaders} from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +16,11 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getNews(user)
+  public setUser(formData)
   {
-    return this.httpClient.post<any>(this.url + 'art/register',user);
+    // return this.httpClient.post<any>(this.url + 'art/register',user);
+    let token = localStorage.getItem('token') ? localStorage.getItem('token') : "acbd";
+    
     
   }
 
