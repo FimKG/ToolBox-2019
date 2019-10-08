@@ -19,29 +19,125 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-<h4 style="text-align-last: center">Welcome: Phila Mhlanga</h4><br>
-<div class="row justify-content-center align-items-center col-md-6 border">
-    <div class="card w-75">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-        </div>
+<h4 style="text-align-last: center">Welcome: Phila Mhlanga</h4>
+<div class="btn-group" class="text-center">
+    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        Job Category
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="/posted-jobs" *ngFor="let cat of categories">{{cat.categoryName}}</a>
     </div>
-    <br>
-    <div class="card w-75">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
-        </div>
-    </div>
-    <br>
-    <div class="card w-75">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-
+</div>
+<br>
+<div class="container">
+    <div class="box">
+        <div class="card">
+            <h5 class="card-header">Posted Jobs</h5>
+            <div class="row">
+                    <div class="col-sm-6">
+                      <div class="card">
+                        <div class="card-body">
+                                <img src="../../../assets/images/user.png" class="card-img-left" alt="...">
+                                <h5 class="card-title">Percy Mohale</h5>
+                                <p couterLinklass="card-text">I want something nice from ICEP interns.
+                                        <br>public
+                                        <br>Location: soshanguve TUT
+                                        <br>Developers required
+                                </p>
+                          <div class="card-footer">                      
+                                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#exampleModalScrollable">view job</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="card">
+                        <div class="card-body">
+                                <img src="../../../assets/images/user.png" class="card-img-left" alt="...">
+                                <h5 class="card-title">Aletta Seema</h5>
+                                <p class="card-text">I come to church.
+                                        <br>private
+                                        <br>Location: soshanguve TUT
+                                        <br>Electricians required
+                                    </p>
+                          <div class="card-footer">                      
+                                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#exampleModalScrollable">view job</a>
+                                </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <div class="card-body">
+                                    <img src="../../../assets/images/user.png" class="card-img-left" alt="...">
+                                    <h5 class="card-title">Zanele Thabethe</h5>
+                                    <p class="card-text">I come to church.
+                                            <br>private
+                                            <br>Location: soshanguve TUT
+                                            <br>Electricians required
+                                        </p>
+                              <div class="card-footer">                      
+                                    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#exampleModalScrollable">view job</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <div class="card-body">
+                                    <img src="../../../assets/images/user.png" class="card-img-left" alt="...">
+                                    <h5 class="card-title">Zanele Thabethe</h5>
+                                    <p class="card-text">I come to church.
+                                            <br>private
+                                            <br>Location: soshanguve TUT
+                                            <br>Electricians required
+                                        </p>
+                              <div class="card-footer">                      
+                                    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#exampleModalScrollable">view job</a>
+                                    </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
         </div>
     </div>
 </div>
+<!-- modal -->
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    A small company in TUT is looking for an intern with possibility of full-time employment after the internship.
+
+                   <br> Requirements:-
+                    
+                   <br> 1. Grade 12
+                    
+                   <br> 2. Presentable
+                    
+                   <br> 3. College Diploma/Certificate
+                    
+                   <br> 4. No job experience (Experience advantageous)
+                    
+                   <br> Salary/Stipent is R3 500,00 per month and subject to review after six (6) Months.
+                    
+                   <br>Please email detailed Cv to emplyment@simplex-za.co.za.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">request job</button>
+            </div>
+          </div>
+        </div>
+      </div>
