@@ -10,6 +10,7 @@ export class JobsComponent implements OnInit {
 
   categories:any;
   postedJobs: any;
+  postedJob: any;
 
   constructor(private adminservice: AdminServiceService) { }
 
@@ -33,6 +34,11 @@ export class JobsComponent implements OnInit {
     this.postedJobs= data.results;
   })
    
+  }
+
+  GetEachJob(job){
+    this.postedJob = job;
+    console.log(job);
   }
 
 }
