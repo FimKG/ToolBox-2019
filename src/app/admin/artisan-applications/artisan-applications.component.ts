@@ -16,7 +16,8 @@ export class ArtisanApplicationsComponent implements OnInit {
   ngOnInit() {
     this.GetAllApplications();
     this. GetAllCategories();
-    this.getArtisansBasedOnCategory();
+    
+   
   }
 
   GetAllApplications()
@@ -39,12 +40,14 @@ export class ArtisanApplicationsComponent implements OnInit {
   {
     this.selectedCategory = category.catID;
     console.log(this.selectedCategory);
+    this. getArtisansBasedOnCategory(this.selectedCategory);
+   
   }
 
-  getArtisansBasedOnCategory()
+  getArtisansBasedOnCategory(id)
   {
-    this.adminservice.GetArtsansbasedOnCatgory(this.selectedCategory).subscribe(data=>{
-      console.log(data);
+    this.adminservice.GetArtsansbasedOnCatgory(id).subscribe(data=>{
+      this.applications = data.data;
     })
   }
 

@@ -38,15 +38,16 @@ export class AdminServiceService {
       return this.http.get<any>('http://168.172.186.39:5000/artisan');
     }
 
+    //Get All artisans
     GetAllArtisans()
     {
       return this.http.get<any>('http://168.172.186.39:5000/artisan');
     }
 
     //get artisans based on category
-    GetArtsansbasedOnCatgory(id)
+    GetArtsansbasedOnCatgory(id: number)
     {
-      return this.http.get<any>('http://168.172.186.39:5000/artisan/catID'+id);
+      return this.http.get<any>('http://168.172.186.39:5000/artisan/catID/'+id);
     }
 
 
