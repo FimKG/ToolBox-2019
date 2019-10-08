@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-posted-jobs',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostedJobsComponent implements OnInit {
 
-  constructor() { }
+  categories: any;
+
+  constructor(private catag : UserService) { }
 
   ngOnInit() {
+    return this.catag.getCategory().subscribe(response =>
+      this.categories = response.data);
   }
 
 }
