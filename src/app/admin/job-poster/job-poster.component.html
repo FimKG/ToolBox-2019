@@ -8,61 +8,41 @@
       <h4 class="text-center  bg-light">All Job Posters </h4>
       
     <hr>
-      <div class="dropdown text-center">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categorize Job Posters
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </div>
-      <br>
+    <div class="dropdown text-center">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categorize Artisans
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" *ngFor="let category of categories">{{category.categoryName}}</a>
+        
+      </div>
+      <button class="btn btn-primary" style="float: right">New Job Poster</button>
+    </div>
+    <br>
     <table class="table">
         <thead>
           <tr>
             <th scope="col">Firstname</th>
             <th scope="col">Lastname</th>
-            <th scope="col">Qualification</th>
-            <th scope="col">Status</th>
+            <th scope="col">Email</th>
+          
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>
+            <tr *ngFor="let jobposter of jobposterArray">
+                <td>{{jobposter.name}}</td>
+                <td>{{jobposter.surname}}</td>
+                <td>{{jobposter.email}}</td>
             
-              <a href="#" class="badge badge-success">Success</a>
-             
-             
             <td>
+                <button class="btn-sm btn-info btn-sm">view</button>&nbsp;
                 <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
                 <button class="btn- btn-danger btn-sm">Delete</button>
                
             </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td> <a href="#" class="badge badge-danger">Danger</a></td>
-            <td>   <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
-              <button class="btn- btn-danger btn-sm">Delete</button></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td> <a href="#" class="badge badge-danger">Danger</a></td>
-            <td>
-                <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
-                <button class="btn- btn-danger btn-sm">Delete</button>
-            </td>
-          </tr>
+       
         </tbody>
       </table>
 </main>
