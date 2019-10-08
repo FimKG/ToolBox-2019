@@ -5,44 +5,50 @@
     <h4 class='text-center bg-light'>All job Adverts</h4> 
 <hr>
     <div class="dropdown text-center">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Categorize Jobs
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categorize Jobs
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" *ngFor="let category of categories">{{category.categoryName}}</a>
+            
+          </div>
+          <button class="btn btn-primary" style="float: right">Post a Job</button>
         </div>
-      </div>
+
+
+
       <hr>
     <table class="table">
         <thead>
-          <tr>
+          <tr >
             <th scope="col">Name</th>
             <th scope="col">Surname</th>
-            <th scope="col">Job Heading</th>
             <th scope="col">Job Location</th>
+            <th scope="col">Job Heading</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td >percy</td>
-            <td>Mohale</td>
-            <td><b>Plumber Wanted in Germiston</b></td>
-            <td><b>Soshanguve Block L</b></td>
+          <tr *ngFor="let job of postedJobs">
+            <td >{{job.name}}</td>
+            <td>{{job.surname}}</td>
+            <td><b>{{job.location}}</b></td>
+            <td><b>{{job.job_heading}}</b></td>
+            
           <td> <button class="btn btn-info"  data-toggle="modal" data-target="#JobDetails">Details</button> &nbsp; <button class="btn btn-danger">Delete</button>
             </td>
           </tr>
-          <tr>
-              <td >percy</td>
-              <td>Mohale</td>
-              <td><b>Electrician Wanted in Soshanguve</b></td>
-              <td><b>Soshanguve Block XX</b></td>
-            <td>
-              <button class="btn btn-info" data-toggle="modal" data-target="#JobDetails">Details</button>
-               &nbsp; <button class="btn btn-danger">Delete</button></td>
-          </tr>
+
+          <td>
+
+                <div *ngFor="let category of categories">
+                    <div *ngIf="categories.catID === category.catID">
+                        {{category.categoryName}}
+                    </div> 
+                </div>
+
+            </td>
+         
          
         </tbody>
       </table>

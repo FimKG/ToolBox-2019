@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AdminServiceService} from '../../admin-service.service'
-
-import {UserService} from '../../user.service'
+import {AdminServiceService} from '../../admin-service.service';
 
 @Component({
   selector: 'app-job-poster',
@@ -10,35 +8,28 @@ import {UserService} from '../../user.service'
 })
 export class JobPosterComponent implements OnInit {
   jobposterArray: any;
-  categoryArray: any;
-
-  users: [];
-
-  constructor(private lists: AdminServiceService) { }
+  categories: any;
+ constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
-
-    this.jobPosters();
+    this.getClients();
+    this. GetAllCategories();
+   
   }
-
-  jobPosters()
+  getClients()
   {
-    this.lists.GetAllJobPosters().subscribe(
-      response => {
-        // console.log("fgdfhfthdfh",data)
-        this.users = response.data;
-      }
-    )
+    this.adminservice.getClients().subscribe(data=>{
+      this.jobposterArray = data.data;
+      console.log(data.data);
+    })
   }
 
-  
-  //  ngOnIn() {
-  //    this.http.getCategory()
-  //      .subscribe((data) => {
-  //       this.categoryArray = data.data;
-  //       console.log(this.categoryArray);
-
-  //    })
-  //  }
+  GetAllCategories()
+  {
+    this.adminservice.GetAllCategories().subscribe(data=>{
+      this.categories = data.data;
+      console.log(data.data);
+    })
+  }
 }
 

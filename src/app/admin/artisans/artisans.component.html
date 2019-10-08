@@ -17,56 +17,56 @@
             Categorize Artisans
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" *ngFor="let category of categories">{{category.categoryName}}</a>
+            
           </div>
-        </div>
+
+          <button class="btn btn-primary" style="float: right">New Artisan</button>
+      </div>
+
+         
       <br>
     <table class="table">
         <thead>
           <tr>
             <th scope="col">Firstname</th>
             <th scope="col">Lastname</th>
-            <th scope="col">Qualification</th>
+            <th scope="col">Category</th>
             <th scope="col">Status</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
+          <tr *ngFor="let artisan of artisans">
+            <td>{{artisan.name}}</td>
+            <td>{{artisan.surname}}</td>
             <td>
-            
-              <a href="#" class="badge badge-success">Success</a>
+
+                <div *ngFor="let category of categories">
+                    <div *ngIf="artisan.catID === category.catID">
+                        {{category.categoryName}}
+                    </div> 
+                </div>
+
+            </td>
+            <td>
+            <div *ngIf="artisan.status === 0">
+                <a href="#" class="badge badge-danger">Inactive</a>
+            </div>
+            <div *ngIf="artisan.status === 1">
+                <a href="#"class="badge badge-success">active</a>
+            </div>
              
              
+             
             <td>
+                <button class="btn-sm btn-info btn-sm">view</button>&nbsp;
                 <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
                 <button class="btn- btn-danger btn-sm">Delete</button>
                
             </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td> <a href="#" class="badge badge-danger">Danger</a></td>
-            <td>   <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
-              <button class="btn- btn-danger btn-sm">Delete</button></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td> <a href="#" class="badge badge-danger">Danger</a></td>
-            <td>
-                <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
-                <button class="btn- btn-danger btn-sm">Delete</button>
-            </td>
-          </tr>
+         
         </tbody>
       </table>
 </main>
