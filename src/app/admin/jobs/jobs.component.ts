@@ -11,6 +11,7 @@ export class JobsComponent implements OnInit {
   categories:any;
   postedJobs: any;
   postedJob: any;
+  selectedCategory: any;
 
   constructor(private adminservice: AdminServiceService) { }
 
@@ -24,7 +25,7 @@ export class JobsComponent implements OnInit {
 
     this.adminservice.GetAllCategories().subscribe(data =>{
         this.categories = data.data;
-        console.log(data.data);
+        console.log(this.categories);
     })
   }
 
@@ -32,6 +33,7 @@ export class JobsComponent implements OnInit {
   {
   this.adminservice.GetAllJobs().subscribe(data =>{
     this.postedJobs= data.results;
+    console.log(this.postedJobs);
   })
    
   }
@@ -39,6 +41,22 @@ export class JobsComponent implements OnInit {
   GetEachJob(job){
     this.postedJob = job;
     console.log(job);
+  }
+
+  getSelectedCat(category)
+  {
+    this.selectedCategory = category.catID;
+    console.log(this.selectedCategory);
+    this. getArtisansBasedOnCategory(this.selectedCategory);
+   
+  }
+
+  getArtisansBasedOnCategory(id)
+  {
+    this.adminservice.GetJobsbasedOnCatgory(id).subscribe(data=>{
+      this.postedJobs = data.data;
+      console.log(this.postedJobs);
+    })
   }
 
 }

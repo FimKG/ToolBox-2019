@@ -17,7 +17,7 @@
             Categorize Artisans
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" *ngFor="let category of categories">{{category.categoryName}}</a>
+            <a class="dropdown-item" *ngFor="let category of categories" (click)="getSelectedCat(category)">{{category.categoryName}}</a>
             
           </div>
         </div>
@@ -27,6 +27,7 @@
           <tr>
             <th scope="col">Firstname</th>
             <th scope="col">Lastname</th>
+            <th scope="col">Category</th>
             <th scope="col">Status</th>
             <th scope="col">Action</th>
           </tr>
@@ -35,6 +36,14 @@
           <tr *ngFor="let approved of approveArtisans">
             <td >{{approved.name}}</td>
             <td>{{approved.surname}}</td>
+            <td>
+              <div *ngFor="let category of categories">
+                  <div *ngIf="category.catID === approved.catID">
+                    {{category.categoryName}}
+
+                  </div>
+              </div>
+            </td>
             
             <td>
             
