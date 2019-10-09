@@ -40,7 +40,7 @@
                    
                     <td>
                         <button type="button" class="btn btn-outline-success">Approve</button>&nbsp;
-                        <button type="button" class="btn btn-outline-danger"  data-toggle="modal" data-target="#exampleModal">Decline</button>
+                        <button type="button" class="btn btn-outline-danger"  data-toggle="modal" data-target="#Declined">Decline</button>
         
                     </td>
                   </tr>
@@ -51,8 +51,12 @@
 
 
 
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+
+
+    <!-- Modal -->
+      <div class="modal fade" id="Declined" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -62,7 +66,15 @@
               </button>
             </div>
             <div class="modal-body">
-              ...
+             
+                
+                
+            
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Why Decline this Application</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+             
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

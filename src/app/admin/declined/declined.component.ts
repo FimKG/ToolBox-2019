@@ -10,6 +10,7 @@ export class DeclinedComponent implements OnInit {
 
   DeclinedArtisans:any;
   categories:any;
+  selectedCategory: number;
 
   constructor(private adminservice: AdminServiceService) { }
 
@@ -31,6 +32,22 @@ export class DeclinedComponent implements OnInit {
     this.adminservice.GetAllDeclinedArtisans().subscribe(data=>{
      this.DeclinedArtisans = data.data;
      console.log(this.DeclinedArtisans);
+    })
+  }
+
+  getSelectedCat(category)
+  {
+    this.selectedCategory = category.catID;
+    console.log(this.selectedCategory);
+    this. getArtisansBasedOnCategory(this.selectedCategory);
+   
+  }
+
+  getArtisansBasedOnCategory(id)
+  {
+    this.adminservice.GetDeclinedbasedOnCatgory(id).subscribe(data=>{
+      this.DeclinedArtisans = data.data;
+      console.log(this.DeclinedArtisans);
     })
   }
 }

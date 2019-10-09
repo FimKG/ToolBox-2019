@@ -50,6 +50,34 @@ export class AdminServiceService {
       return this.http.get<any>('http://168.172.186.39:5000/artisan/catID/'+id);
     }
 
+    //get jobs based on category
+    GetJobsbasedOnCatgory(id: number)
+    {
+      return this.http.get<any>('http://168.172.186.39:5000/job/catID/'+id);
+    }
+
+    //get Declined Artisans based on category
+    GetDeclinedbasedOnCatgory(id: number)
+    {
+      return this.http.get<any>('http://168.172.186.39:5000/declinedartisan/catID/'+id);
+    }
+
+     //get Approved Artisans based on category
+     GetApprovedbasedOnCatgory(id: number)
+     {
+       return this.http.get<any>('http://168.172.186.39:5000/aprovedArt/catID/'+id);
+     }
+
+       //get Approved Artisans based on category
+       GetJobPosterOnCatgory(id: number)
+       {
+         return this.http.get<any>('http://168.172.186.39:5000/client/catID/'+id);
+       }
+
+    
+    
+    
+   
 
     //get all job posters
     getClients()

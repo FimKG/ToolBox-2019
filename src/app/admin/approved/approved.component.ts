@@ -10,6 +10,7 @@ export class ApprovedComponent implements OnInit {
 
   approveArtisans: any;
   categories: any;
+  selectedCategory: number;
   constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
@@ -22,7 +23,7 @@ export class ApprovedComponent implements OnInit {
   {
     this.adminservice.GetAllApprovedArtisans().subscribe(data=>{
      this.approveArtisans = data.data;
-      // console.log(data)
+      console.log(this.approveArtisans)
     })
   }
 
@@ -32,5 +33,21 @@ export class ApprovedComponent implements OnInit {
         this.categories = data.data;
       console.log(data.data)  
       })
+  }
+
+  getSelectedCat(category)
+  {
+    this.selectedCategory = category.catID;
+    console.log(this.selectedCategory);
+    this. getArtisansBasedOnCategory(this.selectedCategory);
+   
+  }
+
+  getArtisansBasedOnCategory(id)
+  {
+    this.adminservice.GetApprovedbasedOnCatgory(id).subscribe(data=>{
+      this.approveArtisans = data.data;
+      console.log(this.approveArtisans);
+    })
   }
 }

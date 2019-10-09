@@ -8,6 +8,7 @@ import {AdminServiceService} from '../../admin-service.service';
 })
 export class JobPosterComponent implements OnInit {
   jobposterArray: any;
+  selectedCategory: number;
   categories: any;
  constructor(private adminservice: AdminServiceService) { }
 
@@ -29,6 +30,22 @@ export class JobPosterComponent implements OnInit {
     this.adminservice.GetAllCategories().subscribe(data=>{
       this.categories = data.data;
       console.log(data.data);
+    })
+  }
+
+  getSelectedCat(category)
+  {
+    this.selectedCategory = category.catID;
+    console.log(this.selectedCategory);
+    this. getArtisansBasedOnCategory(this.selectedCategory);
+   
+  }
+
+  getArtisansBasedOnCategory(id)
+  {
+    this.adminservice.GetJobPosterOnCatgory(id).subscribe(data=>{
+      this.jobposterArray = data.data;
+      console.log(this.jobposterArray);
     })
   }
 }
