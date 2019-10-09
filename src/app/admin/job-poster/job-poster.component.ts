@@ -9,6 +9,7 @@ import {AdminServiceService} from '../../admin-service.service';
 export class JobPosterComponent implements OnInit {
   jobposterArray: any;
   categories: any;
+  ge
  constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
@@ -30,6 +31,11 @@ export class JobPosterComponent implements OnInit {
       this.categories = data.data;
       console.log(data.data);
     })
+  }
+
+  GetEachJobPoster(jobposter)
+  {
+    console.log(jobposter);
   }
 }
 
