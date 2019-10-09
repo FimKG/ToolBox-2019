@@ -10,7 +10,7 @@ export class JobPosterComponent implements OnInit {
   jobposterArray: any;
   selectedCategory: number;
   categories: any;
-  ge
+  
  constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
@@ -34,11 +34,6 @@ export class JobPosterComponent implements OnInit {
     })
   }
 
-<<<<<<< HEAD
-  GetEachJobPoster(jobposter)
-  {
-    console.log(jobposter);
-=======
   getSelectedCat(category)
   {
     this.selectedCategory = category.catID;
@@ -53,7 +48,6 @@ export class JobPosterComponent implements OnInit {
       this.jobposterArray = data.data;
       console.log(this.jobposterArray);
     })
->>>>>>> e54b38740d2c266a369d617ede78800cc734eb4d
   }
 }
 
