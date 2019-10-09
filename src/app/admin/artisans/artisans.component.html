@@ -17,7 +17,7 @@
             Categorize Artisans
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" *ngFor="let category of categories">{{category.categoryName}}</a>
+            <a class="dropdown-item" *ngFor="let category of categories" (click)="getSelectedCat(category)">{{category.categoryName}}</a>
             
           </div>
 
@@ -61,7 +61,7 @@
              
             <td>
                 <button class="btn-sm btn-info btn-sm">view</button>&nbsp;
-                <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
+                <!-- <button class="btn-sm btn-success btn-sm">Update</button>&nbsp; -->
                 <button class="btn- btn-danger btn-sm">Delete</button>
                
             </td>
@@ -70,3 +70,6 @@
         </tbody>
       </table>
 </main>
+
+<!--Modal to update and populate information-->
+

@@ -17,6 +17,10 @@
           <br>
          <div  class="form-label-group">
               <Label for="userType" class="text-secondary">User:</Label>
+
+            <!---DIfferentiate the forms if usertypes-->
+            <!-- <div *ngFor="userType in userTypes; i=index">  -->
+
               <select required name="inputUserType" id="inputUserType" class="form-control" #inputUserType="ngModel" autofocus required userType ngModel (click)="UserType(value)">
               <option value="">-UserType-</option>
                <option value="no">Job-Poster</option>

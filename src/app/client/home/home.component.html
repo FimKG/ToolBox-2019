@@ -34,6 +34,7 @@
             <h5 class="card-title" *ngFor="let cat of categories; let i=index; ">
                 <h5 *ngIf="record.catID === cat.catID;" class="card-text">{{cat.categoryName}}</h5>
                 <h5 *ngIf="record.catID === cat.catID;" class="card-text">{{cat.artisan}}</h5>
+                
             </h5>
          
           <a href="login" class="btn btn-primary">View Artisan</a>
