@@ -9,6 +9,8 @@ import {AdminServiceService} from '../../admin-service.service';
 export class ArtisansComponent implements OnInit {
 artisans:any;
 categories:any;
+selectedCategory: number;
+
   constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
@@ -30,6 +32,22 @@ categories:any;
     this.adminservice.GetAllCategories().subscribe(resp =>{
         this.categories = resp.data;
         console.log(this.categories);
+    })
+  }
+
+  getSelectedCat(category)
+  {
+    this.selectedCategory = category.catID;
+    console.log(this.selectedCategory);
+    this. getArtisansBasedOnCategory(this.selectedCategory);
+   
+  }
+
+  getArtisansBasedOnCategory(id)
+  {
+    this.adminservice.GetArtsansbasedOnCatgory(id).subscribe(data=>{
+      this.artisans = data.data;
+      console.log(this.artisans);
     })
   }
 

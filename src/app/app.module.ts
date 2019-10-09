@@ -49,7 +49,7 @@ import { DeclinedComponent } from './admin/declined/declined.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // HttpClientModule,
+    HttpClientModule,
      FormsModule,
     ReactiveFormsModule
 
