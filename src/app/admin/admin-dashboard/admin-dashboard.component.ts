@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import {AdminServiceService} from '../../admin-service.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,11 +7,24 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
-  constructor() { }
+
+  numOfApplications: any;
+
+  constructor(private adminservice: AdminServiceService) { }
  
 
-  ngOnInit() {}
-  
+  ngOnInit() {
 
+    this.getNumApplications();
+  }
+  
+  getNumApplications()
+  {
+    this.adminservice.getTotalNumberApplications().subscribe(data =>{
+      this.numOfApplications = data;
+    
+      console.log(this.numOfApplications);
+  })
+  }
 
 }

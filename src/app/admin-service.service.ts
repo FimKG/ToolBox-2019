@@ -8,6 +8,11 @@ export class AdminServiceService {
 
   constructor(private http: HttpClient) { }
 
+  getTotalNumberApplications()
+  {
+    return this.http.get<any>('http://168.172.186.39:5000/totartisanApplication');
+  }
+
   //get all jobs posted
   GetAllJobs()
   {
@@ -69,10 +74,10 @@ export class AdminServiceService {
      }
 
        //get Approved Artisans based on category
-       GetJobPosterOnCatgory(id: number)
-       {
-         return this.http.get<any>('http://168.172.186.39:5000/client/catID/'+id);
-       }
+     GetJobPosterOnCatgory(id: number)
+    {
+      return this.http.get<any>('http://168.172.186.39:5000/client/catID/'+id);
+    }
 
     
     
