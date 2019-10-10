@@ -82,6 +82,15 @@ export class AdminServiceService {
     //get all job posters
     getClients()
     {
-      return this.http.get<any>('http://168.172.186.39:5000/client');
+      return this.http.get<any>('http://168.172.188.153:5000/client');
     }
+     getUpdated()
+     {
+     return this.http.get<any>('http://168.172.188.153:5000/client/update');
+     }
+    
+    // getUpdated()
+    // {
+    // return this.http.get<any>('http://168.172.188.153:5000/UpdateClients/:clientId');
+    // }
 } 
