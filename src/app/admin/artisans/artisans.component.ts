@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AdminServiceService } from '../../admin-service.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-artisans',
@@ -9,6 +10,7 @@ import { AdminServiceService } from '../../admin-service.service';
 export class ArtisansComponent implements OnInit {
   artisans: any;
   categories: any;
+  artisanFm:FormGroup;
   // artis: any;
   
   selectedCategory: number;
@@ -19,7 +21,9 @@ export class ArtisansComponent implements OnInit {
     description: ''
   }
 
-  constructor(private adminservice: AdminServiceService) { }
+  constructor(private adminservice: AdminServiceService
+    // artinFM:Form
+    ) { }
 
   ngOnInit() {
     this.getAllArtisans();

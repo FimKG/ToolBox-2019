@@ -21,7 +21,7 @@
             
           </div>
 
-          <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"   style="float: right">New Artisan</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"  style="float: right">New Artisan</button>
       </div>
 
          
@@ -112,23 +112,23 @@
               <b>First Name</b><br>
   
                 <div class="form-group">
-                    <input class="form-control" [(ngModel)]="artis.name" [value]="artis.name">
+                    <input class="form-control" [(ngModel)]="artis.name">
                 </div>
               
   
               <b>Last Name</b><br>
                 <div class="form-group">
-                   <input class="form-control" [(ngModel)]="artis.email" [value]="artis.surname">
+                   <input class="form-control" [(ngModel)]="artis.surname">
                 </div>
 
                 <b>Email</b><br>
                 <div class="form-group">
-                   <input class="form-control" [(ngModel)]="artis.email" [value]="artis.contacts">
+                   <input class="form-control" [(ngModel)]="artis.email" >
                 </div>
                 
                 <b>Contacts</b><br>
                 <div class="form-group">
-                   <input class="form-control" [(ngModel)]="artis.contacts" [value]="artis.contacts">
+                   <input class="form-control" [(ngModel)]="artis.contacts" >
                 </div>
                 
 
@@ -155,8 +155,7 @@
 
  
 <!--The button for modal -->
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"
-style="margin-left: 500px">Post a job</button>
+
 
  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -164,27 +163,34 @@ style="margin-left: 500px">Post a job</button>
     <div class="modal-content">
       <div class="modal-header center-block" style="text-align: center;">
 
-        <h5 class="modal-title" id="exampleModalLabel">Post a Job</h5>
+        <h5 class="modal-title" id="exampleModalLabel">ADD NEW ARTISAN</h5>
       </div>
       <div class="modal-body"> 
+<!-- [FormGroup]="artisanFm" -->
+        <form >
 
-        <form>
-
-          <div class="mb-10">
-
-            <label>Message</label>
-            <textarea class="form-control" placeholder="Type job description"></textarea>
-
+          <!-- [(ngModel)]="registerUserData.name" #form="ngForm"-->
+  
+          <div class="form-group"><b>First Name</b><br>
+              <input class="form-control"  name="name">
           </div>
           <br>
 
-          <div class="custom-file">
-
-            <input type="file" class="custom-file-input">
-            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-
+          
+          <div class="form-group"><b>Last Name</b><br>
+             <input class="form-control" >
           </div>
 
+          
+          <div class="form-group"><b>Category</b><br>
+             <input class="form-control"  >
+          </div>
+
+          <!-- <div *ngFor="let category of categories">
+            <div *ngIf="artisan.catID === category.catID">
+                {{category.categoryName}}
+            </div> 
+        </div> -->
         </form>
 
       </div>

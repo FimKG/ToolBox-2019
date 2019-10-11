@@ -1,72 +1,74 @@
-
 <main role="main" class="container">
-    <div class="loader" *ngIf="dataLoading"></div>
-    <div class="alert alert-danger" role="alert" *ngIf="error">
-      An error occured. Here is the error : {{ errorMessage }}.
-    </div>
-    <div *ngIf="savedChanges else showForm">
-      New Account is created. Please wait for an email confirming your application.
-      <button class="btn btn-lg btn-primary btn-block" routerLink="/login" type="button">Login</button>
+  <div class="loader" *ngIf="dataLoading"></div>
+  <div class="alert alert-danger" role="alert" *ngIf="error">
+    An error occured. Here is the error : {{ errorMessage }}.
+  </div>
+  <div *ngIf="savedChanges else showForm">
+    New Account is created. Please wait for an email confirming your application.
+    <button class="btn btn-lg btn-primary btn-block" routerLink="/login" type="button">Login</button>
   </div>
   <div class="box">
     <form #form="ngForm">
-       
-          <h2><i class="glyphicon glyphicon-log-in"></i>ToolBox Member Registration</h2>	
-          <br>
-        
-    <br>
-    <div>
-        <div class="row" >
-          <div class="col" >
-              <label for="name">First Name</label>
-            <input [(ngModel)]="registerUserData.name" name="name" type="text"  class="form-control" placeholder="First name">
+
+      <h2><i class="glyphicon glyphicon-log-in"></i>ToolBox Member Registration</h2>
+      <br>
+
+      <br>
+      <div>
+        <div class="row">
+          <div class="col">
+            <label for="name">First Name</label>
+            <input [(ngModel)]="registerUserData.name" name="name" type="text" class="form-control"
+              placeholder="First name">
           </div>
-          
-          <div class="col" >
-              <label for="surname">Last Name</label>
-            <input [(ngModel)]="registerUserData.surname" type="text" name="surname" id="surname" class="form-control" placeholder="Last name" #surname="ngModel"
-            autofocus required surname ngModel>
+
+          <div class="col">
+            <label for="surname">Last Name</label>
+            <input [(ngModel)]="registerUserData.surname" type="text" name="surname" id="surname" class="form-control"
+              placeholder="Last name" #surname="ngModel" autofocus required surname ngModel>
           </div>
-          
+
         </div>
         <br>
         <div class="form-row">
-            <div class="form-group col-md-6" >
-              <label for="inputEmail">Email</label>
-              <input [(ngModel)]="registerUserData.email" name="email" type="email" class="form-control" placeholder="Email">
-            </div>
-           
-              <div class="form-group col-md-6" >
-                <label for="contacts">Contact no.</label>
-                <input [(ngModel)]="registerUserData.contacts" name="contacts" type="text" class="form-control" placeholder="contacts no..">
-              </div>
-              
+          <div class="form-group col-md-6">
+            <label for="inputEmail">Email</label>
+            <input [(ngModel)]="registerUserData.email" name="email" type="email" class="form-control"
+              placeholder="Email">
           </div>
-          <div class="form-label-group">
-            <label for="inputAddress">Address</label>
-            <input [(ngModel)]="registerUserData.address" name="address" type="text" class="form-control"  placeholder="1234 Main St">
-          </div>
-          
-          
-          <div class="form-group">
-            <label for="inputAddress2">Address 2</label>
-            <input [(ngModel)]="registerUserData.address2" name="address2" type="text" class="form-control" placeholder="Apartment, studio, or floor">
-          </div>
-         
-          <div class="form-group">
-            <label for="inputPassword">Password</label>
-            <input [(ngModel)]="registerUserData.password" name="Password" type="password" class="form-control" placeholder="Password">
-          </div>
-            <br>
-              <button type="submit" class="btn btn-secondary btn-lg btn-block" (click)="registerUser()">Register</button>
-            
-            
-    </div>
-      Existing User ? <a data toggle="modal" data-target=".bd-example-modal-lg" href="/login">Login</a> <br><br>
-             
-      </form>
-  </div>
-</main>     
-        
-      
 
+          <div class="form-group col-md-6">
+            <label for="contacts">Contact no.</label>
+            <input [(ngModel)]="registerUserData.contacts" name="contacts" type="text" class="form-control"
+              placeholder="contacts no..">
+          </div>
+
+        </div>
+        <div class="form-label-group">
+          <label for="inputAddress">Address</label>
+          <input [(ngModel)]="registerUserData.address" name="address" type="text" class="form-control"
+            placeholder="1234 Main St">
+        </div>
+
+
+        <div class="form-group">
+          <label for="inputAddress2">Address 2</label>
+          <input [(ngModel)]="registerUserData.address2" name="address2" type="text" class="form-control"
+            placeholder="Apartment, studio, or floor">
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input [(ngModel)]="registerUserData.password" name="Password" type="password" class="form-control"
+            placeholder="Password">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-secondary btn-lg btn-block" (click)="registerUser()">Register</button>
+
+
+      </div>
+      Existing User ? <a data toggle="modal" data-target=".bd-example-modal-lg" href="/login">Login</a> <br><br>
+
+    </form>
+  </div>
+</main>
