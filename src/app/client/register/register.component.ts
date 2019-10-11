@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from '../../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -8,30 +10,27 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterComponent implements OnInit {
 
   visible = false;
-  //  value: string;
+   @Input() registerUserData = {  name:'', surname: '',email:'',contacts:'',address:'', address2:'',password:'' }
+    // registerUserData = {}
 
 
-  constructor() { }
+  constructor(private _auth : UserService, private _router: Router) { }
 
   ngOnInit() {
   }
 
-  UserType(value)
-  {
-    //  this.visible = !this.visible;
-    if( value == "yes"){
-      this.visible = true;
-
-    }
-    if( value == "no"){
-      this.visible = true;
-
-    }
+  registerUser() {
+    this._auth.registerClient(this.registerUserData)
+    .subscribe(
+      res => {console.log(res)
+      localStorage.setItem('token', res.token)
+      this._router.navigate(['/artisan-profile'])
+    },
+      err => console.log(err)
+      )
     
-      
-
-
   }
+  
 
 
 

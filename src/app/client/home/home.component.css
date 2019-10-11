@@ -82,8 +82,13 @@
   color: #18181a;
 }
 
-.img{
+/* .img{
   width: 2%;
   height: 2%;
-}
+} */
 
+img{
+  width: 15%;
+  height: 5%;
+  text-align: left;
+}
