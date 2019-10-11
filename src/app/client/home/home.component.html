@@ -26,15 +26,15 @@
     </div>
   </div>
   <div class="row col-12" style="margin-left: 60px">
-    <div *ngFor="let record of Artisans; let i=index; " [ngClass]="col-md-2" id="spacing">
+    <div *ngFor="let record of Artisans; let i=index;" [ngClass]="col-md-2" id="spacing">
         <div *ngIf="i<6">
       <div class="card;" style="width: 16rem;"  >
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjgMdfloucvzb8STD7HKhov-qoC8sJ0iJ3k1DlvB2G_t8rCB68" class="card-img-top" alt="..."> 
         <div class="card-body">
-           
             <h5 class="card-title" *ngFor="let cat of categories; let i=index; ">
                 <h5 *ngIf="record.catID === cat.catID;" class="card-text">{{cat.categoryName}}</h5>
                 <h5 *ngIf="record.catID === cat.catID;" class="card-text">{{cat.artisan}}</h5>
+                
             </h5>
          
           <a href="login" class="btn btn-primary">View Artisan</a>
@@ -47,12 +47,12 @@
 
   <!----FOR job posted -->
   <div class="jumbotron jumbotron-fluid" style="height:30px">
-      <div class="container" class="text-center"  >
+      <div class="container" class="text-center">
         <h2 class="display-4">FEATURED JOBS</h2>
       </div>
     </div>
     <div class="row col-12" style="margin-left: 60px">
-      <div *ngFor="let record of Artisans; let i=index; " [ngClass]="col-md-2" id="spacing">
+      <div *ngFor="let record of Artisans; let i=index;" [ngClass]="col-md-2" id="spacing">
           <div *ngIf="i<6">
         <div class="card" style="width: 16rem;">
           <!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjgMdfloucvzb8STD7HKhov-qoC8sJ0iJ3k1DlvB2G_t8rCB68" class="card-img-top" alt="..."> -->
@@ -69,6 +69,7 @@
       </div>
     </div>
     </div>
+
   
   
 

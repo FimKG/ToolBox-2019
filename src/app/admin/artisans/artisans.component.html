@@ -60,54 +60,7 @@
              
              
             <td>
-              <button class="btn-sm btn-info btn-sm" (click)="getAllArtisans(artisan)" data-toggle="modal" data-target="#myModal">view</button>&nbsp;
-              <div id="myModal" class="modal fade" role="dialog" *ngFor="let artisan of artisans">
-                  <div class="modal-dialog" >
-                
-                    <!-- Modal content-->
-                    <div class="modal-content" >
-                      <div class="modal-header" >
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title" >{{artisan.name}}</h4>
-                      </div>
-                      <div class="modal-body">
-                        <form class="form-horizontal" role="form">
-                            <div class="form-group">
-                                <label  class="col-sm-2 control-label"
-                                          for="inputEmail3">Firstname</label>
-                                <div class="col-sm-10">
-                                    <input type="email" class="form-control" 
-                                    id="inputEmail3" placeholder=""/>
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                  <label  class="col-sm-2 control-label"
-                                            for="inputEmail3">Lastname</label>
-                                  <div class="col-sm-10">
-                                      <input type="email" class="form-control" 
-                                      id="inputEmail3" placeholder=""/>
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                    <label  class="col-sm-2 control-label"
-                                              for="inputEmail3">Email</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" 
-                                        id="inputEmail3" placeholder=""/>
-                                    </div>
-                                  </div>
-                        </form>
-                        
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn-sm btn-success" >Update</button>
-                        <button type="button" class="btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                
-                  </div>
-                </div>
-
+                <button class="btn-sm btn-success btn-sm" data-toggle="modal" data-target="#JobDetails" (click)=" GetEachArtisan(artisan)" >View</button>&nbsp;
                 <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
                 <button class="btn- btn-danger btn-sm">Delete</button>
                
@@ -117,3 +70,77 @@
         </tbody>
       </table>
 </main>
+
+<!---Populate information-->
+
+<div id="JobDetails" class="modal fade" role="dialog"  *ngFor="let art of artisans">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button"  data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">{{artis.name}} {{artis.surname}}</h4>
+        </div>
+  
+     
+  
+        <div class="modal-body">
+        <div class="col-12">
+          <h4>Send message</h4>
+  
+          <div class="form-group">
+            <!--  -->
+          <textarea class="form-control"  rows="10" cols="56" [(ngModel)]="artis.description" ></textarea>
+          </div>
+  
+            <hr>
+        
+           
+                <hr>
+              <b>First Name</b><br>
+  
+                <div class="form-group">
+                    <input class="form-control" [(ngModel)]="artis.name" [value]="artis.name">
+                </div>
+              
+  
+              <b>Last Name</b><br>
+                <div class="form-group">
+                   <input class="form-control" [(ngModel)]="artis.email" [value]="artis.surname">
+                </div>
+
+                <b>Email</b><br>
+                <div class="form-group">
+                   <input class="form-control" [(ngModel)]="artis.email" [value]="artis.contacts">
+                </div>
+                
+                <b>Contacts</b><br>
+                <div class="form-group">
+                   <input class="form-control" [(ngModel)]="artis.contacts" [value]="artis.contacts">
+                </div>
+                
+                <b>Category</b><br>
+                <div class="form-group">
+                   <input class="form-control" [(ngModel)]="artis.category" [value]="artis.category">
+                </div> <hr>
+
+              <div class="row col-12">
+              
+                <!-- <div class="col-4">
+                  <img src="https://professional-electrician.com/wp-content/uploads/2019/05/NICEIC.jpg" height="200" width="200">
+                </div>&nbsp;; -->
+  
+              
+                  
+              </div>
+        </div>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+  
+    </div>
+  </div>
