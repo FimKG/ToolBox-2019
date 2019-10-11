@@ -37,5 +37,9 @@ export class HomeComponent implements OnInit {
       console.log(data.data);
     })
   }
+  
+  
+
+
 }
 

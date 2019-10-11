@@ -1,0 +1,63 @@
+<main>
+    <div class="container">
+        <div class="box">
+            <form>
+                <h2><i class="glyphicon glyphicon-log-in"></i> Artisan Application Form</h2>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <label for="name">First Name</label>
+                        <input [(ngModel)]="artisanApplication.name" name="name" type="text"  id="name" class="form-control" placeholder="First name">
+                    </div>
+                    
+                    <div class="col">
+                        <label for="surname">Last Name</label>
+                        <input [(ngModel)]="artisanApplication.surname" name="surname" type="text"  class="form-control" placeholder="Last name">
+                    </div>
+                   
+                </div>
+                <br>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail">Email</label>
+                        <input [(ngModel)]="artisanApplication.email" name="email" type="email" class="form-control" placeholder="Email">
+                    </div>
+                    
+                     
+                    <div class="form-group col-md-6">
+                        <label for="contacts">Contact no.</label>
+                        <input [(ngModel)]="artisanApplication.contacts" name="contacts" type="text" name="contacts"  class="form-control" placeholder="contacts no..">
+                    </div>
+                  
+                </div>
+                <div class="form-label-group">
+                    <label for="inputAddress">Address</label>
+                    <input [(ngModel)]="artisanApplication.address" name="address" type="text" class="form-control"  placeholder="1234 Main St">
+                </div>
+                
+
+                <div class="form-group">
+                    <label for="inputAddress2">Address 2</label>
+                    <input [(ngModel)]="artisanApplication.address2" name="address2" type="text" class="form-control" name="address2" placeholder="Apartment, studio, or floor">
+                </div>
+                
+                <div class="form-group ">
+                    <Label for="Profession">Profession</Label>
+                    <select [(ngModel)]="artisanApplication.catID" required name="catID"  class="form-control" (change)="getCatId(cat.catID)">
+                        <option value="">-Select JobType-</option>
+                        <option *ngFor="let cat of categories" [value]="cat.catID">{{cat.categoryName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input [(ngModel)]="artisanApplication.password"  name="Password" type="password" class="form-control" placeholder="Password">
+                </div>
+             
+                <button type="submit" class="btn btn-secondary btn-lg btn-block" (click)="userApp()">Send Application</button>
+            </form>
+
+            <br>
+            <br>
+        </div>
+    </div>
+</main>

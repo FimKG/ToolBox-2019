@@ -15,47 +15,37 @@
                 </div>
                 <h3 class="text-center text-secondary">Member Login</h3>
                 <div class="form-label-group">
-                  <label for="username" class="text-secondary">Username:</label><br>
-                  <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Username"
-                    #inputEmail="ngModel" autofocus required email ngModel>
+                  <label for="username" class="text-secondary">Email:</label><br>
+                  <input [(ngModel)]="loginUserData.email" type="email" id="email" name="email" class="form-control" placeholder="email"
+                    #email="ngModel" autofocus required email ngModel>
 
                 </div>
-                <div class="alert alert-danger" role="alert"
-                  *ngIf="inputEmail.invalid && (inputEmail.dirty || inputEmail.touched)">
-                  Please enter a valid email.
-                </div>
+                
 
                 <div class="form-label-group">
                   <label for="password" class="text-secondary">Password:</label><br>
-                  <input type="password" name="inputPassword" id="inputPassword" class="form-control"
+                  <input [(ngModel)]="loginUserData.password" type="password" name="password" id="password" class="form-control"
                     placeholder="Password" #inputPassword="ngModel" required minlength="3" maxlength="20" ngModel>
                 </div>
-                <div class="alert alert-danger" role="alert"
-                  *ngIf="inputPassword.invalid && (inputPassword.dirty || inputPassword.touched)">
-                  Please enter a valid password between 3 to 20 chars.
-                </div>
+                
 
                 <div class="form-label-group">
-                  <Label for="userType" class="text-secondary">User:</Label>
-                  <select required name="inputUserType" id="inputUserType" class="form-control" #inputUserType="ngModel"
-                    autofocus required userType ngModel>
-                    <option value="">-Login As-</option>
-                    <option value="0">Job Creator</option>
-                    <option value="1">Artisan</option>
+                  <Label for="userType" class="text-secondary">Login as:</Label>
+                  <select [(ngModel)]="loginUserData.userType" required name="userType" id="userType" class="form-control" (change)="getUserType([value])">
+                    <option value="">-Login as-</option>
+                    <option [value]="0">Job Creator</option>
+                    <option [value]="1">Artisan</option>
 
                   </select>
                 </div>
-                <div class="alert alert-danger" role="alert"
-                  *ngIf="inputUserType.invalid && (inputUserType.dirty || inputUserType.touched)">
-                  Please select a user type.
-                </div>
+                
                 <br />
-                <div *ngIf="!loginForm.valid else showSubmitButton">
-                  <button type="submit" class="btn btn-secondary btn-lg btn-block" disabled>login</button>
+                <div>
+                  <button type="submit" class="btn btn-secondary btn-lg btn-block" (click)="loginUser()">login</button>
                 </div>
-                <ng-template #showSubmitButton>
-                  <button class="btn btn-lg btn-secondary btn-block" type="submit">Login</button>
-                </ng-template>
+                <!-- <ng-template #showSubmitButton>
+                  <button class="btn btn-lg btn-secondary btn-block" type="submit" (click)="loginUser()">Login</button>
+                </ng-template> -->
                 <div id="register-link" class="text-center">
                   <a href="register" data toggle="modal" data-target=".bd-example-modal-lg">Not a Loxion-Toolbox
                     member?Apply now.</a><br>
