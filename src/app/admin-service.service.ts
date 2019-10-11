@@ -8,9 +8,29 @@ export class AdminServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getTotalNumberApplications()
+  getTotalNumOfJobPosters()
   {
-    return this.http.get<any>('http://168.172.186.39:5000/totartisanApplication');
+    return this.http.get<any>('http://168.172.186.39:5000/total_job_posters');
+  }
+
+  getTotalOfJobsPosted()
+  {
+    return this.http.get<any>('http://168.172.186.39:5000/totalJobs');
+  }
+
+  getTotalNumberOfDeclinedArtisans()
+  {
+    return this.http.get<any>('http://168.172.186.39:5000/totaldeclinedArtisan');
+  }
+
+  getTotalNumberOfApprovedArtisans()
+  {
+    return this.http.get<any>('http://168.172.186.39:5000/totalApprovedArtisan');
+  }
+
+  getTotalNumberOfArtisans()
+  {
+    return this.http.get<any>('http://168.172.186.39:5000/totalartisan');
   }
 
   //get all jobs posted

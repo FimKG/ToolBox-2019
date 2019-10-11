@@ -13,6 +13,16 @@ export class JobsComponent implements OnInit {
   postedJob: any;
   selectedCategory: any;
 
+  model = {
+
+    name: "",
+    surname: "",
+    job_heading: "",
+    location: ""
+
+
+  }
+
   constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
