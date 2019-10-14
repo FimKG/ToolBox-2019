@@ -43,7 +43,8 @@
                 
                 <div class="form-group ">
                     <Label for="Profession">Profession</Label>
-                    <select [(ngModel)]="artisanApplication.catID" required name="catID"  class="form-control" (change)="getCatId(cat.catID)">
+                    <!-- (change)="getCatId(cat.catID)" -->
+                    <select [(ngModel)]="artisanApplication.catID" required name="catID"  class="form-control" >
                         <option value="">-Select JobType-</option>
                         <option *ngFor="let cat of categories" [value]="cat.catID">{{cat.categoryName}}</option>
                     </select>
