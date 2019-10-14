@@ -69,10 +69,10 @@ export class AdminServiceService {
      }
 
        //get Approved Artisans based on category
-       GetJobPosterOnCatgory(id: number)
+        GetJobPosterOnCatgory(id: number)
        {
-         return this.http.get<any>('http://168.172.186.39:5000/client/catID/'+id);
-       }
+          return this.http.get<any>('http://168.172.186.39:5000/client/catID/'+id);
+        }
 
     
     
@@ -82,15 +82,15 @@ export class AdminServiceService {
     //get all job posters
     getClients()
     {
-      return this.http.get<any>('http://168.172.188.153:5000/client');
+      return this.http.get<any>('http://168.172.186.39:5000/client');
     }
-     getUpdated()
-     {
-     return this.http.get<any>('http://168.172.188.153:5000/client/update');
-     }
+    //  getUpdated()
+    //  {
+    //  return this.http.get<any>('http://168.172.188.153:5000/client/update');
+    //  }
     
-    // getUpdated()
-    // {
-    // return this.http.get<any>('http://168.172.188.153:5000/UpdateClients/:clientId');
-    // }
+    //  getUpdated()
+    //  {
+    //  return this.http.get<any>('http://168.172.188.153:5000/UpdateClients/:clientId');
+    //  }
 } 

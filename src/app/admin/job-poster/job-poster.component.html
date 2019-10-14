@@ -35,7 +35,7 @@
         <td>{{jobposter.email}}</td>
 
         <td>
-          <button class="btn-sm btn-info btn-sm" (click)="GetEachClient(job)" data-toggle="modal"
+          <button class="btn-sm btn-info btn-sm" (click)="GetEachClient(jobposter)" data-toggle="modal"
             data-target="#myModal">view</button>&nbsp;
           <button class="btn- btn-danger btn-sm">Delete</button>
 
@@ -46,27 +46,27 @@
     </tbody>
   </table>
   <!-- Modal -->
-  <div id="myModal" class="modal fade" role="dialog" *ngFor="let job of jobposterArray;">
+  <div id="myModal" class="modal fade" role="dialog" *ngFor="let job of jobposterArray">
     <div class="modal-dialog">
 
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"> {{job.name}} {{job.surname}}</h4>
+          <h4 class="modal-title"> {{jobpp.name}} {{jobpp.surname}}</h4>
         </div>
         <div class="modal-body">
-          
+
           <form class="form-horizontal" role="form">
 
             <div class="form-group">
-              <input class="form-control" name="name" [(ngModel)]="job.name">
+              <input class="form-control" name="name" [(ngModel)]="jobpp.name">
             </div>
             <div class="form-group">
-              <input class="form-control" name="surname" [(ngModel)]="job.surname">
+              <input class="form-control" name="surname" [(ngModel)]="jobpp.surname">
             </div>
             <div class="form-group">
-              <input class="form-control" name="email" [(ngModel)]="job.email">
+              <input class="form-control" name="email" [(ngModel)]="jobpp.email">
             </div>
 
           </form>
