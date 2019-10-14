@@ -1,6 +1,6 @@
 import { BrowserModule }  from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,7 +25,8 @@ import { ArtisanApplicationsComponent } from './admin/artisan-applications/artis
 import { ApprovedComponent } from './admin/approved/approved.component';
 import { DeclinedComponent } from './admin/declined/declined.component';
 import { ApplicationComponent } from './client/application/application.component';
-
+import { TokenInterceptorService }  from './token-interceptor.service';
+import { UserProfileComponent } from './client/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { ApplicationComponent } from './client/application/application.component
     ApprovedComponent,
     DeclinedComponent,
     ApplicationComponent,
+    UserProfileComponent,
     
     
   ],
@@ -61,7 +63,12 @@ import { ApplicationComponent } from './client/application/application.component
 
 
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,
+  {
+    provide : HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

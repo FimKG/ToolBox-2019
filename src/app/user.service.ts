@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { Observable, of } from 'rxjs';
 import { Token } from '@angular/compiler';
 import { TouchSequence } from 'selenium-webdriver';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class UserService {
 
 
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private _router: Router) { }
 
    setUser(user)
   {
@@ -45,6 +46,14 @@ export class UserService {
   {
     return !!localStorage.getItem('token') 
 
+  }
+
+  logoutUser(){
+    localStorage.removeItem('token')
+    this._router.navigate(['/login'])
+  }
+  artProfile(){
+    this._router.navigate(['/user-profile'])
   }
 
   getToken(){

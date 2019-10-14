@@ -6,7 +6,7 @@ import {PostedJobsComponent } from './client/posted-jobs/posted-jobs.component';
 import {RegisterComponent} from './client/register/register.component';
 import {LoginComponent} from './client/login/login.component';
 import {ApplicationComponent} from './client/application/application.component';
-
+import { UserProfileComponent } from './client/user-profile/user-profile.component';
 
 //Admin Components
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
@@ -33,6 +33,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'home', component: HomeComponent },
       { path: 'application', component: ApplicationComponent },
+      { path: 'user-profile', component: UserProfileComponent },
       
      
       
