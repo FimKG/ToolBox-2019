@@ -84,10 +84,10 @@ export class AdminServiceService {
     {
       return this.http.get<any>('http://168.172.186.39:5000/client');
     }
-    //  getUpdated()
-    //  {
-    //  return this.http.get<any>('http://168.172.188.153:5000/client/update');
-    //  }
+      getUpdated(jobpp )
+     {
+      return this.http.post<any>('http://168.172.186.39:5000/client/update',jobpp,{});
+    }
     
     //  getUpdated()
     //  {

@@ -58,6 +58,9 @@
         <div class="modal-body">
 
           <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <input type="hidden" [(ngModel)]="jobpp.clientID" name="clientID">
+            </div>
 
             <div class="form-group">
               <input class="form-control" name="name" [(ngModel)]="jobpp.name">
@@ -69,11 +72,18 @@
               <input class="form-control" name="email" [(ngModel)]="jobpp.email">
             </div>
 
+            <div class="form-group">
+              <input class="form-control" name="password" [(ngModel)]="jobpp.password">
+            </div>
+
+
+
+
           </form>
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn-sm btn-success" (click)="getUpdated(update)">Update</button>
+          <button type="button" class="btn-sm btn-success" (click)="getUpdated()">Update</button>
           <button type="button" class="btn-sm btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
