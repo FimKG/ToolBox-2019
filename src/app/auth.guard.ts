@@ -11,6 +11,7 @@ export class AuthGuard implements CanActivate {
   
   canActivate(): boolean {
    if (this.userService.loggedIn()) {
+     this.router.navigate(['/posted-jobs'])
      return true
    } else {
      this.router.navigate(['/login'])

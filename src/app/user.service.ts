@@ -76,6 +76,10 @@ export class UserService {
   getClients() {
     return this.httpClient.get<any>(this.url + 'client');
   }
+
+  OnUploadImg(fd){
+    return this.httpClient.post<any>(this.url + 'upload', fd);
+  }
   
  
 }

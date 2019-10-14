@@ -23,8 +23,8 @@ export class RegisterComponent implements OnInit {
     this._auth.registerClient(this.registerUserData)
     .subscribe(
       res => {console.log(res)
-      localStorage.setItem('token', res.token)
-      this._router.navigate(['/artisan-profile'])
+      // localStorage.setItem('token', res.token)
+      this._router.navigate(['/login'])
     },
       err => console.log(err)
       )
