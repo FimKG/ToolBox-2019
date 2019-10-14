@@ -1,6 +1,6 @@
 import { BrowserModule }  from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './client/home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './client/header/header.component';
+import { AuthGuard } from './auth.guard';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
@@ -23,6 +24,9 @@ import { LoginComponent } from './client/login/login.component';
 import { ArtisanApplicationsComponent } from './admin/artisan-applications/artisan-applications.component';
 import { ApprovedComponent } from './admin/approved/approved.component';
 import { DeclinedComponent } from './admin/declined/declined.component';
+import { ApplicationComponent } from './client/application/application.component';
+import { TokenInterceptorService }  from './token-interceptor.service';
+import { UserProfileComponent } from './client/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -44,6 +48,9 @@ import { DeclinedComponent } from './admin/declined/declined.component';
     ArtisanApplicationsComponent,
     ApprovedComponent,
     DeclinedComponent,
+    ApplicationComponent,
+    UserProfileComponent,
+    
     
   ],
   imports: [
@@ -52,10 +59,16 @@ import { DeclinedComponent } from './admin/declined/declined.component';
     HttpClientModule,
      FormsModule,
     ReactiveFormsModule
+    
 
 
   ],
-  providers: [],
+  providers: [AuthGuard,
+  {
+    provide : HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
