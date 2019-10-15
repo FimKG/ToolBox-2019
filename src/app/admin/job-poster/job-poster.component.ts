@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
 import {AdminServiceService} from '../../admin-service.service';
 
 @Component({
@@ -10,6 +10,17 @@ export class JobPosterComponent implements OnInit {
   jobposterArray: any;
   selectedCategory: number;
   categories: any;
+   updating:any;
+
+  @Input() jobpp = {
+    name: '',
+    surname: '',
+    email: '',
+    password:'',
+    clientID:''
+ 
+    
+  }
   
  constructor(private adminservice: AdminServiceService) { }
 
@@ -24,6 +35,10 @@ export class JobPosterComponent implements OnInit {
       this.jobposterArray = data.data;
       console.log(data.data);
     })
+  }
+  getUpdated()
+  {
+    this.adminservice.getUpdated(this.jobpp ).subscribe()
   }
 
   GetAllCategories()
@@ -48,6 +63,10 @@ export class JobPosterComponent implements OnInit {
       this.jobposterArray = data.data;
       console.log(this.jobposterArray);
     })
+  }
+  GetEachClient(art) {
+    this.jobpp = art;
+    // console.log(art);
   }
 }
 
