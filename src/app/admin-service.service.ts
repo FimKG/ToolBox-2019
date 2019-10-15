@@ -105,9 +105,9 @@ export class AdminServiceService {
    
 
     //get all job posters
-    getClients(id: number)
+    getClients()
     {
-      return this.http.get<any>('http://168.172.186.39:5000/client/catID/'+id);
+      return this.http.get<any>('http://168.172.186.39:5000/client/catID/');
     }
       getUpdated(jobpp )
      {
