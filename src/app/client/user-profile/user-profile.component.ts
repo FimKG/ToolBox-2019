@@ -9,17 +9,20 @@ import { UserService } from './../../user.service';
 export class UserProfileComponent implements OnInit {
 
   selectedFile: File = null;
-  // artisans: any;
+  artisans: any;
   images: any;
-  // @Input() artis = {
-  //   name: '',
-  //   surname: '',
-  //   description: ''
-  // }
+  categories: any;
+  @Input() artis = {
+    name: '',
+    surname: '',
+    description: ''
+  }
 
   constructor(private _userService : UserService) { }
 
   ngOnInit() {
+    this.getAllArtisans();
+    this.gettingAllCategories();
   }
 
   selectImage(event){
@@ -38,16 +41,30 @@ export class UserProfileComponent implements OnInit {
       res => console.log(res),
       err => console.log(err))
   }
-  // getAllArtisans() {
-  //   this._userService.getAllArtisans().subscribe(data => {
-  //     this.artisans = data.data;
-  //     console.log(data.data);
-  //   })
-  // }
+  getAllArtisans() {
+    this._userService.getAllArtisans().subscribe(data => {
+      this.artisans = data.data;
+      console.log(data.data);
+    })
+  }
 
-  // GetEachArtisan(art) {
-  //   this.artis = art;
-  //   console.log(art);
+  GetEachArtisan(art) {
+    this.artis = art;
+    console.log(art);
+  }
+  gettingAllCategories()
+  {
+    this._userService.getCategory().subscribe(data=>{
+      this.categories = data.data;
+      console.log(data.data);
+    })
+  }
+  // username(){
+  //   if () {
+      
+  //   } else {
+      
+  //   }
   // }
 
 }
