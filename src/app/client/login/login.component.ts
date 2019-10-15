@@ -12,6 +12,10 @@ export class LoginComponent implements OnInit {
 
   loginUserData = {}
   userID: any;
+  error: boolean = false;
+  errorMessage: String = "";
+  dataLoading: boolean = false;
+  private querySubscription;
 
   constructor(private userService: UserService, private _router: Router) { }
 
@@ -19,22 +23,41 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    this.userService.userLogin(this.loginUserData)
+    this.dataLoading = true;
+    this.querySubscription = this.userService.userLogin(this.loginUserData)
       .subscribe(
         res => {
-          console.log(res)
-          localStorage.setItem('token', res.token)
-           this._router.navigate(['/posted-jobs'])
-          // this.getUserType([this.userID]);
+          if (res["errorCode"]>0) {
+            // console.log(res)
+            this.error = false;
+            this.errorMessage = "";
+            this.dataLoading = false;
+            localStorage.setItem('token', res.token)
+             this._router.navigate(['/posted-jobs'])
+            // this.getUserType([this.userID]);
+          }else {
+            this.error = true;
+            this.errorMessage = res["errorMessage"];
+            this.dataLoading = false;
+          }
+         
         },
-        err => console.log(err)
+        err=>{
+          // console.log(err)
+          this.error = true;
+          this.errorMessage = err.message;
+          this.dataLoading = false;
+        },
+        () => {
+          this.dataLoading = false;
+        }
 
-      )
+      );
   }
   getUserType(e) {
     this.userID = e;
-    // console.log(e.userID);
-    console.log(this.userID);
+    console.log(e.userID);
+    // console.log(this.userID);
 
     // if (this.userID == 1) {
     //   console.log(this.userID);

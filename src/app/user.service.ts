@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class UserService {
 
   url = 'http://168.172.186.39:5000/'; 
+  // url = 'http://localhost:5000/';
   //  registerUrl = 'http://168.172.188.153:5000/artisan';
   // adminUrl = 'http://168.172.186.39:5000/artisan';
   // categoryUrl = 'http://168.172.186.39:5000/_category';
@@ -75,6 +76,10 @@ export class UserService {
   }
   getClients() {
     return this.httpClient.get<any>(this.url + 'client');
+  }
+
+  OnUploadImg(fd){
+    return this.httpClient.post<any>(this.url + 'upload', fd);
   }
   
  

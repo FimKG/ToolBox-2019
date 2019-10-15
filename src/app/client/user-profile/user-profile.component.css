@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: sans-serif;
     color: #3c3939;
     background-color: #f1f1f1;
@@ -11,4 +11,9 @@ body {
 }
 .image-container {
     position: relative;
+} */
+img{
+    width: 50%;
+    height: 50%;
+    text-align: center;
 }
