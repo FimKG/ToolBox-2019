@@ -9,7 +9,13 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  visible = false;
+  error: boolean = false;
+  errorMessage: String = "";
+  dataLoading: boolean = false;
+  // private querySubscription;
+  savedChanges: boolean = false;
+
+  // visible = false;
    @Input() registerUserData = {  name:'', surname: '',email:'',contacts:'',address:'', address2:'',password:'' }
     // registerUserData = {}
 
@@ -20,14 +26,34 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser() {
-    this._auth.registerClient(this.registerUserData)
+    this.dataLoading = true;
+   return this._auth.registerClient(this.registerUserData)
     .subscribe(
-      res => {console.log(res)
+      (res) => {
+        if (res["errorCode"] != 0) {
+          this.error = false;
+          this.errorMessage = "message";
+          this.dataLoading = false;
+          this.savedChanges = true;
+          // this._router.navigate(['/login'])
+        } else {
+          this.error = true;
+          this.errorMessage =res["errorMessage"];
+          this.dataLoading = false;
+        }
+        console.log(res)
       // localStorage.setItem('token', res.token)
-      this._router.navigate(['/login'])
+      // this._router.navigate(['/login'])
     },
-      err => console.log(err)
-      )
+      (err) => {
+        this.error = true;
+        this.errorMessage = err.message;
+        this.dataLoading = false;
+      },
+      // console.log(err)
+      () => {
+        this.dataLoading = false;}
+      );
     
   }
   

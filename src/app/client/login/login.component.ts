@@ -23,22 +23,32 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    this.dataLoading = true;
+    this.dataLoading = false;
     this.userService.userLogin(this.loginUserData)
       .subscribe(
         res => {
-          if (res["errorCode"]>0) {
+          if (res["errorCode"] != 0 && this.userID == 1) {
             console.log(res)
             this.error = false;
             this.errorMessage = "";
-            this.dataLoading = false;
-            window.localStorage.setItem('token', res["data"].token)
-             this._router.navigate(['/posted-jobs'])
+            this.dataLoading = true;
+            localStorage.setItem('token', res.token)
+             this._router.navigate(['/home'])
             // this.getUserType([this.userID]);
+            
+            if (this.userID == 2) {
+              console.log(res)
+              this.error = false;
+              this.errorMessage = "";
+              this.dataLoading = true;
+              localStorage.setItem('token', res.token)
+               this._router.navigate(['/artisan-profile'])
+            } 
           }else {
             this.error = true;
             this.errorMessage = res["errorMessage"];
             this.dataLoading = false;
+            
           }
          
         },
@@ -54,10 +64,11 @@ export class LoginComponent implements OnInit {
 
       );
   }
-  // getUserType(e) {
-  //   this.userID = e;
-  //   console.log(e);
-  //   console.log(this.userID);
+  getUserType(e) {
+    this.userID = e;
+    console.log(e);
+    // console.log(this.userID);
+  }
 
     // if (this.userID == 1) {
     //   console.log(this.userID);

@@ -1,11 +1,12 @@
 <main role="main" class="container">
+  
   <div class="loader" *ngIf="dataLoading"></div>
   <div class="alert alert-danger" role="alert" *ngIf="error">
     An error occured. Here is the error : {{ errorMessage }}.
   </div>
-  <div *ngIf="savedChanges else showForm">
-    New Account is created. Please wait for an email confirming your application.
-    <button class="btn btn-lg btn-primary btn-block" routerLink="/login" type="button">Login</button>
+  <div class="alert alert-sucess" role="alert" *ngIf="savedChanges else showForm">
+    New Account is created. Click LOGIN
+    <button class="btn btn-lg btn-success btn-block" routerLink="/login" type="button">Login</button>
   </div>
   <div class="box">
     <form #form="ngForm">

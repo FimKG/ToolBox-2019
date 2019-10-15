@@ -11,6 +11,12 @@ export class ApplicationComponent implements OnInit {
 
   categories: any;
   cat_ID : Number;
+  error: boolean = false;
+  errorMessage: String = "";
+  dataLoading: boolean = false;
+  // private querySubscription;
+  savedChanges: boolean = false;
+
   // artisanApplication = {}
   @Input() artisanApplication = {  name:'', surname: '',email:'',address:'', address2:'',catID:'',password:'' }
 
@@ -28,12 +34,33 @@ export class ApplicationComponent implements OnInit {
   }
 
   userApp(){
+    this.dataLoading = false;
     return this.userService.setUser(this.artisanApplication)
     .subscribe(
-      res => {console.log(res)
-        this._router.navigate(['/login'])
+      (res) => {
+        if (res["errorCode"] != 0) {
+          this.error = false;
+          this.errorMessage = "";
+          this.dataLoading = true;
+          this.savedChanges = true;
+          // this._router.navigate(['/login'])
+        } else {
+          this.error = true;
+          this.errorMessage =res["errorMessage"];
+          this.dataLoading = false;
+        }
+        console.log(res)
+        // this._router.navigate(['/login'])
     },
-      err => console.log(err))
+      (err) => {
+        this.error = true;
+        this.errorMessage = err.message;
+        this.dataLoading = false;
+        console.log(err)
+      },
+      () => {
+        this.dataLoading = false;
+    });
     // console.log(this.artisanApplication);
   }
 

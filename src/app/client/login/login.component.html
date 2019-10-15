@@ -27,7 +27,21 @@
                   <input [(ngModel)]="loginUserData.password" type="password" name="password" id="password" class="form-control"
                     placeholder="" #inputPassword="ngModel" required minlength="3" maxlength="20" ngModel>
                 </div>
-                
+                <br>
+                <div class="form-check form-check-inline">
+                    <input [(ngModel)]="loginUserData.userType" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" [value]="1" checked (change)="getUserType(1)">
+                    <label class="form-check-label" for="exampleRadios1">
+                      Artisan
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input [(ngModel)]="loginUserData.userType" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" [value]="2" (change)="getUserType(2)">
+                    <label class="form-check-label" for="exampleRadios2">
+                      Job poster
+                    </label>
+                  </div>
+                  <br>
+                 
 
                 <!-- <div class="form-label-group">
                   <Label for="userType" class="text-secondary">Login as:</Label>
