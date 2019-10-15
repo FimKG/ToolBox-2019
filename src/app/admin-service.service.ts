@@ -97,5 +97,15 @@ export class AdminServiceService {
   getUpdated(jobpp) {
     return this.http.post<any>('http://168.172.186.39:5000/client/update', jobpp, {});
   }
+  getStatus(clientStatus)
+    {
+      console.log("sssss : "+ clientStatus);
+      return this.http.post<any>('http://168.172.186.39:5000/clientStatus',clientStatus,{});
+      
+    }
+    newClient(jobpp){
+      return this.http.post<any>('http://168.172.186.39:5000/client', jobpp, {});
+    }
+  
 
 }
