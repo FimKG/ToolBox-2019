@@ -82,7 +82,7 @@ export class AdminServiceService {
 
       public getArtisanData(user)
       {
-        console.log(user)
+        // console.log(user)
        return this.http.post<any>('http://168.172.186.39:5000/art/register', user, {});
       }
 } 

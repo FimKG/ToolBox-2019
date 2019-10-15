@@ -200,9 +200,6 @@
    <div class="form-group"><b>Password</b><br>
     <input [(ngModel)]="sendData.password" class="form-control" type="password" name="password"  >
  </div>
-          <!-- <div class="form-group"><b>Category</b><br>
-             <input class="form-control"  >
-          </div> -->
 
 
 
@@ -213,23 +210,7 @@
                 <option *ngFor="let cat of categories" [value]="cat.catID">{{cat.categoryName}}</option>
             </select>
         </div>
-<!-- 
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown button
-            </button>
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" [(ngModel)]="sendData.category" name="category">
-              <a class="dropdown-item" *ngFor="let category of categories"   (click)="selectCategory(category.catID)" >{{category.categoryName}}</a>
-             
-            </div>
-
-          </div> -->
-          <!-- <div *ngFor="let category of categories">
-            <div *ngIf="artisan.catID === category.catID">
-                {{category.categoryName}}
-            </div> 
-        </div> -->
         </form>
 
       </div>
