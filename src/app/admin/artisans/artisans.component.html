@@ -21,7 +21,7 @@
             
           </div>
 
-          <button class="btn btn-primary" style="float: right">New Artisan</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"  style="float: right">New Artisan</button>
       </div>
 
          
@@ -60,7 +60,7 @@
              
              
             <td>
-                <button class="btn-sm btn-info btn-sm">view</button>&nbsp;
+                <button class="btn-sm btn-success btn-sm" data-toggle="modal" data-target="#JobDetails" (click)=" GetEachArtisan(artisan)" >View</button>&nbsp;
                 <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
                 <button class="btn- btn-danger btn-sm">Delete</button>
                
@@ -70,3 +70,176 @@
         </tbody>
       </table>
 </main>
+
+<!---Populate information-->
+
+<div id="JobDetails" class="modal fade" role="dialog"  *ngFor="let art of artisans">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button"  data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">{{artis.name}} {{artis.surname}}</h4>
+        </div>
+  
+     
+  
+        <div class="modal-body">
+        <div class="col-12">
+          <h4>Send message</h4>
+  
+          <div class="form-group">
+            <!--  -->
+          <textarea class="form-control"  rows="10" cols="56" [(ngModel)]="artis.description" ></textarea>
+          </div>
+  
+            <hr>
+        
+
+            <b>Category</b><br>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              CATEGORY
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" *ngFor="let category of categories" >{{category.categoryName}}</a>
+               
+              </div>
+            </div>
+           
+                <hr>
+              <b>First Name</b><br>
+  
+                <div class="form-group">
+                    <input class="form-control" [(ngModel)]="artis.name">
+                </div>
+              
+  
+              <b>Last Name</b><br>
+                <div class="form-group">
+                   <input class="form-control" [(ngModel)]="artis.surname">
+                </div>
+
+                <b>Email</b><br>
+                <div class="form-group">
+                   <input class="form-control" [(ngModel)]="artis.email" >
+                </div>
+                
+                <b>Contacts</b><br>
+                <div class="form-group">
+                   <input class="form-control" [(ngModel)]="artis.contacts" >
+                </div>
+                
+
+              <div class="row col-12">
+                  
+              </div>
+        </div>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+  
+    </div>
+  </div>
+
+
+
+
+
+  <!---Pop up or Modal for adding new artisan -->
+
+
+ 
+<!--The button for modal -->
+
+
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header center-block" style="text-align: center;">
+
+        <h5 class="modal-title" id="exampleModalLabel">ADD NEW ARTISAN DETAILS</h5>
+      </div>
+      <div class="modal-body"> 
+<!-- [FormGroup]="artisanFm" -->
+        <form >
+
+          <!-- [(ngModel)]="registerUserData.name" #form="ngForm"-->
+  
+          <div class="form-group"><b>First Name</b><br>
+              <input  [(ngModel)]="sendData.name" class="form-control" type="text" name="name">
+          </div>
+          <br>
+
+        
+          <div class="form-group"><b>Last Name</b><br>
+             <input [(ngModel)]="sendData.surname" class="form-control" type="text" name="surname"  >
+          </div>
+
+          <div class="form-group"><b>Email</b><br>
+            <input [(ngModel)]="sendData.email" class="form-control" type="email" name="email"  >
+         </div>
+
+         <div class="form-group"><b>Contacts</b><br>
+          <input [(ngModel)]="sendData.contacts" class="form-control" type="text" name="contacts"  >
+       </div>
+
+       <div class="form-group"><b>Address</b><br>
+        <input [(ngModel)]="sendData.address" class="form-control" type="text" name="address"  >
+     </div>
+
+     <div class="form-group"><b>Address</b><br>
+      <input [(ngModel)]="sendData.address2" class="form-control" type="text" name="address2"  >
+   </div>
+
+   <div class="form-group"><b>Password</b><br>
+    <input [(ngModel)]="sendData.password" class="form-control" type="password" name="password"  >
+ </div>
+          <!-- <div class="form-group"><b>Category</b><br>
+             <input class="form-control"  >
+          </div> -->
+
+
+
+          <div class="form-group ">
+            <b>Category</b>
+            <select [(ngModel)]="sendData.category" required name="category"  class="form-control" (change)="selectCategory(sendData.category)">
+                <option value="">-Select JobType-</option>
+                <option *ngFor="let cat of categories" [value]="cat.catID">{{cat.categoryName}}</option>
+            </select>
+        </div>
+<!-- 
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" [(ngModel)]="sendData.category" name="category">
+              <a class="dropdown-item" *ngFor="let category of categories"   (click)="selectCategory(category.catID)" >{{category.categoryName}}</a>
+             
+            </div>
+
+          </div> -->
+          <!-- <div *ngFor="let category of categories">
+            <div *ngIf="artisan.catID === category.catID">
+                {{category.categoryName}}
+            </div> 
+        </div> -->
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-primary" (click)="getData()" >Submit</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>

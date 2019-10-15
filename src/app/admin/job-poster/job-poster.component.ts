@@ -10,6 +10,7 @@ export class JobPosterComponent implements OnInit {
   jobposterArray: any;
   selectedCategory: number;
   categories: any;
+  
  constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
