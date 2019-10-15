@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -8,115 +8,94 @@ export class AdminServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getTotalNumOfJobPosters()
-  {
+  getTotalNumOfJobPosters() {
     return this.http.get<any>('http://168.172.186.39:5000/total_job_posters');
   }
 
-  getTotalOfJobsPosted()
-  {
+  getTotalOfJobsPosted() {
     return this.http.get<any>('http://168.172.186.39:5000/totalJobs');
   }
 
-  getTotalNumberOfDeclinedArtisans()
-  {
+  getTotalNumberOfDeclinedArtisans() {
     return this.http.get<any>('http://168.172.186.39:5000/totaldeclinedArtisan');
   }
 
-  getTotalNumberOfApprovedArtisans()
-  {
+  getTotalNumberOfApprovedArtisans() {
     return this.http.get<any>('http://168.172.186.39:5000/totalApprovedArtisan');
   }
 
-  getTotalNumberOfArtisans()
-  {
+  getTotalNumberOfArtisans() {
     return this.http.get<any>('http://168.172.186.39:5000/totalartisan');
   }
 
   //get all jobs posted
-  GetAllJobs()
-  {
+  GetAllJobs() {
     return this.http.get<any>('http://168.172.186.39:5000/job_poster');
   }
 
   //get all approved artisans
-  GetAllApprovedArtisans()
-  {
+  GetAllApprovedArtisans() {
     return this.http.get<any>('http://168.172.186.39:5000/aprovedArt');
   }
 
   //get all categories
-  GetAllCategories()
-  {
+  GetAllCategories() {
     return this.http.get<any>('http://168.172.186.39:5000/category');
   }
 
   //get all declined artisans
-  GetAllDeclinedArtisans()
-  {
+  GetAllDeclinedArtisans() {
     return this.http.get<any>('http://168.172.186.39:5000/declinedartisan');
   }
 
   //get all  clients Applications
-  getAllArtisanApplication()
-    {
-      return this.http.get<any>('http://168.172.186.39:5000/artisan');
-    }
+  getAllArtisanApplication() {
+    return this.http.get<any>('http://168.172.186.39:5000/artisan');
+  }
 
-    //Get All artisans
-    GetAllArtisans()
-    {
-      return this.http.get<any>('http://168.172.186.39:5000/artisan');
-    }
+  //Get All artisans
+  GetAllArtisans() {
+    return this.http.get<any>('http://168.172.186.39:5000/artisan');
+  }
 
-    //get artisans based on category
-    GetArtsansbasedOnCatgory(id: number)
-    {
-      return this.http.get<any>('http://168.172.186.39:5000/artisan/catID/'+id);
-    }
+  //get artisans based on category
+  GetArtsansbasedOnCatgory(id: number) {
+    return this.http.get<any>('http://168.172.186.39:5000/artisan/catID/' + id);
+  }
 
-    //get jobs based on category
-    GetJobsbasedOnCatgory(id: number)
-    {
-      return this.http.get<any>('http://168.172.186.39:5000/job/catID/'+id);
-    }
+  //get jobs based on category
+  GetJobsbasedOnCatgory(id: number) {
+    return this.http.get<any>('http://168.172.186.39:5000/job/catID/' + id);
+  }
 
-    //get Declined Artisans based on category
-    GetDeclinedbasedOnCatgory(id: number)
-    {
-      return this.http.get<any>('http://168.172.186.39:5000/declinedartisan/catID/'+id);
-    }
+  //get Declined Artisans based on category
+  GetDeclinedbasedOnCatgory(id: number) {
+    return this.http.get<any>('http://168.172.186.39:5000/declinedartisan/catID/' + id);
+  }
 
-     //get Approved Artisans based on category
-     GetApprovedbasedOnCatgory(id: number)
-     {
-       return this.http.get<any>('http://168.172.186.39:5000/aprovedArt/catID/'+id);
-     }
+  //get Approved Artisans based on category
+  GetApprovedbasedOnCatgory(id: number) {
+    return this.http.get<any>('http://168.172.186.39:5000/aprovedArt/catID/' + id);
+  }
 
-       //get Approved Artisans based on category
-        GetJobPosterOnCatgory(id: number)
-       {
-          return this.http.get<any>('http://168.172.186.39:5000/client/catID/'+id);
-        }
+  //get Approved Artisans based on category
+  GetJobPosterOnCatgory(id: number) {
+    return this.http.get<any>('http://168.172.186.39:5000/client/catID/' + id);
+  }
 
-    
-    
-    
-   
+  //get all job posters
+  getClients() {
+    return this.http.get<any>('http://168.172.186.39:5000/client');
+    // return this.http.get<any>('http://168.172.186.39:5000/client/catID/');
+  }
 
-    //get all job posters
-    getClients()
-    {
-      return this.http.get<any>('http://168.172.186.39:5000/client/catID/');
-    }
-      getUpdated(jobpp )
-     {
-      return this.http.post<any>('http://168.172.186.39:5000/client/update',jobpp,{});
-    }
-    
-    //  getUpdated()
-    //  {
-    //  return this.http.get<any>('http://168.172.188.153:5000/UpdateClients/:clientId');
-    //  }
-} 
+  public getArtisanData(user) {
+    // console.log(user)
+    return this.http.post<any>('http://168.172.186.39:5000/art/register', user, {});
+  }
 
+  getUpdated(jobpp) {
+    return this.http.post<any>('http://168.172.186.39:5000/client/update', jobpp, {});
+  }
+
+}
