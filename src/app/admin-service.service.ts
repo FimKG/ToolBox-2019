@@ -94,21 +94,29 @@ export class AdminServiceService {
      }
 
        //get Approved Artisans based on category
-     GetJobPosterOnCatgory(id: number)
+        GetJobPosterOnCatgory(id: number)
+       {
+          return this.http.get<any>('http://168.172.186.39:5000/client/catID/'+id);
+        }
+
+    
+    
+    
+   
+
+    //get all job posters
+    getClients(id: number)
     {
       return this.http.get<any>('http://168.172.186.39:5000/client/catID/'+id);
     }
-
-       //get all job posters
-      getClients()
-      {
-        return this.http.get<any>('http://168.172.186.39:5000/client');
-      }
-
-      public getArtisanData(user)
-      {
-        console.log(user)
-       return this.http.post<any>('http://168.172.186.39:5000/art/register', user, {});
-      }
+      getUpdated(jobpp )
+     {
+      return this.http.post<any>('http://168.172.186.39:5000/client/update',jobpp,{});
+    }
+    
+    //  getUpdated()
+    //  {
+    //  return this.http.get<any>('http://168.172.188.153:5000/UpdateClients/:clientId');
+    //  }
 } 
 
