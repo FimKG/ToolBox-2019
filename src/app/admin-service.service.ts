@@ -8,22 +8,27 @@ export class AdminServiceService {
 
   constructor(private http: HttpClient) { }
 
+  //get total number of Job posters(client)
   getTotalNumOfJobPosters() {
     return this.http.get<any>('http://168.172.186.39:5000/total_job_posters');
   }
 
+  //get total number number of jobs posted
   getTotalOfJobsPosted() {
     return this.http.get<any>('http://168.172.186.39:5000/totalJobs');
   }
 
+  //get total number of declined Artisans
   getTotalNumberOfDeclinedArtisans() {
     return this.http.get<any>('http://168.172.186.39:5000/totaldeclinedArtisan');
   }
 
+  //get total number of approved Artisans 
   getTotalNumberOfApprovedArtisans() {
     return this.http.get<any>('http://168.172.186.39:5000/totalApprovedArtisan');
   }
 
+  //get total number of Artisans
   getTotalNumberOfArtisans() {
     return this.http.get<any>('http://168.172.186.39:5000/totalartisan');
   }
@@ -90,7 +95,7 @@ export class AdminServiceService {
   }
 
   public getArtisanData(user) {
-    // console.log(user)
+    // console.log(user) Aletta Incorrect API address
     return this.http.post<any>('http://168.172.186.39:5000/art/register', user, {});
   }
 
@@ -98,4 +103,12 @@ export class AdminServiceService {
     return this.http.post<any>('http://168.172.186.39:5000/client/update', jobpp, {});
   }
 
+  //update Job posted
+  getJobPostedUpdate(jobsPosted)
+  { 
+    return this.http.post<any>('http://168.172.186.39:5000/updatejob', jobsPosted, {})
+   
+  }
+
+  
 }
