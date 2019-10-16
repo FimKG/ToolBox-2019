@@ -28,12 +28,17 @@
         <th scope="col">Job Heading</th>
         <th scope="col">Category</th>
         <th scope="col">Job Location</th>
+        
+        
+
+        
 
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let job of postedJobs">
+          <input type="hidden" placeholder="{{job.job_id}}">
         <td>{{job.name}}</td>
         <td>{{job.surname}}</td>
         <td><b>{{job.job_heading}}</b></td>
@@ -46,10 +51,19 @@
         </td>
         <td><b>{{job.location}}</b></td>
 
+        <td>
+            <div *ngIf="job.status === 0">
+              <a href="#" class="badge badge-danger">Inactive</a>
+            </div>
+            <div *ngIf="job.status === 1">
+              <a href="#" class="badge badge-success">active</a>
+            </div>
+          </td>
+  
 
         <td> <button class="btn btn-info" data-toggle="modal" data-target="#JobDetails"
             (click)="GetEachJob(job)">Details</button> &nbsp;
-          <button class="btn btn-danger">Delete</button>
+          <button class="btn btn-danger" (click)="getJobPostedStatus(job.job_id)">Delete</button>
         </td>
       </tr>
 

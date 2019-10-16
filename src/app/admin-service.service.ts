@@ -107,6 +107,7 @@ export class AdminServiceService {
       return this.http.post<any>('http://168.172.186.39:5000/clientStatus',{clientID});
       
     }
+
     newClient(jobpp){
       return this.http.post<any>('http://168.172.186.39:5000/client', jobpp, {});
     }
@@ -117,6 +118,11 @@ export class AdminServiceService {
   { 
     return this.http.post<any>('http://168.172.186.39:5000/updatejob', jobsPosted, {})
    
+  }
+
+  getJobPostedStatus(job_id)
+  {
+    return this.http.post<any>('http://168.172.186.39:5000/job_status', {job_id});
   }
 
   

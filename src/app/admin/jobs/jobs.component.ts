@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import {AdminServiceService} from '../../admin-service.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class JobsComponent implements OnInit {
   postedJobs: any;
   // postedJob: any;
   selectedCategory: any;
+  job_id: '';
 
   @Input() postedJob = {
 
@@ -22,6 +23,7 @@ export class JobsComponent implements OnInit {
     contacts:'',
     location:'',
     job_id:''
+
 
   }
 
@@ -50,8 +52,6 @@ export class JobsComponent implements OnInit {
    
   }
 
-
-
   getSelectedCat(category)
   {
     this.selectedCategory = category.catID;
@@ -77,4 +77,9 @@ export class JobsComponent implements OnInit {
   GetEachJob(job){
     this.postedJob = job;
   }
+
+  getJobPostedStatus(job_id) {
+    this.adminservice.getJobPostedStatus(job_id).subscribe()
+  }
+
 }
