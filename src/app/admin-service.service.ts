@@ -120,6 +120,7 @@ export class AdminServiceService {
    
   }
 
+  //Delete job posted (status)
   getJobPostedStatus(job_id)
   {
     return this.http.post<any>('http://168.172.186.39:5000/job_status', {job_id});
