@@ -1,4 +1,4 @@
-import { Component, OnInit,Input} from '@angular/core';
+import { Component, OnInit,Input,Output} from '@angular/core';
 import {AdminServiceService} from '../../admin-service.service';
 
 @Component({
@@ -10,18 +10,24 @@ export class JobPosterComponent implements OnInit {
   jobposterArray: any;
   selectedCategory: number;
   categories: any;
-   updating:any;
+  clientID:'';
 
   @Input() jobpp = {
     name: '',
     surname: '',
     email: '',
     password:'',
+    contacts:'',
+    address: '',
+    address2:'',
     clientID:''
- 
-    
   }
   
+  newClient() {
+    this.adminservice.newClient(this.jobpp)
+    .subscribe()
+      
+    }
  constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
@@ -29,11 +35,16 @@ export class JobPosterComponent implements OnInit {
     this. GetAllCategories();
    
   }
+  getStatus(clientID)
+  {
+   // console.log(clientID);
+     this.adminservice.getStatus(clientID).subscribe()
+  }
   getClients()
   {
     this.adminservice.getClients().subscribe(data=>{
       this.jobposterArray = data.data;
-      console.log(data.data);
+      //console.log(data.data);
     })
   }
   getUpdated()
@@ -45,14 +56,14 @@ export class JobPosterComponent implements OnInit {
   {
     this.adminservice.GetAllCategories().subscribe(data=>{
       this.categories = data.data;
-      console.log(data.data);
+      //console.log(data.data);
     })
   }
 
   getSelectedCat(category)
   {
     this.selectedCategory = category.catID;
-    console.log(this.selectedCategory);
+    //console.log(this.selectedCategory);
     this. getArtisansBasedOnCategory(this.selectedCategory);
    
   }
@@ -61,12 +72,11 @@ export class JobPosterComponent implements OnInit {
   {
     this.adminservice.GetJobPosterOnCatgory(id).subscribe(data=>{
       this.jobposterArray = data.data;
-      console.log(this.jobposterArray);
+     // console.log(this.jobposterArray);
     })
   }
   GetEachClient(art) {
     this.jobpp = art;
-    // console.log(art);
   }
 }
 
