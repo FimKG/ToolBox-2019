@@ -1,5 +1,5 @@
-import { Component, OnInit,Input,Output} from '@angular/core';
-import {AdminServiceService} from '../../admin-service.service';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { AdminServiceService } from '../../admin-service.service';
 
 @Component({
   selector: 'app-job-poster',
@@ -10,69 +10,64 @@ export class JobPosterComponent implements OnInit {
   jobposterArray: any;
   selectedCategory: number;
   categories: any;
-  clientID:'';
+  clientID: '';
 
   @Input() jobpp = {
     name: '',
     surname: '',
     email: '',
-    password:'',
-    contacts:'',
+    password: '',
+    contacts: '',
     address: '',
-    address2:'',
-    clientID:''
+    address2: '',
+    clientID: ''
   }
-  
+
   newClient() {
     this.adminservice.newClient(this.jobpp)
-    .subscribe()
-      
-    }
- constructor(private adminservice: AdminServiceService) { }
+      .subscribe()
+
+  }
+  constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
     this.getClients();
-    this. GetAllCategories();
-   
+    this.GetAllCategories();
+
   }
-  getStatus(clientID)
-  {
-   // console.log(clientID);
-     this.adminservice.getStatus(clientID).subscribe()
+
+  getStatus(clientID) {
+    this.adminservice.getStatus(clientID).subscribe()
   }
-  getClients()
-  {
-    this.adminservice.getClients().subscribe(data=>{
+
+  getClients() {
+    this.adminservice.getClients().subscribe(data => {
       this.jobposterArray = data.data;
       //console.log(data.data);
     })
   }
-  getUpdated()
-  {
-    this.adminservice.getUpdated(this.jobpp ).subscribe()
+  getUpdated() {
+    this.adminservice.getUpdated(this.jobpp).subscribe()
   }
 
-  GetAllCategories()
-  {
-    this.adminservice.GetAllCategories().subscribe(data=>{
+  GetAllCategories() {
+    this.adminservice.GetAllCategories().subscribe(data => {
       this.categories = data.data;
       //console.log(data.data);
     })
   }
 
-  getSelectedCat(category)
-  {
+  getSelectedCat(category) {
     this.selectedCategory = category.catID;
     //console.log(this.selectedCategory);
-    this. getArtisansBasedOnCategory(this.selectedCategory);
-   
+    this.getArtisansBasedOnCategory(this.selectedCategory);
+
   }
 
-  getArtisansBasedOnCategory(id)
-  {
-    this.adminservice.GetJobPosterOnCatgory(id).subscribe(data=>{
+  getArtisansBasedOnCategory(id) {
+    this.adminservice.GetJobPosterOnCatgory(id).subscribe(data => {
       this.jobposterArray = data.data;
-     // console.log(this.jobposterArray);
+      // console.log(this.jobposterArray);
     })
   }
   GetEachClient(art) {
