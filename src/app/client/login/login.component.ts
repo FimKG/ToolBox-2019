@@ -23,41 +23,52 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    this.dataLoading = true;
-    this.querySubscription = this.userService.userLogin(this.loginUserData)
+    this.dataLoading = false;
+    this.userService.userLogin(this.loginUserData)
       .subscribe(
         res => {
-          if (res["errorCode"]>0) {
-            // console.log(res)
+          if (res["errorCode"] != 0 && this.userID == 1) {
+            console.log(res)
             this.error = false;
             this.errorMessage = "";
-            this.dataLoading = false;
+            this.dataLoading = true;
             localStorage.setItem('token', res.token)
-             this._router.navigate(['/posted-jobs'])
+             this._router.navigate(['/home'])
             // this.getUserType([this.userID]);
+            
+            if (this.userID == 2) {
+              console.log(res)
+              this.error = false;
+              this.errorMessage = "";
+              this.dataLoading = true;
+              localStorage.setItem('token', res.token)
+               this._router.navigate(['/artisan-profile'])
+            } 
           }else {
             this.error = true;
             this.errorMessage = res["errorMessage"];
             this.dataLoading = false;
+            
           }
          
         },
         err=>{
-          // console.log(err)
+          console.log(err)
           this.error = true;
           this.errorMessage = err.message;
           this.dataLoading = false;
         },
         () => {
           this.dataLoading = false;
-        }
+         }
 
       );
   }
   getUserType(e) {
     this.userID = e;
-    console.log(e.userID);
+    console.log(e);
     // console.log(this.userID);
+  }
 
     // if (this.userID == 1) {
     //   console.log(this.userID);
@@ -66,7 +77,7 @@ export class LoginComponent implements OnInit {
     //   this._router.navigate(['/artisan-profile']);
     // }
 
-  }
+  // }
   // loginPage(){
   //   if (this.userID == 1) {
   //     this._router.navigate(['/posted-jobs']);
