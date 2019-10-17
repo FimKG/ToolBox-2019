@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { Observable, of } from 'rxjs';
 import { Token } from '@angular/compiler';
 import { TouchSequence } from 'selenium-webdriver';
 import { Router } from '@angular/router';
+import { LoginComponent } from './client/login/login.component'
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,9 @@ export class UserService {
   // categoryUrl = 'http://168.172.186.39:5000/_category';
   // loginUrl = 'http://168.172.186.39:5000/_login';
   // jobUrl = 'http://168.172.186.39:5000/register';
+
+  $isLoggedIn = new EventEmitter();
+  users: LoginComponent; 
 
 
 
@@ -32,6 +36,8 @@ export class UserService {
   }
 
   userLogin(user) {
+    // this.users.loginUserData = user;
+    this.$isLoggedIn.emit(user);
     return this.httpClient.post<any>(this.url + '_login', user);
   }
 

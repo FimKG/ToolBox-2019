@@ -17,6 +17,7 @@ export class PostedJobsComponent implements OnInit {
   {
     this.getAllPostedJob();
     this.getCat();
+    this.userInfo();
   }
 
   getAllPostedJob()
@@ -31,5 +32,11 @@ export class PostedJobsComponent implements OnInit {
   {
     return this.catag.getCategory().subscribe(response =>
           this.categories = response.data);
+  }
+  userInfo(){
+    this.catag.$isLoggedIn
+    .subscribe((data) =>{
+      console.log("user data pleasse", data);
+    })
   }
 }

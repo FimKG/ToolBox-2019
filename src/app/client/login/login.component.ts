@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../user.service';
 import { Router } from '@angular/router';
 
@@ -10,12 +10,15 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  @Output('change') change = new EventEmitter();
+
   loginUserData = {}
   userID: any;
   error: boolean = false;
   errorMessage: String = "";
   dataLoading: boolean = false;
   private querySubscription;
+ 
 
   constructor(private userService: UserService, private _router: Router) { }
 
@@ -24,25 +27,30 @@ export class LoginComponent implements OnInit {
 
   loginUser() {
     this.dataLoading = false;
-    this.userService.userLogin(this.loginUserData)
+    // this.users = this.loginUserData;
+    this.userService.userLogin(this.loginUserData) 
       .subscribe(
         res => {
-          if (res["errorCode"] != 0 && this.userID == 1) {
+          if (res["errorCode"] != 0) {
             console.log(res)
             this.error = false;
             this.errorMessage = "";
             this.dataLoading = true;
-            localStorage.setItem('token', res.token)
-             this._router.navigate(['/home'])
+            
+            if (this.userID == 1) {
+              this._router.navigate(['/posted-jobs']);
+              localStorage.setItem('token', res.token);
+            }else
+            {
+              this._router.navigate(['/home']);
+            }
+             
             // this.getUserType([this.userID]);
             
             if (this.userID == 2) {
               console.log(res)
-              this.error = false;
-              this.errorMessage = "";
-              this.dataLoading = true;
-              localStorage.setItem('token', res.token)
-               this._router.navigate(['/artisan-profile'])
+              localStorage.setItem('token', res.token);
+               this._router.navigate(['/artisan-profile']);
             } 
           }else {
             this.error = true;
@@ -87,3 +95,4 @@ export class LoginComponent implements OnInit {
   // }
 
 }
+

@@ -23,6 +23,7 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this.getAllArtisans();
     this.gettingAllCategories();
+    this.userInfo();
   }
 
   selectImage(event){
@@ -59,12 +60,12 @@ export class UserProfileComponent implements OnInit {
       console.log(data.data);
     })
   }
-  // username(){
-  //   if () {
-      
-  //   } else {
-      
-  //   }
-  // }
+  userInfo(){
+    this._userService.$isLoggedIn
+    .subscribe((data) =>{
+      console.log("user data pleasse", data);
+    })
+  }
+  
 
 }

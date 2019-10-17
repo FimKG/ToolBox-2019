@@ -14,6 +14,7 @@ export class ArtisanProfileComponent implements OnInit {
   ngOnInit() {
     this.gettingAllArtisans();
     this.gettingAllCategories();
+    this.userInfo();
   
   }
 
@@ -32,6 +33,14 @@ export class ArtisanProfileComponent implements OnInit {
       console.log(data.data);
     })
   }
+
+  userInfo(){
+    this.userService.$isLoggedIn
+    .subscribe((data) =>{
+      console.log("user data pleasse", data);
+    })
+  }
+
   }
 
 
