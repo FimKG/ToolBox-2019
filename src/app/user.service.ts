@@ -82,5 +82,13 @@ export class UserService {
     return this.httpClient.post<any>(this.url + 'upload', fd);
   }
   
+  GetJobs(){
+    return this.httpClient.get<any>(this.url + 'all_jobs');
+  }
  
+  
+  // getDescription()
+  // {
+
+  // }
 }
