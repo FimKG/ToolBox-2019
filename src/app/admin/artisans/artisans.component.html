@@ -38,6 +38,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let artisan of artisans">
+              <input type="hidden" placeholder="{{artisan.artID}}">
             <td>{{artisan.name}}</td>
             <td>{{artisan.surname}}</td>
             <td>
@@ -49,7 +50,10 @@
                 </div>
 
             </td>
+
+            
             <td>
+
             <div *ngIf="artisan.status === 0">
                 <a href="#" class="badge badge-danger">Inactive</a>
             </div>
@@ -62,7 +66,7 @@
             <td>
                 <button class="btn-sm btn-success btn-sm" data-toggle="modal" data-target="#JobDetails" (click)=" GetEachArtisan(artisan)" >View</button>&nbsp;
                 <button class="btn-sm btn-success btn-sm">Update</button>&nbsp;
-                <button class="btn- btn-danger btn-sm">Delete</button>
+                <button class="btn- btn-danger btn-sm" (click)="getArtisanStatus(artisan.artID)">Delete</button>
                
             </td>
           </tr>
@@ -103,6 +107,7 @@
               CATEGORY
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                
                 <a class="dropdown-item" *ngFor="let category of categories" >{{category.categoryName}}</a>
                
               </div>

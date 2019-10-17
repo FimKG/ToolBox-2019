@@ -1,5 +1,5 @@
-import { Component, OnInit,Input} from '@angular/core';
-import {AdminServiceService} from '../../admin-service.service';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { AdminServiceService } from '../../admin-service.service';
 
 @Component({
   selector: 'app-job-poster',
@@ -10,63 +10,68 @@ export class JobPosterComponent implements OnInit {
   jobposterArray: any;
   selectedCategory: number;
   categories: any;
-   updating:any;
+  clientID: '';
 
   @Input() jobpp = {
     name: '',
     surname: '',
     email: '',
-    password:'',
-    clientID:''
- 
-    
+    password: '',
+    contacts: '',
+    address: '',
+    address2: '',
+    clientID: ''
   }
-  
- constructor(private adminservice: AdminServiceService) { }
+
+  newClient() {
+    this.adminservice.newClient(this.jobpp)
+      .subscribe()
+
+  }
+  constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
     this.getClients();
-    this. GetAllCategories();
-   
-  }
-  getClients()
-  {
-    this.adminservice.getClients().subscribe(data=>{
-      this.jobposterArray = data.data;
-      console.log(data.data);
-    })
-  }
-  getUpdated()
-  {
-    this.adminservice.getUpdated(this.jobpp ).subscribe()
+    this.GetAllCategories();
+
   }
 
-  GetAllCategories()
-  {
-    this.adminservice.GetAllCategories().subscribe(data=>{
+  getStatus(clientID) {
+    this.adminservice.getStatus(clientID).subscribe()
+  }
+
+  getClients() {
+    this.adminservice.getClients().subscribe(data => {
+      this.jobposterArray = data.data;
+      //console.log(data.data);
+    })
+  }
+  getUpdated() {
+    this.adminservice.getUpdated(this.jobpp).subscribe()
+  }
+
+  GetAllCategories() {
+    this.adminservice.GetAllCategories().subscribe(data => {
       this.categories = data.data;
-      console.log(data.data);
+      //console.log(data.data);
     })
   }
 
-  getSelectedCat(category)
-  {
+  getSelectedCat(category) {
     this.selectedCategory = category.catID;
-    console.log(this.selectedCategory);
-    this. getArtisansBasedOnCategory(this.selectedCategory);
-   
+    //console.log(this.selectedCategory);
+    this.getArtisansBasedOnCategory(this.selectedCategory);
+
   }
 
-  getArtisansBasedOnCategory(id)
-  {
-    this.adminservice.GetJobPosterOnCatgory(id).subscribe(data=>{
+  getArtisansBasedOnCategory(id) {
+    this.adminservice.GetJobPosterOnCatgory(id).subscribe(data => {
       this.jobposterArray = data.data;
-      console.log(this.jobposterArray);
+      // console.log(this.jobposterArray);
     })
   }
   GetEachClient(art) {
     this.jobpp = art;
-    // console.log(art);
   }
 }
 
