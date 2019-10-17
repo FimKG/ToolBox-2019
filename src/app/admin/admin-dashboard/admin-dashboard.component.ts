@@ -38,7 +38,7 @@ export class AdminDashboardComponent implements OnInit {
   getNumOfApprovedArtisans()
   {
     this.adminservice.getTotalNumberOfApprovedArtisans().subscribe(data =>{
-      this.numApprovedArtisans = data[0].total_applications_approved;
+      this.numApprovedArtisans = data[0].total_artisan_application;
     
       console.log(this.numApprovedArtisans);
   })
@@ -47,7 +47,7 @@ export class AdminDashboardComponent implements OnInit {
   getNumOfDeclinedArtisans()
   {
     this.adminservice.getTotalNumberOfDeclinedArtisans().subscribe(data =>{
-      this.numDeclinedArtisans = data[0].total_declined_application;
+      this.numDeclinedArtisans = data[0].declinedArtisan;
     
       console.log(this.numDeclinedArtisans);
   })
@@ -56,7 +56,7 @@ export class AdminDashboardComponent implements OnInit {
   getNumOfPostedJobs()
   {
     this.adminservice.getTotalOfJobsPosted().subscribe(data =>{
-      this.numOfPostedJobs = data[0].Total_jobs_posted;
+      this.numOfPostedJobs = data[0].total_job;
     
       console.log(this.numOfPostedJobs);
   })
@@ -65,7 +65,7 @@ export class AdminDashboardComponent implements OnInit {
   getNumOfJobPosters()
   {
     this.adminservice.getTotalNumOfJobPosters().subscribe(data =>{
-      this.numOfJobPosters = data[0].Total_job_posters;
+      this.numOfJobPosters = data[0].total_client;
     
       console.log(this.numOfJobPosters);
   })

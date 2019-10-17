@@ -33,7 +33,7 @@
                 </div> 
               </div>
         </div>     	
-
+        <button class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"  style="padding: center">POST A JOB</button>
 <!-- <section>
 
 
@@ -41,7 +41,7 @@
 </section> -->
 
 <!--The button for modal -->
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"
+<!-- <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"
 style="margin-left: 500px">Post a job</button>
 
  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -83,6 +83,64 @@ style="margin-left: 500px">Post a job</button>
       </div>
     </div>
   </div>
+</div> -->
+
+
+<!--NEW MODAL-->
+<!--The button for modal -->
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header center-block" style="text-align: center;">
+
+      <h5 class="modal-title" id="exampleModalLabel">POST A NEW JOB </h5>
+    </div>
+    <div class="modal-body"> 
+<!-- [FormGroup]="artisanFm" -->
+      <form >
+
+        <!-- [(ngModel)]="registerUserData.name" #form="ngForm"-->
+         
+        <div class="form-group"><b>NAME</b><br>
+            <input  [(ngModel)]="sendData.name" class="form-control" type="text" name="name">
+        </div>
+        <br>
+
+      
+        <div class="form-group"><b>SURNAME</b><br>
+           <input [(ngModel)]="sendData.surname" class="form-control" type="text" name="surname"  >
+        </div>
+
+        <div class="form-group"><b>LOCATION</b><br>
+          <input [(ngModel)]="sendData.email" class="form-control" type="email" name="email"  >
+       </div>
+
+       <div class="form-group"><b>SERVICE REQUIRED</b><br>
+        <input [(ngModel)]="sendData.contacts" class="form-control" type="text" name="contacts"  >
+     </div>
+
+      <div>
+            <label><b>WRITE THE DESCRIPTION</b></label>
+          
+      
+
+      </div>
+      
+      </form>
+
+    </div>
+
+    <div class="modal-footer">
+
+      <button type="button" class="btn btn-primary" (click)="getData()" >Submit</button>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+    </div>
+  </div>
+</div>
 </div>
 <br>
 <br>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from 'src/app/user.service';
+import { AdminServiceService } from '../../admin-service.service';
 
 
 @Component({
@@ -14,11 +15,15 @@ export class HomeComponent implements OnInit {
  
   Artisans: any;
   categories: any;
+  Posters: any;
+  // heading: any;
+  //  description: any
 
 
   ngOnInit() {
     this.gettingAllArtisans();
     this.gettingAllCategories();
+    this.gettingAllJobs();
   
   }
 
@@ -37,8 +42,22 @@ export class HomeComponent implements OnInit {
       console.log(data.data);
     })
   }
-  
-  
+
+  gettingAllJobs()
+  {
+    this.userService.GetJobs().subscribe(data=>{
+      this.Posters = data.data,
+       console.log(this.Posters);
+    });
+  }
+
+//  getDescriptions()
+//  {
+//      this.userService.GetJobs().subscribe(data=>{
+//      this.Posters = data.results,
+//      console.log(this.Posters)
+//    })
+//  }
 
 
 }
