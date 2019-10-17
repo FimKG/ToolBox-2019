@@ -10,7 +10,7 @@ export class AdminServiceService {
 
   //get total number of Job posters(client)
   getTotalNumOfJobPosters() {
-    return this.http.get<any>('http://168.172.186.39:5000/total_job_posters');
+    return this.http.get<any>('http://168.172.186.39:5000/totaljobPoster');
   }
 
   //get total number number of jobs posted
@@ -30,7 +30,7 @@ export class AdminServiceService {
 
   //get total number of Artisans
   getTotalNumberOfArtisans() {
-    return this.http.get<any>('http://168.172.186.39:5000/totalartisan');
+    return this.http.get<any>('http://168.172.186.39:5000/totalartisan_');
   }
 
   //get all jobs posted
@@ -124,6 +124,12 @@ export class AdminServiceService {
   getJobPostedStatus(job_id)
   {
     return this.http.post<any>('http://168.172.186.39:5000/job_status', {job_id});
+  }
+
+  //Delete Artisan (status)
+  getArtisanStatus(artID)
+  {
+    return this.http.post<any>('http://168.172.186.39:5000/artisan_status', {artID});
   }
 
   
