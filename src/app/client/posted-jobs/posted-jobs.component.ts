@@ -10,11 +10,18 @@ export class PostedJobsComponent implements OnInit {
 
   categories: any;
 
-  constructor(private catag : UserService) { }
+
+  constructor(private _userService : UserService) { }
 
   ngOnInit() {
-    return this.catag.getCategory().subscribe(response =>
+    this.getCategory();
+  }
+
+  getCategory() {
+    return this._userService.getCategory().subscribe(response =>
       this.categories = response.data);
   }
+
+  
 
 }

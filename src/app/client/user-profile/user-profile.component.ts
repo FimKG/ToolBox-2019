@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from './../../user.service';
 
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -16,8 +17,9 @@ export class UserProfileComponent implements OnInit {
   //   surname: '',
   //   description: ''
   // }
+  
 
-  constructor(private _userService : UserService) { }
+  constructor(private _userService : UserService ) { }
 
   ngOnInit() {
   }
@@ -38,16 +40,6 @@ export class UserProfileComponent implements OnInit {
       res => console.log(res),
       err => console.log(err))
   }
-  // getAllArtisans() {
-  //   this._userService.getAllArtisans().subscribe(data => {
-  //     this.artisans = data.data;
-  //     console.log(data.data);
-  //   })
-  // }
-
-  // GetEachArtisan(art) {
-  //   this.artis = art;
-  //   console.log(art);
-  // }
-
+ 
+ 
 }

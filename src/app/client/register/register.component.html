@@ -1,5 +1,5 @@
 <main role="main" class="container">
-  
+
   <div class="loader" *ngIf="dataLoading"></div>
   <div class="alert alert-danger" role="alert" *ngIf="error">
     An error occured. Here is the error : {{ errorMessage }}.
@@ -66,9 +66,9 @@
         <br>
         <button type="submit" class="btn btn-secondary btn-lg btn-block" (click)="registerUser()">Register</button>
 
-
+        <br>
       </div>
-      Existing User ? <a data toggle="modal" data-target=".bd-example-modal-lg" href="/login">Login</a> <br><br>
+      Existing User ? <a data toggle="modal" data-target=".bd-example-modal-lg" href="/login">Login</a>
 
     </form>
   </div>

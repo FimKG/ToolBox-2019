@@ -27,8 +27,8 @@ const routes: Routes = [
     path: '', component: HeaderComponent,
     children: [ // all childrens components below
       { path: '', component: HomeComponent },
-      { path: 'artisan-profile', component: ArtisanProfileComponent,canActivate: [AuthGuard] },
-      { path: 'posted-jobs', component: PostedJobsComponent, canActivate: [AuthGuard]},
+      { path: 'artisan-profile', component: ArtisanProfileComponent },
+      { path: 'posted-jobs', component: PostedJobsComponent, },
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'home', component: HomeComponent },
@@ -40,7 +40,7 @@ const routes: Routes = [
     
     ]
   },
-
+  // ,canActivate: [AuthGuard] 
   //Admin Components
 
   { path: 'admin-header', component: AdminHeaderComponent },
