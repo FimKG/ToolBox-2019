@@ -1,17 +1,16 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { Observable, of, observable, BehaviorSubject } from 'rxjs';
 import { Token } from '@angular/compiler';
 import { Router } from '@angular/router';
+import { LoginComponent } from './client/login/login.component'
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  
-private isStatus = false;
-private currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
+
   url = 'http://168.172.186.39:5000/'; 
   // url = 'http://localhost:5000/';
   //  registerUrl = 'http://168.172.188.153:5000/artisan';
@@ -19,6 +18,9 @@ private currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.ge
   // categoryUrl = 'http://168.172.186.39:5000/_category';
   // loginUrl = 'http://168.172.186.39:5000/_login';
   // jobUrl = 'http://168.172.186.39:5000/register';
+
+  $isLoggedIn = new EventEmitter();
+  users: LoginComponent; 
 
 
 
@@ -34,16 +36,12 @@ private currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.ge
   }
 
   userLogin(user) {
-    return this.httpClient.post<any>(this.url + '_login', user )
-  
-  }
-  currentUseValue(b:boolean){
-    this.isStatus = b;
+    // this.users.loginUserData = user;
+    this.$isLoggedIn.emit(user);
+    return this.httpClient.post<any>(this.url + '_login', user);
   }
 
-get islogged(){
-return this.isStatus;
-}
+
 
 
   getCategory() {
@@ -92,5 +90,13 @@ return this.isStatus;
 
   
   
+  GetJobs(){
+    return this.httpClient.get<any>(this.url + 'all_jobs');
+  }
  
+  
+  // getDescription()
+  // {
+
+  // }
 }

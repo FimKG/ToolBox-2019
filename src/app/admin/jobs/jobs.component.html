@@ -1,167 +1,191 @@
 <app-admin-header></app-admin-header>
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-    <br>
-    <h4 class='text-center bg-light'>All job Adverts</h4> 
-<hr>
-    <div class="dropdown text-center">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categorize Jobs
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" *ngFor="let category of categories" (click)="getSelectedCat(category)">{{category.categoryName}}</a>
-            
+  <br>
+  <h4 class='text-center bg-light'>All job Adverts</h4>
+  <hr>
+  <div class="dropdown text-center">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Categorize Jobs
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" *ngFor="let category of categories"
+        (click)="getSelectedCat(category)">{{category.categoryName}}</a>
+
+    </div>
+    <button class="btn btn-primary" style="float: right">Post a Job</button>
+  </div>
+
+
+
+  <hr>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Job Heading</th>
+        <th scope="col">Category</th>
+        <th scope="col">Job Location</th>
+        
+        
+
+        
+
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of postedJobs">
+          <input type="hidden" placeholder="{{job.job_id}}">
+        <td>{{job.name}}</td>
+        <td>{{job.surname}}</td>
+        <td><b>{{job.job_heading}}</b></td>
+        <td>
+          <div *ngFor="let cat of categories">
+            <div *ngIf="job.category === cat.catID">
+              {{cat.categoryName}}
+            </div>
           </div>
-          <button class="btn btn-primary" style="float: right">Post a Job</button>
-        </div>
+        </td>
+        <td><b>{{job.location}}</b></td>
 
-
-
-      <hr>
-    <table class="table">
-        <thead>
-          <tr >
-            <th scope="col">Name</th>
-            <th scope="col">Surname</th>
-            <th scope="col">Job Heading</th>
-            <th scope="col">Category</th>
-            <th scope="col">Job Location</th>
-          
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let job of postedJobs">
-            <td >{{job.name}}</td>
-            <td>{{job.surname}}</td>
-            <td><b>{{job.job_heading}}</b></td>
-            <td>
-              <div *ngFor="let cat of categories">
-                  <div *ngIf="job.category === cat.catID">
-                      {{cat.categoryName}}
-                  </div>
-              </div>
-            </td>
-            <td><b>{{job.location}}</b></td>
-            
-            
-          <td> <button class="btn btn-info"  data-toggle="modal" data-target="#JobDetails" (click)="GetEachJob(job)">Details</button> &nbsp; 
-            <button class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
-
-          <td>
-
-                <div *ngFor="let category of categories">
-                    <div *ngIf="categories.catID === category.catID">
-                        {{category.categoryName}}
-                    </div> 
-                </div>
-
-            </td>
-         
-         
-        </tbody>
-      </table>
-
-
-
-
-
-
-
-
-
-
-
-     
-
-
-<!-- Job Details Modal -->
-<div id="JobDetails" class="modal fade" role="dialog"  *ngFor="let job of postedJobs" (ngSubmit) = "onSubmit()" #jobs>
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <button type="button"  data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Job Adverts</h4>
-      </div>
-
-   
-
-      <div class="modal-body">
-      <div class="col-12">
-
-          <b>Name</b><br>
-
-          <div class="form-group">
-              <input class="form-control" [(ngModel)]="postedJob.name" name="name" #name="ngModel" [ngModelOptions]="{ updateOn: 'change'}">
-          </div>
-
+        <td>
+            <div *ngIf="job.status === 0">
+              <a href="#" class="badge badge-danger">Inactive</a>
+            </div>
+            <div *ngIf="job.status === 1">
+              <a href="#" class="badge badge-success">active</a>
+            </div>
+          </td>
   
 
-          <b>Surname</b><br>
+        <td> <button class="btn btn-info" data-toggle="modal" data-target="#JobDetails"
+            (click)="GetEachJob(job)">Details</button> &nbsp;
+          <button class="btn btn-danger" (click)="getJobPostedStatus(job.job_id)">Delete</button>
+        </td>
+      </tr>
 
-          <div class="form-group">
-              <input class="form-control" [(ngModel)]="postedJob.surname">
+      <td>
+
+        <div *ngFor="let category of categories">
+          <div *ngIf="categories.catID === category.catID">
+            {{category.categoryName}}
           </div>
-
-          <b>Job Heading</b><br>
-
-          <div class="form-group">
-              <input class="form-control" [(ngModel)]="postedJob.job_heading">
-          </div>
-
-        <h4>Full Description</h4>
-
-        <div class="form-group">
-        <textarea class="form-control" [(ngModel)]="postedJob.full_description" rows="10" cols="56"></textarea>
         </div>
 
-          <hr>
-          <b>Category</b><br>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" *ngFor="let category of categories">{{category.categoryName}}</a>
-             
-            </div>
-          </div>
-         
-              <hr>
-            <b>Contatct Details</b><br>
+      </td>
 
-              <div class="form-group">
-                  <input class="form-control" [(ngModel)]="postedJob.contacts">
+
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Job Details Modal -->
+  <div id="JobDetails" class="modal fade" role="dialog" *ngFor="let job of postedJobs">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Job Adverts</h4>
+        </div>
+
+
+
+        <div class="modal-body">
+          <div class="col-12">
+
+            <div class="form-group">
+              <input class="form-control" type="hidden" [(ngModel)]="postedJob.job_id">
+            </div>
+
+            <b>Name</b><br>
+
+            <div class="form-group">
+              <input class="form-control" [(ngModel)]="postedJob.name">
+            </div>
+
+            <b>Surname</b><br>
+
+            <div class="form-group">
+              <input class="form-control" [(ngModel)]="postedJob.surname">
+            </div>
+
+            <b>Job Heading</b><br>
+
+            <div class="form-group">
+              <input class="form-control" [(ngModel)]="postedJob.job_heading">
+            </div>
+
+            <h4>Full Description</h4>
+
+            <div class="form-group">
+              <textarea class="form-control" [(ngModel)]="postedJob.full_description" rows="10" cols="56"></textarea>
+            </div>
+
+            <hr>
+            <b>Category</b><br>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown button
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" *ngFor="let category of categories">{{category.categoryName}}</a>
+
               </div>
-            
+            </div>
+
+            <hr>
+            <b>Contact Details</b><br>
+
+            <div class="form-group">
+              <input class="form-control" [(ngModel)]="postedJob.contacts">
+            </div>
+
 
             <b>Location</b><br>
-              <div class="form-group">
-                 <input class="form-control" [(ngModel)]="postedJob.location">
-              </div><hr>
+            <div class="form-group">
+              <input class="form-control" [(ngModel)]="postedJob.location">
+            </div>
+            <hr>
 
             <div class="row col-12">
-            
+
               <div class="col-4">
-                <img src="https://professional-electrician.com/wp-content/uploads/2019/05/NICEIC.jpg" height="200" width="200">
+                <img src="https://professional-electrician.com/wp-content/uploads/2019/05/NICEIC.jpg" height="200"
+                  width="200">
               </div>&nbsp;;
 
-            
-                
-            </div>
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-default" data-dismiss="modal">Update</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
 
+
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default" 
+            (click)="getJobPostedUpdate()" data-dismiss="modal">Update</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
 </main>

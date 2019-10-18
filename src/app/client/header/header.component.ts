@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './../../user.service'
+import { UserService } from './../../user.service';
 
 @Component({
   selector: 'app-header',
@@ -12,11 +12,14 @@ export class HeaderComponent implements OnInit {
   constructor(private _userService : UserService) { }
 
   ngOnInit() {
-    this._userService.currentUsers.subscribe(res => this.users = this.users)
+    this.userInfo();
   }
 
-  newUser(){
-    this._userService.sendUsers(res => this.users)
+  userInfo(){
+    this._userService.$isLoggedIn
+    .subscribe((data) =>{
+      console.log("user data pleasse", data);
+    })
   }
 
 }

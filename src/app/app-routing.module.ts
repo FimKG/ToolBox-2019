@@ -28,7 +28,7 @@ const routes: Routes = [
     children: [ // all childrens components below
       { path: '', component: HomeComponent },
       { path: 'artisan-profile', component: ArtisanProfileComponent },
-      { path: 'posted-jobs', component: PostedJobsComponent, },
+      { path: 'posted-jobs', component: PostedJobsComponent},
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'home', component: HomeComponent },

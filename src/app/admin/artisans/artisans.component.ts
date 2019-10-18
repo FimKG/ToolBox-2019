@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { AdminServiceService } from '../../admin-service.service';
 import { FormGroup } from '@angular/forms';
 
@@ -11,6 +11,7 @@ export class ArtisansComponent implements OnInit {
   artisans: any;
   categories: any;
   artisanFm: FormGroup;
+  artID: '';
 
 
 
@@ -19,7 +20,8 @@ export class ArtisansComponent implements OnInit {
   @Input() artis = {
     name: '',
     surname: '',
-    description: ''
+    description: '',
+    artID:''
   }
 
   //For the data that needs to be send to the table
@@ -91,5 +93,8 @@ export class ArtisansComponent implements OnInit {
     })
   }
 
+  getArtisanStatus(artID) {
+    this.adminservice.getArtisanStatus(artID).subscribe()
+  }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import {AdminServiceService} from '../../admin-service.service';
 
 @Component({
@@ -10,15 +10,19 @@ export class JobsComponent implements OnInit {
 
   categories:any;
   postedJobs: any;
-  postedJob: any;
+  // postedJob: any;
   selectedCategory: any;
+  job_id: '';
 
-  model = {
+  @Input() postedJob = {
 
-    name: "",
-    surname: "",
-    job_heading: "",
-    location: ""
+    name: '',
+    surname: '',
+    job_heading: '',
+    full_description:'',
+    contacts:'',
+    location:'',
+    job_id:''
 
 
   }
@@ -48,11 +52,6 @@ export class JobsComponent implements OnInit {
    
   }
 
-  GetEachJob(job){
-    this.postedJob = job;
-    console.log(job);
-  }
-
   getSelectedCat(category)
   {
     this.selectedCategory = category.catID;
@@ -65,8 +64,22 @@ export class JobsComponent implements OnInit {
   {
     this.adminservice.GetJobsbasedOnCatgory(id).subscribe(data=>{
       this.postedJobs = data.data;
-      console.log(this.postedJobs);
+      // console.log(this.postedJobs);
     })
+  }
+
+  getJobPostedUpdate()
+  {
+   
+    this.adminservice.getJobPostedUpdate(this.postedJob ).subscribe()
+  }
+
+  GetEachJob(job){
+    this.postedJob = job;
+  }
+
+  getJobPostedStatus(job_id) {
+    this.adminservice.getJobPostedStatus(job_id).subscribe()
   }
 
 }

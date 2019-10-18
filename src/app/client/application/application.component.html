@@ -1,4 +1,7 @@
 <main>
+        <br>
+        <br>
+        <br>
     <div class="container">
         <div class="loader" *ngIf="dataLoading"></div>
         <div class="alert alert-danger" role="alert" *ngIf="error">
@@ -72,8 +75,11 @@
                 <button type="submit" class="btn btn-secondary btn-lg btn-block" (click)="userApp()">Send
                     Application</button>
             </form>
+            Existing User ? <a data toggle="modal" data-target=".bd-example-modal-lg" href="/login">Login</a> 
+
             <br>
-            Existing User ? <a data toggle="modal" data-target=".bd-example-modal-lg" href="/login">Login</a>
+            <br>
+            <!-- Existing User ? <a data toggle="modal" data-target=".bd-example-modal-lg" href="/login">Login</a> -->
 
             
         </div>

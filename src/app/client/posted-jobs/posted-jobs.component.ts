@@ -9,19 +9,35 @@ import { UserService } from '../../user.service';
 export class PostedJobsComponent implements OnInit {
 
   categories: any;
+  Posters: any;
 
 
   constructor(private _userService : UserService) { }
 
-  ngOnInit() {
-    this.getCategory();
+  ngOnInit()
+  {
+    this.getAllPostedJob();
+    this.getCat();
+    this.userInfo();
   }
 
-  getCategory() {
+  getAllPostedJob()
+  {
+     return this._userService.GetJobs().subscribe(data=>{
+      this.Posters = data.data,
+       console.log(this.Posters);
+    });
+  }
+
+  getCat()
+  {
     return this._userService.getCategory().subscribe(response =>
-      this.categories = response.data);
+          this.categories = response.data);
   }
-
-  
-
+  userInfo(){
+    this._userService.$isLoggedIn
+    .subscribe((data) =>{
+      console.log("user data pleasse", data);
+    })
+  }
 }
