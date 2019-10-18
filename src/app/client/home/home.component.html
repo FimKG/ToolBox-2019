@@ -55,28 +55,36 @@
     </div>
   </div>
   <div class="text-center">
-      <button type="button" routerLink="/posted-jobs" class="btn btn-outline-success btn-lg" >view all posted jobs</button>
+      <button type="button" routerLink="/posted-jobs" class="btn btn-outline-success btn-lg" >view all jobs</button>
+  
       
     </div>
   <div class="row col-12" style="margin-left: 60px">
     <div *ngFor="let all of Posters; let i=index;" [ngClass]="col-md-2" id="spacing">
         <div *ngIf="i<6">
-      <div class="card;" style="width: 16rem;"  >
+      <div class="card;" style="width: 16rem;">
         <img src="../../../assets/images/user.png" class="card-img-left" alt="...">
         <div class="card-body">
-          <h5 >{{all.name +" "+ all.surname}}</h5>
+          <h5>{{all.name +" "+ all.surname}}
+             <h5>{{all.job_heading }}
+               <h5 style="color: cadetblue;"> Profession: {{all.categoryName}}  
+                  </h5>
+                 </h5>
+                </h5>
+       
+
             <h5 class="card-title" *ngFor="let dec of descriptions; let i=index; ">
               <h5 *ngIf="all.name === dec.surname;" class="card-text" style="color: cadetblue;">{{dec.name}}</h5>
                 <h5 *ngIf="all.surname === dec.service;" class="card-text">{{cat.all}}</h5>    
+
             </h5>
-          <a href="posted-jobs" class="btn btn-secondary">View More</a>
+          <a href="posted-jobs" class="btn btn-success">View More</a>
         </div>
       </div>
     </div>
   </div>
   
   </div> 
-      <!-- </div> -->
   
     <div class="btn-group" class="text-center">
       <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
