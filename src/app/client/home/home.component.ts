@@ -51,14 +51,5 @@ export class HomeComponent implements OnInit {
     });
   }
 
-//  getDescriptions()
-//  {
-//      this.userService.GetJobs().subscribe(data=>{
-//      this.Posters = data.results,
-//      console.log(this.Posters)
-//    })
-//  }
-
-
 }
 

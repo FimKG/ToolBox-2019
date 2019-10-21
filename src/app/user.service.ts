@@ -95,8 +95,5 @@ export class UserService {
   }
  
   
-  // getDescription()
-  // {
 
-  // }
 }
