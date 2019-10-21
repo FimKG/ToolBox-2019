@@ -4,6 +4,7 @@ import { Observable, of, observable, BehaviorSubject } from 'rxjs';
 import { Token } from '@angular/compiler';
 import { Router } from '@angular/router';
 import { LoginComponent } from './client/login/login.component'
+import { Response } from 'selenium-webdriver/http';
 
 
 @Injectable({
@@ -22,8 +23,6 @@ export class UserService {
   $isLoggedIn = new EventEmitter();
   users: LoginComponent; 
 
-
-
   constructor(private httpClient: HttpClient, private _router: Router) { }
 
    setUser(user)
@@ -36,7 +35,8 @@ export class UserService {
   }
 
   userLogin(user) {
-    // this.users.loginUserData = user;
+    // this.users.loginuser
+    // this.users.users = console.log(Response.name)
     this.$isLoggedIn.emit(user);
     return this.httpClient.post<any>(this.url + '_login', user);
   }
@@ -85,7 +85,7 @@ export class UserService {
   }
 
   OnUploadImg(fd){
-    return this.httpClient.post<any>(this.url + 'upload', fd);
+    return this.httpClient.post<any>(this.url + 'upload_pic', fd);
   }
 
   

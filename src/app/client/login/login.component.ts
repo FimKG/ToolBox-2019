@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
           if (res["errorCode"] != 0) {
             this.loginuser = res.user[0];
             // this.userInfor(this.loginuser);
+            this.users = this.loginuser;
             console.log(this.loginuser)
             this.error = false;
             this.errorMessage = "";
@@ -93,6 +94,7 @@ export class LoginComponent implements OnInit {
     console.log(e);
     // console.log(this.userID);
   }
+
  
 
 }

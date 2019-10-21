@@ -18,6 +18,7 @@ export class UserProfileComponent implements OnInit {
     surname: '',
     description: ''
   }
+  userInfor: any;
 
   constructor(private _userService : UserService ) { }
 
@@ -25,6 +26,7 @@ export class UserProfileComponent implements OnInit {
     this.getAllArtisans();
     this.gettingAllCategories();
     this.userInfo();
+    
   }
 
   selectImage(event){
@@ -37,7 +39,7 @@ export class UserProfileComponent implements OnInit {
   }
   onUpload(){
     const fd = new FormData();
-    fd.append('pic', this.images,this.images);
+    fd.append('file', this.images,this.images);
     this._userService.OnUploadImg(this.images)
     .subscribe(
       res => console.log(res),
@@ -61,11 +63,15 @@ export class UserProfileComponent implements OnInit {
       console.log(data.data);
     })
   }
+
   userInfo(){
-    this._userService.$isLoggedIn
+      this._userService.$isLoggedIn
     .subscribe((data) =>{
+      this.userInfor = data;
+      // this.userInfor = data;
       console.log("user data pleasse", data);
     })
+
   }
   
 

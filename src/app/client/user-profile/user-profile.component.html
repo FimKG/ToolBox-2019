@@ -36,11 +36,11 @@
                     </div>
 
                 </div>
-                {{userInfo.userInfor}}
+          
                 <div class="col-md-6">
                     <div class="profile-head">
                                 <h3 *ngFor="let record of Artisans" >
-                                    {{record.name + " "+ record.surname}}
+                                    <!-- {{record.name + " "+ record.surname}} -->
                                 </h3>
                                 <div style="text-align-last: right">
                                 <input style="display: none;" type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" #update>
@@ -62,6 +62,7 @@
                     </div>
                 </div>
             </div>
+            <!-- *ngFor="let user of categories" -->
             
             <div class="row">
                 <div class="col-md-4">
@@ -69,7 +70,8 @@
 
                 <div class="col-md-8">
                     <div class="tab-content profile-tab" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"
+                        >
                                  
                                     <div class="row">
                                         
@@ -78,7 +80,7 @@
                                         </div>
 
                                         <div class="col-md-6">
-                                            <p>{{users.name}}</p>
+                                            <p>{{user.name}}</p>
                                         </div>
 
                                     </div>
