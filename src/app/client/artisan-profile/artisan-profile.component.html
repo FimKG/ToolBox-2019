@@ -1,8 +1,8 @@
-<div class="text-center">
+<!-- <div class="text-center">
 
   <h2>ARTISAN PROFILES </h2>
 
-</div>
+</div> -->
 
 <br>
 <br>
@@ -16,12 +16,10 @@
 
 <div class="jumbotron jumbotron-fluid" style="height:30px">
     <div class="container" class="text-center" >
-      <h2 class="display-4">POPULAR ARTISANS </h2>
+      <h2 class="display-4"> ARTISANS </h2>
     </div>
   </div>
-  <div class="text-center">
-      <button type="button" routerLink="/artisan-profile" class="btn btn-outline-success btn-lg" >view all artisans</button>
-    </div>
+  
   <div class="row col-12" style="margin-left: 60px">
     <div *ngFor="let record of Artisans; let i=index;" [ngClass]="col-md-2" id="spacing">
         
@@ -39,9 +37,9 @@
     </div>
   </div>
   
-  </div>
-<button class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding: center">POST A
-  JOB</button>
+ 
+<!-- <button class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" style="padding: center">POST A
+  JOB</button> -->
 <!-- <section>
 
 
@@ -49,7 +47,7 @@
 </section> -->
 
 <!--The button for modal -->
-<!-- <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"
+ <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"
 style="margin-left: 500px">Post a job</button>
 
  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -91,13 +89,13 @@ style="margin-left: 500px">Post a job</button>
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
 
 <!--NEW MODAL-->
 <!--The button for modal -->
 
-
+<!-- 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -107,12 +105,12 @@ style="margin-left: 500px">Post a job</button>
         <h5 class="modal-title" id="exampleModalLabel">POST A NEW JOB </h5>
       </div>
       <div class="modal-body">
-        <!-- [FormGroup]="artisanFm" -->
-        <form>
+       [FormGroup]="artisanFm" -->
+        <!-- <form> -->
 
           <!-- [(ngModel)]="registerUserData.name" #form="ngForm"-->
 
-          <div class="form-group"><b>NAME</b><br>
+        <!---- <div class="form-group"><b>NAME</b><br>
             <input [(ngModel)]="sendData.name" class="form-control" type="text" name="name">
           </div>
           <br>
@@ -123,11 +121,11 @@ style="margin-left: 500px">Post a job</button>
           </div>
 
           <div class="form-group"><b>LOCATION</b><br>
-            <input [(ngModel)]="sendData.email" class="form-control" type="email" name="email">
+            <input [(ngModel)]="registerUserData.email" class="form-control" type="email" name="email">
           </div>
 
           <div class="form-group"><b>SERVICE REQUIRED</b><br>
-            <input [(ngModel)]="sendData.contacts" class="form-control" type="text" name="contacts">
+            <input [(ngModel)]="registerUserData.contacts" class="form-control" type="text" name="contacts">
           </div>
 
           <div>
@@ -149,7 +147,7 @@ style="margin-left: 500px">Post a job</button>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <br>
 <br>
 
