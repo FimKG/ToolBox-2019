@@ -6,9 +6,9 @@
   <div class="alert alert-danger" role="alert" *ngIf="error">
     An error occured. Here is the error : {{ errorMessage }}.
   </div>
-  <div class="alert alert-sucess" role="alert" *ngIf="savedChanges else showForm">
-    New Account is created. Click LOGIN
-    <button class="btn btn-lg btn-success btn-block" routerLink="/login" type="button">Login</button>
+  <div class="alert alert-success" role="alert" *ngIf="savedChanges else showForm">
+    New Account is created.<a href="login" class="alert-link">LOGIN</a> 
+    <!-- <button class="btn btn-lg btn-success btn-block" routerLink="/login" type="button">Login</button> -->
   </div>
   <div class="box">
     <form #form="ngForm">
@@ -20,9 +20,12 @@
       <div>
         <div class="row">
           <div class="col">
-            <label for="name">First Name</label>
+            <label for="Fname">First Name</label>
             <input [(ngModel)]="registerUserData.name" name="name" type="text" class="form-control"
-              placeholder="First name">
+              placeholder="First name" #Fname="ngModel" autofocus required name ngModel>
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="Fname.invalid && (Fname.dirty || Fname.touched)">
+            Please enter a valid first name.
           </div>
 
           <div class="col">
@@ -30,47 +33,78 @@
             <input [(ngModel)]="registerUserData.surname" type="text" name="surname" id="surname" class="form-control"
               placeholder="Last name" #surname="ngModel" autofocus required surname ngModel>
           </div>
+          <div class="alert alert-danger" role="alert" *ngIf="surname.invalid && (surname.dirty || surname.touched)">
+            Please enter a valid last name.
+          </div>
 
         </div>
         <br>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputEmail">Email</label>
+            <label for="email">Email</label>
             <input [(ngModel)]="registerUserData.email" name="email" type="email" class="form-control"
-              placeholder="Email">
+              placeholder="Email" #email="ngModel"
+              autofocus required email ngModel>
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="email.invalid && (email.dirty || email.touched)">
+            Please enter a valid email.
           </div>
 
           <div class="form-group col-md-6">
             <label for="contacts">Contact no.</label>
             <input [(ngModel)]="registerUserData.contacts" name="contacts" type="text" class="form-control"
-              placeholder="contacts no..">
+              placeholder="contact no" #contacts="ngModel" autofocus required contacts ngModel>
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="contacts.invalid && (contacts.dirty || contacts.touched)">
+            Please enter a valid contact no.
           </div>
 
         </div>
         <div class="form-label-group">
-          <label for="inputAddress">Address</label>
+          <label for="address">Address</label>
           <input [(ngModel)]="registerUserData.address" name="address" type="text" class="form-control"
-            placeholder="1234 Main St">
+            placeholder="1234 Main St" #address="ngModel" autofocus required address ngModel>
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="address.invalid && (address.dirty || address.touched)">
+          Please enter a valid address.
         </div>
 
 
         <div class="form-group">
-          <label for="inputAddress2">Address 2</label>
+          <label for="address2">Address 2</label>
           <input [(ngModel)]="registerUserData.address2" name="address2" type="text" class="form-control"
-            placeholder="Apartment, studio, or floor">
+            placeholder="Apartment, suburb or city" #address2="ngModel" autofocus required address2 ngModel>
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="address2.invalid && (address2.dirty || address2.touched)">
+          Please enter a valid second address.
         </div>
 
         <div class="form-group">
-          <label for="inputPassword">Password</label>
+          <label for="Password">Password</label>
           <input [(ngModel)]="registerUserData.password" name="Password" type="password" class="form-control"
-            placeholder="Password">
+            placeholder="Password" #Password="ngModel"
+            required minlength="8" maxlength="20" ngModel>
         </div>
+        <div class="alert alert-danger" role="alert" *ngIf="Password.invalid && (Password.dirty || Password.touched)">
+          Please enter a valid password between 8 to 20 chars.
+        </div>
+        <div class="form-group">
+          <label for="ConfirmPassword">Confirm Password</label>
+          <input  name="ConfirmPassword" appConfirmPassword="Password" type="password" class="form-control"
+            placeholder="re-type password" #ConfirmPassword="ngModel" autofocus required ConfirmPassword ngModel>
+        </div>
+         <!-- <div class="alert alert-danger" role="alert" *ngIf="ConfirmPassword.invalid && (ConfirmPassword.dirty || ConfirmPassword.touched)">
+         Confirm Password is required.
+        </div>  -->
+        <div class="alert alert-danger" role="alert" *ngIf="ConfirmPassword.invalid && (ConfirmPassword.error?.notEqual || ConfirmPassword.touched)">
+          Password and Confirm Password does not match.
+         </div>
         <br>
         <button type="submit" class="btn btn-secondary btn-lg btn-block" (click)="registerUser()">Register</button>
 
-
+        <br>
       </div>
-      Existing User ? <a data toggle="modal" data-target=".bd-example-modal-lg" href="/login">Login</a> <br><br>
+      Existing User ? <a data toggle="modal" data-target=".bd-example-modal-lg" href="/login">Login</a>
 
     </form>
   </div>

@@ -11,7 +11,8 @@ export class PostedJobsComponent implements OnInit {
   categories: any;
   Posters: any;
 
-  constructor(private catag : UserService) { }
+
+  constructor(private _userService : UserService) { }
 
   ngOnInit()
   {
@@ -22,7 +23,7 @@ export class PostedJobsComponent implements OnInit {
 
   getAllPostedJob()
   {
-     return this.catag.GetJobs().subscribe(data=>{
+     return this._userService.GetJobs().subscribe(data=>{
       this.Posters = data.data,
        console.log(this.Posters);
     });
@@ -30,11 +31,11 @@ export class PostedJobsComponent implements OnInit {
 
   getCat()
   {
-    return this.catag.getCategory().subscribe(response =>
+    return this._userService.getCategory().subscribe(response =>
           this.categories = response.data);
   }
   userInfo(){
-    this.catag.$isLoggedIn
+    this._userService.$isLoggedIn
     .subscribe((data) =>{
       console.log("user data pleasse", data);
     })
