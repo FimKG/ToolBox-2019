@@ -12,7 +12,7 @@ import { Response } from 'selenium-webdriver/http';
 })
 export class UserService {
 
-  url = 'http://168.172.186.39:5000/'; 
+  url = 'http://168.172.188.153:5000/'; 
   // url = 'http://localhost:5000/';
   //  registerUrl = 'http://168.172.188.153:5000/artisan';
   // adminUrl = 'http://168.172.186.39:5000/artisan';
@@ -22,6 +22,7 @@ export class UserService {
 
   $isLoggedIn = new EventEmitter();
   users: LoginComponent; 
+  // private loggedInStatus = JSON.parse(localStorage.getItem('loggedIn')|| 'false')
 
   constructor(private httpClient: HttpClient, private _router: Router) { }
 
@@ -40,9 +41,6 @@ export class UserService {
     this.$isLoggedIn.emit(user);
     return this.httpClient.post<any>(this.url + '_login', user);
   }
-
-
-
 
   getCategory() {
     return this.httpClient.get<any>(this.url + '_category');
@@ -88,11 +86,18 @@ export class UserService {
     return this.httpClient.post<any>(this.url + 'upload_pic', fd);
   }
 
-  
-  
   GetJobs(){
     return this.httpClient.get<any>(this.url + 'all_jobs');
   }
+
+  // setLoggedIn(value : boolean){
+  //   this.loggedInStatus = true;
+  //   localStorage.setItem('loggedIn', 'true')
+  // }
+
+  // get isLoggedIn(){
+  //   return JSON.parse(localStorage.getItem('loggedIn')|| this.loggedInStatus.toString())
+  // }
  
   
 

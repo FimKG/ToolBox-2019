@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Directive } from '@angular/core';
 import { UserService } from '../../user.service';
 import { Router } from '@angular/router';
+import { Validator, NG_VALIDATORS, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -58,6 +59,23 @@ export class RegisterComponent implements OnInit {
   }
   
 
+}
 
-
+@Directive({
+   selector: '[appConfirmPassword]',
+   providers: [{
+     provide: NG_VALIDATORS,
+     useExisting : ConfirmPassword,
+     multi: true
+   }]
+})
+export class ConfirmPassword implements Validator {
+  @Input() appConfirmPassword: string;
+   validate(control: AbstractControl): {[key: string]: any} | null {
+     const controlToCompare = control.parent.get(this.appConfirmPassword);
+     if (controlToCompare && controlToCompare.value !== control.value) { 
+       return { 'notEqual': true };
+     }
+     return null;
+   }
 }
