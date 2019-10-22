@@ -37,6 +37,7 @@ export class UserService {
   }
 
   userLogin(user) {
+    
     // this.users.loginuser
     // this.users.users = console.log(Response.name)
     this.$isLoggedIn.emit(user);
