@@ -108,8 +108,8 @@ export class AdminServiceService {
       
     }
 
-    newClient(jobpp){
-      return this.http.post<any>('http://168.172.186.39:5000/client', jobpp, {});
+    newClient(user){
+      return this.http.post<any>('http://168.172.186.39:5000/client', user);
     }
   
 
