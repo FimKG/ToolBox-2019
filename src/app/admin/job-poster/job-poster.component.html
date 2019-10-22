@@ -22,8 +22,8 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Firstname</th>
-        <th scope="col">Lastname</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
         <th scope="col">Email</th>
         <th scope="col">Status</th>
         <th scope="col">Action</th>
@@ -31,7 +31,7 @@
     </thead>
     <tbody>
 
-      <tr *ngFor="let jobposter of jobposterArray">
+      <tr *ngFor="let jobposter of jobposterArray | paginate: { itemsPerPage: 10, currentPage: p }">
         <input type="hidden" placeholder="{{jobposter.clientID}}">
         <td>{{jobposter.name}}</td>
         <td>{{jobposter.surname}}</td>
@@ -57,6 +57,10 @@
 
     </tbody>
   </table>
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
   <!-- Modal -->
   <div id="myModal" class="modal fade" role="dialog" *ngFor="let job of jobposterArray">
     <div class="modal-dialog">

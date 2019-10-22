@@ -27,6 +27,7 @@ import { DeclinedComponent } from './admin/declined/declined.component';
 import { ApplicationComponent } from './client/application/application.component';
 import { TokenInterceptorService }  from './token-interceptor.service';
 import { UserProfileComponent } from './client/user-profile/user-profile.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -58,9 +59,9 @@ import { UserProfileComponent } from './client/user-profile/user-profile.compone
     AppRoutingModule,
     HttpClientModule,
      FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
     
-
 
   ],
   providers: [AuthGuard,
