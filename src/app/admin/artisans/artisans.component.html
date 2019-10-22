@@ -29,15 +29,15 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">Firstname</th>
-            <th scope="col">Lastname</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
             <th scope="col">Category</th>
             <th scope="col">Status</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let artisan of artisans">
+          <tr *ngFor="let artisan of artisans | paginate: { itemsPerPage: 10, currentPage: p }">
               <input type="hidden" placeholder="{{artisan.artID}}">
             <td>{{artisan.name}}</td>
             <td>{{artisan.surname}}</td>
@@ -73,7 +73,11 @@
          
         </tbody>
       </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      
+
 </main>
+
 
 <!---Populate information-->
 
@@ -151,7 +155,7 @@
     </div>
   </div>
 
-
+  
 
 
 
@@ -229,3 +233,4 @@
     </div>
   </div>
 </div>
+

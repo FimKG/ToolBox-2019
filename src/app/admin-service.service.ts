@@ -95,7 +95,7 @@ export class AdminServiceService {
   }
 
   public getArtisanData(user) {
-    // console.log(user)  correct API address
+    // console.log(user) Aletta Incorrect API address
     return this.http.post<any>('http://168.172.188.153:5000/art/register', user, {});
   }
 
@@ -108,8 +108,8 @@ export class AdminServiceService {
       
     }
 
-    newClient(jobpp){
-      return this.http.post<any>('http://168.172.188.153:5000/client', jobpp, {});
+    newClient(user){
+      return this.http.post<any>('http://168.172.186.39:5000/client', user);
     }
   
 

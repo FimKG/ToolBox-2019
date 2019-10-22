@@ -12,23 +12,29 @@ export class JobPosterComponent implements OnInit {
   categories: any;
   clientID: '';
 
-  @Input() jobpp = {
-    name: '',
-    surname: '',
-    email: '',
-    password: '',
-    contacts: '',
-    address: '',
-    address2: '',
-    clientID: ''
-  }
-
-  newClient() {
-    this.adminservice.newClient(this.jobpp)
-      .subscribe()
-
+  // @Input() 
+  
+  jobpp = {
+    // name: '',
+    // surname: '',
+    // email: '',
+    // password: '',
+    // contacts: '',
+    // address: '',
+    // address2: '',
+    // clientID: ''
   }
   constructor(private adminservice: AdminServiceService) { }
+  
+  newClient() {
+    this.adminservice.newClient(this.jobpp)
+      .subscribe(
+        res => console.log(),
+        err => console.log()
+      )
+
+  }
+  
 
   ngOnInit() {
     this.getClients();
