@@ -50,7 +50,7 @@ export class ArtisanProfileComponent implements OnInit {
     })
   }
 
- GetEachArtisan(art) {
+    GetEachArtisan(art) {
     this.artis = art;
     console.log(art);
    }
