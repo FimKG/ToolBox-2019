@@ -18,21 +18,38 @@ export class LoginComponent implements OnInit {
   errorMessage: String = "";
   dataLoading: boolean = false;
   private querySubscription;
+  loginuser: any;
+  users: any
+
+  checkArray=" this.loginuser";
+
+  // @Output() loginuser = { name:'', surname: '',email:'',address:'', address2:'',catID:'',password:'' }
+  // loginuser: any;
+  
  
 
   constructor(private userService: UserService, private _router: Router) { }
 
   ngOnInit() {
   }
-
+  
   loginUser() {
     this.dataLoading = false;
-    // this.users = this.loginUserData;
+    // return this.userService.userLogin(this.loginUserData)
+    //   .subscribe(
+    //     res => {
+    //       if (res["errorCode"] != 0 && this.userID == 1) {
+            
+    //         console.log(this.loginuser)
+    //  this.users = this.loginUserData;
     this.userService.userLogin(this.loginUserData) 
       .subscribe(
         res => {
           if (res["errorCode"] != 0) {
-            console.log(res)
+            this.loginuser = res.user[0];
+            // this.userInfor(this.loginuser);
+            this.users = this.loginuser;
+            console.log(this.loginuser)
             this.error = false;
             this.errorMessage = "";
             this.dataLoading = true;
@@ -78,21 +95,7 @@ export class LoginComponent implements OnInit {
     // console.log(this.userID);
   }
 
-    // if (this.userID == 1) {
-    //   console.log(this.userID);
-    //   this._router.navigate(['/posted-jobs']);
-    // } else {
-    //   this._router.navigate(['/artisan-profile']);
-    // }
-
-  // }
-  // loginPage(){
-  //   if (this.userID == 1) {
-  //     this._router.navigate(['/posted-jobs']);
-  //   } else {
-  //     this._router.navigate(['/artisan-profile']);
-  //   }
-  // }
+ 
 
 }
 

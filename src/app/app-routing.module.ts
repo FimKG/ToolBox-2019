@@ -40,7 +40,7 @@ const routes: Routes = [
     
     ]
   },
-
+  // ,canActivate: [AuthGuard] 
   //Admin Components
 
   { path: 'admin-header', component: AdminHeaderComponent },

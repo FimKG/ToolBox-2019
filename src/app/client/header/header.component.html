@@ -27,7 +27,7 @@
         <a class="nav-link" *ngIf="!_userService.loggedIn()" routerLinkActive='active' routerLink="/register">Sign up</a>
       </li>
       <li>
-        <a class="nav-link" style="cursor: pointer;" *ngIf="_userService.loggedIn()" routerLinkActive='active' (click)="_userService.artProfile()">Profile</a>
+        <a class="nav-link" style="cursor: pointer;" *ngIf="_userService.loggedIn()" routerLinkActive='active' (click)="_userService.artProfile()" (click)="newUser()">Profile</a>
       </li>
       <li>
         <a class="nav-link" style="cursor: pointer;" *ngIf="_userService.loggedIn()" (click)="_userService.logoutUser()">Logout</a>
