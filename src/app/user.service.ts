@@ -37,11 +37,11 @@ export class UserService {
   }
 
   userLogin(user) {
-    
+
     // this.users.loginuser
     // this.users.users = console.log(Response.name)
     this.$isLoggedIn.emit(user);
-    return this.httpClient.post<any>(this.url + '_login', user);
+    return this.httpClient.post<any>(this.url + '_login', user); 
   }
 
   getCategory() {
