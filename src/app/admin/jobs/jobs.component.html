@@ -37,7 +37,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let job of postedJobs">
+      <tr *ngFor="let job of postedJobs | paginate: { itemsPerPage: 10, currentPage: p }">
           <input type="hidden" placeholder="{{job.job_id}}">
         <td>{{job.name}}</td>
         <td>{{job.surname}}</td>
@@ -81,16 +81,7 @@
     </tbody>
   </table>
 
-
-
-
-
-
-
-
-
-
-
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 
 
