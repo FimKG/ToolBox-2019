@@ -96,7 +96,7 @@ export class AdminServiceService {
 
   public getArtisanData(user) {
     // console.log(user) Aletta Incorrect API address
-    return this.http.post<any>('http://168.172.188.153:5000/artisan', user, {});
+    return this.http.post<any>('http://168.172.188.153:5000/artisan', user);
   }
 
   getUpdated(jobpp) {

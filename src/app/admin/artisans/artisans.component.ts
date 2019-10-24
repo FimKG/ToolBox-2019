@@ -25,7 +25,7 @@ export class ArtisansComponent implements OnInit {
   }
 
   //For the data that needs to be send to the table
-  @Input() sendData = { name: '', surname: '', email: '', contacts: '', address: '', address2: '', password: '', catID: '' }
+  @Input() sendData = { firstName: '', surname: '', email: '', contacts: '', address: '', address2: '', password: '', catID: '' }
 
   constructor(private adminservice: AdminServiceService) { }
 
@@ -43,9 +43,10 @@ export class ArtisansComponent implements OnInit {
 
   getData() {
 
-    this.adminservice.getArtisanData(this.sendData).subscribe( () =>{
-      //  console.log(this.sendData)
-      }
+     return this.adminservice.getArtisanData(this.sendData).subscribe( (res) =>{
+       console.log(res)
+      },
+      (err) =>{ console.log(err)}
     )
   }
 
