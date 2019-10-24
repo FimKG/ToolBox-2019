@@ -40,6 +40,9 @@
         <img src="../../../assets/images/user.png" class="card-img-left" alt="...">
         <div class="card-body">
           <h5 >{{all.name +" "+ all.surname}}</h5>
+          <h5>{{all.job_heading }}</h5>
+          <h5 style="color: cadetblue;">Location : {{all.location}}</h5>
+              <h5 style="color: cadetblue;"> Profession: {{all.categoryName}}</h5>  
             <h5 class="card-title" *ngFor="let dec of descriptions; let i=index; ">
               <h5 *ngIf="all.name === dec.surname;" class="card-text" style="color: cadetblue;">{{dec.name}}</h5>
                 <h5 *ngIf="all.surname === dec.service;" class="card-text">{{cat.all}}</h5>    

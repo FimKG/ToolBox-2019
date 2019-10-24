@@ -3,13 +3,18 @@
         <br>
         <br>
     <div class="container">
-        <div class="loader" *ngIf="dataLoading"></div>
+        <!-- <div class="loader" *ngIf="dataLoading"></div> -->
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status" *ngIf="dataLoading">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
         <div class="alert alert-danger" role="alert" *ngIf="error">
             An error occured. Here is the error : {{ errorMessage }}.
         </div>
-        <div class="alert alert-sucess" role="alert" *ngIf="savedChanges else showForm">
-            New Account is created. Your application is under process.Click LOGIN
-            <button class="btn btn-lg btn-success btn-block" routerLink="/login" type="button">Login</button>
+        <div class="alert alert-success" role="alert" *ngIf="savedChanges else showForm">
+            New Account is created. Your application is under process.<a href="login" class="alert-link"> LOGIN</a>
+            <!-- <button class="btn btn-lg btn-success btn-block" routerLink="/login" type="button">Login</button> -->
         </div>
         <div class="box">
             <form>
@@ -19,14 +24,20 @@
                     <div class="col">
                         <label for="name">First Name</label>
                         <input [(ngModel)]="artisanApplication.name" name="name" type="text" id="name"
-                            class="form-control" placeholder="First name">
+                            class="form-control" placeholder="First name" #Fname="ngModel" autofocus required name ngModel>
                     </div>
+                    <div class="alert alert-danger" role="alert" *ngIf="Fname.invalid && (Fname.dirty || Fname.touched)">
+                        Please enter a valid first name.
+                      </div>
 
                     <div class="col">
                         <label for="surname">Last Name</label>
                         <input [(ngModel)]="artisanApplication.surname" name="surname" type="text" class="form-control"
-                            placeholder="Last name">
+                            placeholder="Last name" #surname="ngModel" autofocus required surname ngModel>
                     </div>
+                    <div class="alert alert-danger" role="alert" *ngIf="surname.invalid && (surname.dirty || surname.touched)">
+                        Please enter a valid last name.
+                      </div>
 
                 </div>
                 <br>
@@ -34,43 +45,74 @@
                     <div class="form-group col-md-6">
                         <label for="inputEmail">Email</label>
                         <input [(ngModel)]="artisanApplication.email" name="email" type="email" class="form-control"
-                            placeholder="Email">
+                            placeholder="Email" #email="ngModel"
+                            autofocus required email ngModel>
                     </div>
+                    <div class="alert alert-danger" role="alert" *ngIf="email.invalid && (email.dirty || email.touched)">
+                        Please enter a valid email.
+                      </div>
 
 
                     <div class="form-group col-md-6">
                         <label for="contacts">Contact no.</label>
                         <input [(ngModel)]="artisanApplication.contacts" name="contacts" type="text" name="contacts"
-                            class="form-control" placeholder="contacts no..">
+                            class="form-control" placeholder="contacts no" #contacts="ngModel" autofocus required contacts ngModel>
                     </div>
+                    <div class="alert alert-danger" role="alert" *ngIf="contacts.invalid && (contacts.dirty || contacts.touched)">
+                        Please enter a valid contact no.
+                      </div>
 
                 </div>
                 <div class="form-label-group">
                     <label for="inputAddress">Address</label>
                     <input [(ngModel)]="artisanApplication.address" name="address" type="text" class="form-control"
-                        placeholder="1234 Main St">
+                        placeholder="1234 Main St" #address="ngModel" autofocus required address ngModel>
                 </div>
+                <div class="alert alert-danger" role="alert" *ngIf="address.invalid && (address.dirty || address.touched)">
+                    Please enter a valid address.
+                  </div>
 
 
                 <div class="form-group">
                     <label for="inputAddress2">Address 2</label>
                     <input [(ngModel)]="artisanApplication.address2" name="address2" type="text" class="form-control"
-                        name="address2" placeholder="Apartment, studio, or floor">
+                        name="address2" placeholder="Apartment, suburb or city" #address2="ngModel" autofocus required address2 ngModel>
                 </div>
+                <div class="alert alert-danger" role="alert" *ngIf="address2.invalid && (address2.dirty || address2.touched)">
+                    Please enter a valid second address.
+                  </div>
 
                 <div class="form-group ">
-                    <Label for="Profession">Profession</Label>
+                    <Label for="catID">Profession</Label>
                     <!-- (change)="getCatId(cat.catID)" -->
-                    <select [(ngModel)]="artisanApplication.catID" required name="catID" class="form-control">
+                    <select [(ngModel)]="artisanApplication.catID" required name="catID" class="form-control" #catID="ngModel" autofocus required catID ngModel>
                         <option value="">-Select JobType-</option>
                         <option *ngFor="let cat of categories" [value]="cat.catID">{{cat.categoryName}}</option>
                     </select>
                 </div>
+                <div class="alert alert-danger" role="alert" *ngIf="catID.invalid && (catID.dirty || catID.touched)">
+                    Please select a Profession.
+                  </div>
                 <div class="form-group">
                     <label for="inputPassword">Password</label>
                     <input [(ngModel)]="artisanApplication.password" name="Password" type="password"
-                        class="form-control" placeholder="Password">
+                        class="form-control" placeholder="Password" #Password="ngModel"
+                        required minlength="8" maxlength="20" ngModel>
                 </div>
+                <div class="alert alert-danger" role="alert" *ngIf="Password.invalid && (Password.dirty || Password.touched)">
+                    Please enter a valid password between 8 to 20 chars.
+                  </div>
+                  <div class="form-group">
+                    <label for="ConfirmPassword">Confirm Password</label>
+                    <input  name="ConfirmPassword" appConfirmPassword="Password" type="password" class="form-control"
+                      placeholder="re-type password" #ConfirmPassword="ngModel" autofocus required ConfirmPassword ngModel>
+                  </div>
+                   <!-- <div class="alert alert-danger" role="alert" *ngIf="ConfirmPassword.invalid && (ConfirmPassword.dirty || ConfirmPassword.touched)">
+                   Confirm Password is required.
+                  </div>  -->
+                  <div class="alert alert-danger" role="alert" *ngIf="ConfirmPassword.invalid && (ConfirmPassword.error?.notEqual || ConfirmPassword.touched)">
+                    Password and Confirm Password does not match.
+                   </div>
 
                 <button type="submit" class="btn btn-secondary btn-lg btn-block" (click)="userApp()">Send
                     Application</button>
@@ -79,6 +121,9 @@
 
             <br>
             <br>
+            <!-- Existing User ? <a data toggle="modal" data-target=".bd-example-modal-lg" href="/login">Login</a> -->
+
+            
         </div>
     </div>
 </main>

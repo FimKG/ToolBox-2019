@@ -27,7 +27,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let application of applications">
+                  <tr *ngFor="let application of applications | paginate: { itemsPerPage: 10, currentPage: p }">
                     <td >{{application.name}}</td>
                     <td>{{application.surname}}</td>
                     <td>
@@ -48,6 +48,8 @@
                   
                 </tbody>
   </table>
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 
 

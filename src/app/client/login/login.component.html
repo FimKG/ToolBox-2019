@@ -1,4 +1,5 @@
-<div id="login">
+
+  
   <div class="container">
     <div id="login-row" class="row justify-content-center align-items-center">
       <div id="login-column" class="col-md-6">
@@ -15,51 +16,48 @@
                 </div>
                 <h3 class="text-center text-secondary">Member Login</h3>
                 <div class="form-label-group">
-                  <label for="username" class="text-secondary">Email:</label><br>
+                  <label for="email" class="text-secondary">Email:</label><br>
                   <input [(ngModel)]="loginUserData.email" type="email" id="email" name="email" class="form-control" placeholder=""
                     #email="ngModel" autofocus required email ngModel>
-
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="email.invalid && (email.dirty || email.touched)">
+                  Please enter a valid email.
                 </div>
                 
 
                 <div class="form-label-group">
                   <label for="password" class="text-secondary">Password:</label><br>
                   <input [(ngModel)]="loginUserData.password" type="password" name="password" id="password" class="form-control"
-                    placeholder="" #inputPassword="ngModel" required minlength="3" maxlength="20" ngModel>
+                    placeholder="" #Password="ngModel" required minlength="8" maxlength="20" ngModel>
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="Password.invalid && (Password.dirty || Password.touched)">
+                  Please enter a valid password between 8 to 20 chars.
                 </div>
                 <br>
                 <div class="form-check form-check-inline">
-                    <input [(ngModel)]="loginUserData.userType" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" [value]="1" checked (change)="getUserType(1)">
-                    <label class="form-check-label" for="exampleRadios1">
+                    <input [(ngModel)]="loginUserData.userType" required class="form-check-input" type="radio" name="userType" id="userType" [value]="1" checked (change)="getUserType(1)" #userType="ngModel" autofocus userType ngModel>
+                    <label class="form-check-label" for="userType">
                       Artisan
                     </label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input [(ngModel)]="loginUserData.userType" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" [value]="2" (change)="getUserType(2)">
-                    <label class="form-check-label" for="exampleRadios2">
+                    <input [(ngModel)]="loginUserData.userType" required class="form-check-input" type="radio" name="userType" id="userType" [value]="2" (change)="getUserType(2)" #userType="ngModel" autofocus userType ngModel>
+                    <label class="form-check-label" for="userType">
                       Job poster
                     </label>
                   </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="userType.invalid && (userType.dirty || userType.touched)">
+                    Please select user type
+                  </div>
                   <br>
-                 
 
-                <!-- <div class="form-label-group">
-                  <Label for="userType" class="text-secondary">Login as:</Label>
-                  <select [(ngModel)]="loginUserData.userType" required name="userType" id="userType" class="form-control" (change)="getUserType([value])">
-                    <option value="">-Login as-</option>
-                    <option [value]="0">Job Creator</option>
-                    <option [value]="1">Artisan</option>
-
-                  </select>
-                </div> -->
-                
                 <br />
                 <div>
-                  <button type="submit" class="btn btn-secondary btn-lg btn-block" (click)="loginUser()">login</button>
+                  <button type="submit" class="btn btn-secondary btn-lg btn-block" (click)="loginUser()">Login</button>
                 </div>
-                <!-- <ng-template #showSubmitButton>
+                 <ng-template #showSubmitButton>
                   <button class="btn btn-lg btn-secondary btn-block" type="submit" (click)="loginUser()">Login</button>
-                </ng-template> -->
+                </ng-template> 
                 <div id="register-link" class="text-center">
                   <a routerLink="/application" data toggle="modal" data-target=".bd-example-modal-lg">Not a Loxion-Toolbox
                     member?Apply now.</a><br>
@@ -75,4 +73,3 @@
       </div>
     </div>
   </div>
-</div>

@@ -82,4 +82,6 @@ export class JobsComponent implements OnInit {
     this.adminservice.getJobPostedStatus(job_id).subscribe()
   }
 
+  
+
 }

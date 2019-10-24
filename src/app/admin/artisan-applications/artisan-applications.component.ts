@@ -11,6 +11,8 @@ export class ArtisanApplicationsComponent implements OnInit {
   selectedCategory: number;
   applications: any;
   categories: any;
+  approvedArt: any;
+
   constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
@@ -51,4 +53,5 @@ export class ArtisanApplicationsComponent implements OnInit {
     })
   }
 
+ 
 }

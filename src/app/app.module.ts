@@ -1,6 +1,7 @@
 import { BrowserModule }  from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ConfirmPassword } from './client/register/register.component';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ import { DeclinedComponent } from './admin/declined/declined.component';
 import { ApplicationComponent } from './client/application/application.component';
 import { TokenInterceptorService }  from './token-interceptor.service';
 import { UserProfileComponent } from './client/user-profile/user-profile.component';
+// import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -50,6 +52,7 @@ import { UserProfileComponent } from './client/user-profile/user-profile.compone
     DeclinedComponent,
     ApplicationComponent,
     UserProfileComponent,
+    ConfirmPassword
     
     
   ],
@@ -58,9 +61,9 @@ import { UserProfileComponent } from './client/user-profile/user-profile.compone
     AppRoutingModule,
     HttpClientModule,
      FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // NgxPaginationModule
     
-
 
   ],
   providers: [AuthGuard,
