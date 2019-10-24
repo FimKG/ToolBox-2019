@@ -37,10 +37,11 @@ export class UserService {
   }
 
   userLogin(user) {
+
     // this.users.loginuser
     // this.users.users = console.log(Response.name)
     this.$isLoggedIn.emit(user);
-    return this.httpClient.post<any>(this.url + '_login', user);
+    return this.httpClient.post<any>(this.url + '_login', user); 
   }
 
   getCategory() {
@@ -100,6 +101,8 @@ export class UserService {
   //   return JSON.parse(localStorage.getItem('loggedIn')|| this.loggedInStatus.toString())
   // }
  
-  
+  GetJobsbasedOnCatgory(id: number) {
+    return this.httpClient.get<any>(this.url + 'job/catID/' + id);
+  }
 
 }

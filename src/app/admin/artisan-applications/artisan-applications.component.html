@@ -28,7 +28,7 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let application of applications | paginate: { itemsPerPage: 10, currentPage: p }">
-                    <td >{{application.name}}</td>
+                    <td >{{application.firstName}}</td>
                     <td>{{application.surname}}</td>
                     <td>
                       <div *ngFor="let category of categories">

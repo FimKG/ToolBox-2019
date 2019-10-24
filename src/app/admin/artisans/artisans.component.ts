@@ -25,11 +25,9 @@ export class ArtisansComponent implements OnInit {
   }
 
   //For the data that needs to be send to the table
-  @Input() sendData = { name: '', surname: '', email: '', contacts: '', address: '', address2: '', password: '', category: '' }
+  @Input() sendData = { firstName: '', surname: '', email: '', contacts: '', address: '', address2: '', password: '', catID: '' }
 
-  constructor(private adminservice: AdminServiceService
-
-  ) { }
+  constructor(private adminservice: AdminServiceService) { }
 
   ngOnInit() {
     this.getAllArtisans();
@@ -38,16 +36,17 @@ export class ArtisansComponent implements OnInit {
   }
 
   selectCategory(cat) {
-    // console.log(cat)
+    console.log(cat)
 
   }
 
 
   getData() {
 
-    this.adminservice.getArtisanData(this.sendData).subscribe( () =>{
-        // console.log(this.sendData)
-      }
+     return this.adminservice.getArtisanData(this.sendData).subscribe( (res) =>{
+       console.log(res)
+      },
+      (err) =>{ console.log(err)}
     )
   }
 
