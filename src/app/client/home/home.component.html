@@ -38,7 +38,7 @@
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjgMdfloucvzb8STD7HKhov-qoC8sJ0iJ3k1DlvB2G_t8rCB68"
             class="card-img-top" style="width: 150px;height: auto;padding-top: 10px" alt="...">
           <div class="card-body">
-            <h5>{{record.name +" "+ record.surname}}</h5>
+            <h5>{{record.firstName +" "+ record.surname}}</h5>
             <h5 class="card-title" *ngFor="let cat of categories; let i=index; ">
               <h5 *ngIf="record.catID === cat.catID;" class="card-text" style="color: cadetblue;">{{cat.categoryName}}
               </h5>

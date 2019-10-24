@@ -22,11 +22,11 @@
                 <br>
                 <div class="row">
                     <div class="col">
-                        <label for="name">First Name</label>
-                        <input [(ngModel)]="artisanApplication.name" name="name" type="text" id="name"
-                            class="form-control" placeholder="First name" #Fname="ngModel" autofocus required name ngModel>
+                        <label for="firstName">First Name</label>
+                        <input [(ngModel)]="artisanApplication.firstName" name="name" type="text" id="firstName"
+                            class="form-control" placeholder="First name" #firstName="ngModel" autofocus required firstName ngModel>
                     </div>
-                    <div class="alert alert-danger" role="alert" *ngIf="Fname.invalid && (Fname.dirty || Fname.touched)">
+                    <div class="alert alert-danger" role="alert" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
                         Please enter a valid first name.
                       </div>
 
