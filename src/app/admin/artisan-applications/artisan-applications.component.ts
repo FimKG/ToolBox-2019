@@ -13,6 +13,7 @@ export class ArtisanApplicationsComponent implements OnInit {
   categories: any;
   approvedArt: any;
   apps: any;
+  
 
   // @Input() artApplications = {
 
@@ -28,6 +29,7 @@ export class ArtisanApplicationsComponent implements OnInit {
     status:'';
     reason:'';
     artApplications:any;
+    artApplications2:any;
 
   // }
 
@@ -72,12 +74,17 @@ export class ArtisanApplicationsComponent implements OnInit {
     })
   }
 
-  getApprovedApplications(address, address2, artID, catID, password, email, name, surname, contacts, status, reason) {
-    this.adminservice.getApprovedApplications(address, address2, artID, catID, password, email, name, surname, contacts, status, reason).subscribe()
+  // GetApp2(application){
+  //   this.artApplications2 = application;
+  // }
+
+  getApprovedApplications() {
+    this.adminservice.getApprovedApplications(this.artApplications2).subscribe()
   }
 
   GetApp(application){
     this.artApplications = application;
+    this.artApplications2 = application;
   }
 
   getDeclinedApplications() {
