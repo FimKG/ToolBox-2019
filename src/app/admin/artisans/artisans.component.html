@@ -39,7 +39,7 @@
         <tbody>
           <tr *ngFor="let artisan of artisans | paginate: { itemsPerPage: 10, currentPage: p }">
               <input type="hidden" placeholder="{{artisan.artID}}">
-            <td>{{artisan.name}}</td>
+            <td>{{artisan.firstName}}</td>
             <td>{{artisan.surname}}</td>
             <td>
 
@@ -181,7 +181,7 @@
           <!-- [(ngModel)]="registerUserData.name" #form="ngForm"-->
   
           <div class="form-group"><b>First Name</b><br>
-              <input  [(ngModel)]="sendData.name" class="form-control" type="text" name="name">
+              <input  [(ngModel)]="sendData.firstName" class="form-control" type="text" name="name">
           </div>
           <br>
 
