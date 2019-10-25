@@ -74,6 +74,7 @@ export class JobsComponent implements OnInit {
     this.adminservice.getJobPostedUpdate(this.postedJob ).subscribe()
   }
 
+
   GetEachJob(job){
     this.postedJob = job;
   }
@@ -82,6 +83,7 @@ export class JobsComponent implements OnInit {
     this.adminservice.getJobPostedStatus(job_id).subscribe()
   }
 
+  
   
 
 }
