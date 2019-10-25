@@ -132,5 +132,15 @@ export class AdminServiceService {
     return this.http.post<any>('http://168.172.188.153:5000/artisan_status', {artID});
   }
 
+  getApprovedApplications(address, address2, artID, catID, password, email, name, surname, contacts, status, reason)
+  {
+    return this.http.post<any>('http://168.172.188.153:5000/artisan_approved', {address, address2, artID, catID, password, email, name, surname, contacts, status, reason});
+  }
+
+  getDeclinedApplications(artApplications)
+  {
+    return this.http.post<any>('http://168.172.188.153:5000/artisan_declined',artApplications, {});
+  }
+
   
 }
