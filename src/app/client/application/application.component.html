@@ -1,15 +1,20 @@
-<main>
+ <main>
         <br>
         <br>
         <br>
     <div class="container">
-        <div class="loader" *ngIf="dataLoading"></div>
+        <!-- <div class="loader" *ngIf="dataLoading"></div> -->
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status" *ngIf="dataLoading">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
         <div class="alert alert-danger" role="alert" *ngIf="error">
             An error occured. Here is the error : {{ errorMessage }}.
         </div>
-        <div class="alert alert-sucess" role="alert" *ngIf="savedChanges else showForm">
-            New Account is created. Your application is under process.Click LOGIN
-            <button class="btn btn-lg btn-success btn-block" routerLink="/login" type="button">Login</button>
+        <div class="alert alert-success" role="alert" *ngIf="savedChanges else showForm">
+            New Account is created. Your application is under process.<a href="login" class="alert-link"> LOGIN</a>
+            <!-- <button class="btn btn-lg btn-success btn-block" routerLink="/login" type="button">Login</button> -->
         </div>
         <div class="box">
             <form>
@@ -17,11 +22,11 @@
                 <br>
                 <div class="row">
                     <div class="col">
-                        <label for="name">First Name</label>
-                        <input [(ngModel)]="artisanApplication.name" name="name" type="text" id="name"
-                            class="form-control" placeholder="First name" #Fname="ngModel" autofocus required name ngModel>
+                        <label for="firstName">First Name</label>
+                        <input [(ngModel)]="artisanApplication.firstName" name="name" type="text" id="firstName"
+                            class="form-control" placeholder="First name" #firstName="ngModel" autofocus required firstName ngModel>
                     </div>
-                    <div class="alert alert-danger" role="alert" *ngIf="Fname.invalid && (Fname.dirty || Fname.touched)">
+                    <div class="alert alert-danger" role="alert" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
                         Please enter a valid first name.
                       </div>
 

@@ -21,90 +21,188 @@
 </div>
 
 <div class="jumbotron jumbotron-fluid" style="height:30px">
-    <div class="container" class="text-center" >
-      <h2 class="display-4">POPULAR ARTISANS </h2>
-    </div>
+  <div class="container" class="text-center">
+    <h2 class="display-4">POPULAR ARTISANS </h2>
   </div>
-  <div class="text-center">
-      <button type="button" routerLink="/artisan-profile" class="btn btn-outline-success btn-lg" >view all artisans</button>
-    </div>
-  <div class="row col-12" style="margin-left: 60px">
-    <div *ngFor="let record of Artisans; let i=index;" [ngClass]="col-md-2" id="spacing">
-        <div *ngIf="i<6">
-      <div class="card;" style="width: 16rem;"  >
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjgMdfloucvzb8STD7HKhov-qoC8sJ0iJ3k1DlvB2G_t8rCB68" class="card-img-top" alt="..."> 
-        <div class="card-body">
-          <h5 >{{record.name +" "+ record.surname}}</h5>
+</div>
+<div class="text-center">
+  <button type="button" routerLink="/artisan-profile" class="btn btn-outline-success btn-lg">view all artisans</button>
+</div>
+
+<div class="row col-12" style="margin-left: 60px">
+  <div *ngFor="let record of Artisans; let i=index;" [ngClass]="col-md-2" id="spacing">
+    <div *ngIf="i<6">
+      <div class="box">
+        <div class="card;" style="width: 16rem;">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjgMdfloucvzb8STD7HKhov-qoC8sJ0iJ3k1DlvB2G_t8rCB68"
+            class="card-img-top" style="width: 150px;height: auto;padding-top: 10px" alt="...">
+          <div class="card-body">
+            <h5>{{record.firstName +" "+ record.surname}}</h5>
             <h5 class="card-title" *ngFor="let cat of categories; let i=index; ">
-                <h5 *ngIf="record.catID === cat.catID;" class="card-text" style="color: cadetblue;">{{cat.categoryName}}</h5>
-                <h5 *ngIf="record.catID === cat.catID;" class="card-text">{{cat.artisan}}</h5>    
+              <h5 *ngIf="record.catID === cat.catID;" class="card-text" style="color: cadetblue;">{{cat.categoryName}}
+              </h5>
+              <h5 *ngIf="record.catID === cat.catID;" class="card-text">{{cat.artisan}}</h5>
             </h5>
-          <a href="artisan-profile" class="btn btn-secondary">View Artisan</a>
+            <a href="artisan-profile" class="btn btn-secondary">View Artisan</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
-  </div>
-  
 
- <!----Populating job posted -->
-  <div class="jumbotron jumbotron-fluid" style="height:30px">
-    <div class="container" class="text-center" >
-      <h2 class="display-4">POPULAR JOB POSTED </h2>
-    </div>
-  </div>
-  <div class="text-center">
-      <button type="button" routerLink="/posted-jobs" class="btn btn-outline-success btn-lg" >view all jobs</button>
-  
-      
-    </div>
-  <div class="row col-12" style="margin-left: 60px">
-    <div *ngFor="let all of Posters; let i=index;" [ngClass]="col-md-2" id="spacing">
-        <div *ngIf="i<6">
-      <div class="card;" style="width: 16rem;">
-        <img src="../../../assets/images/user.png" class="card-img-left" alt="...">
-        <div class="card-body">
-          <h5>{{all.name +" "+ all.surname}}
-             <h5>{{all.job_heading }}
-               <h5 style="color: cadetblue;"> Profession: {{all.categoryName}}  
-                  </h5>
-                 </h5>
-                </h5>
-       
+</div>
 
-            <h5 class="card-title" *ngFor="let dec of descriptions; let i=index; ">
-              <h5 *ngIf="all.name === dec.surname;" class="card-text" style="color: cadetblue;">{{dec.name}}</h5>
-                <h5 *ngIf="all.surname === dec.service;" class="card-text">{{cat.all}}</h5>    
 
-            </h5>
-          <a href="posted-jobs" class="btn btn-success">View More</a>
-        </div>
-      </div>
-    </div>
+<!----Populating job posted -->
+<!-- <div class="jumbotron jumbotron-fluid" style="height:30px">
+  <div class="container" class="text-center">
+    <h2 class="display-4">POPULAR JOB POSTED </h2>
   </div>
-  
-  </div> 
-  
+</div> -->
+<!-- <div class="text-center">
+  <button type="button" routerLink="/posted-jobs" class="btn btn-outline-success btn-lg">view all jobs</button>
+</div> -->
+
+<div class="card text-center">
+  <div class="card-header">
+    <h3>POPULAR JOB POSTED</h3>
     <div class="btn-group" class="text-center">
       <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          Job Category
+        aria-expanded="false">
+        Job Category
       </button>
       <div class="dropdown-menu">
-          <a class="dropdown-item" routerLink="/posted-jobs" *ngFor="let cat of categories">{{cat.categoryName}}</a>
+        <a class="dropdown-item" routerLink="/posted-jobs" *ngFor="let cat of categories">{{cat.categoryName}}</a>
       </div>
+    </div>
   </div>
-  <br>
- 
+  <!-- <div class="container">
+    <div  style="margin-left: 60px">
+        <div *ngFor="let all of Posters; let i=index;" [ngClass]="col-md-2" id="spacing">
+          <div *ngIf="i<3">
+            <div class="card;" style="width: 16rem;">
+              <img src="../../../assets/images/user.png"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5>{{all.name +" "+ all.surname}}
+                  <p>{{all.job_heading }}</p>
+                    <p style="color: cadetblue;"> Profession: {{all.categoryName}}</p>
+   
+                </h5>
+               
+      
+      
+                <h5 class="card-title" *ngFor="let dec of descriptions; let i=index; ">
+                  <h5 *ngIf="all.name === dec.surname;" class="card-text" style="color: cadetblue;">{{dec.firstName}}</h5>
+                  <h5 *ngIf="all.surname === dec.service;" class="card-text">{{cat.all}}</h5>
+      
+                </h5>
+                <button routerLink="/posted-jobs" type="button" class="btn btn-success">view job</button>
+              </div>
+              
+            </div>
+            <hr>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+       -->
+
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+
+<!-- <div class="row col-12" style="margin-left: 60px">
+  <div *ngFor="let all of Posters; let i=index;" [ngClass]="col-md-2" id="spacing">
+    <div *ngIf="i<6">
+      <div class="card;" style="width: 16rem;">
+        <img src="../../../assets/images/user.png"
+          class="card-img-left" alt="...">
+        <div class="card-body">
+          <h5>{{all.name +" "+ all.surname}}
+            <h5>{{all.job_heading }}
+              <h5 style="color: cadetblue;"> Profession: {{all.categoryName}}
+              </h5>
+            </h5>
+          </h5>
 
 
+          <h5 class="card-title" *ngFor="let dec of descriptions; let i=index; ">
+            <h5 *ngIf="all.name === dec.surname;" class="card-text" style="color: cadetblue;">{{dec.name}}</h5>
+            <h5 *ngIf="all.surname === dec.service;" class="card-text">{{cat.all}}</h5>
 
+          </h5>
+          <button routerLink="/posted-jobs" type="button" class="btn btn-secondary">view job</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+</div> -->
 
+<div class="site-section bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="mb-5 h3">Recent Jobs</h2>
+        <div class="rounded border jobs-wrap" *ngFor="let all of Posters; let i=index;"  id="spacing" >
 
+          <a href="job-single.html" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime" *ngIf="i<3">
+            <div class="company-logo blank-logo text-center text-md-left pl-3">
+              <img src="../../../assets/images/member.png" alt="Image" class="img-fluid mx-auto">
+            </div>
+            <div class="job-details h-100" >
+              <div class="p-3 align-self-center" >
+                <h3>{{all.name +" "+ all.surname}}</h3>
+                <div class="d-block d-lg-flex">
+                  <div class="mr-3"><span class="icon-suitcase mr-1"></span> {{all.job_heading }}</div>
+                  <div class="mr-3"><span class="icon-room mr-1"></span> wanted: {{all.categoryName}}</div>
+                  <div><span class="icon-money mr-1"></span> $55000 &mdash; 70000</div>
+                </div>
+              </div>
+            </div>
+            <div class="job-category align-self-center">
+              <div class="p-3">
+                <!-- <span class="text-info p-2 rounded border border-info">Full Time</span> -->
+              </div>
+            </div> 
+          </a>
 
+        </div>
 
+        <div class="col-md-12 text-center mt-5">
+          <a href="#" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show More
+            Jobs</a>
+        </div>
+      </div>
+      <div class="col-md-4 block-16" data-aos="fade-up" data-aos-delay="200">
+        <div class="d-flex mb-0">
+          <h2 class="mb-5 h3 mb-0">Featured Jobs</h2>
+          <div class="ml-auto mt-1"><a href="#" class="owl-custom-prev">Prev</a> / <a href="#"
+              class="owl-custom-next">Next</a></div>
+        </div>
 
+        <div class="nonloop-block-16 owl-carousel">
 
+          <div class="border rounded p-4 bg-white">
+            <h2 class="h5">Restaurant Crew</h2>
+            <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
+            <p>
+              <span class="d-block"><span class="icon-suitcase"></span> Resto Bar</span>
+              <span class="d-block"><span class="icon-room"></span> Florida</span>
+              <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
+            </p>
+            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi neque fugit tempora, numquam
+              voluptate veritatis odit id, iste eum culpa alias, ut officiis omnis itaque ad, rem sunt doloremque
+              molestias.</p>
+          </div>
 
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

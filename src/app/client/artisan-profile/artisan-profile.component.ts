@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -9,12 +9,21 @@ import { UserService } from 'src/app/user.service';
 export class ArtisanProfileComponent implements OnInit {
   Artisans: any;
   categories: any;
+ 
   constructor(private userService: UserService) { }
 
+
+  @Input() artis = {
+    name: '',
+    surname: '',
+    description: '',
+    artID:''
+  }
   ngOnInit() {
     this.gettingAllArtisans();
     this.gettingAllCategories();
     this.userInfo();
+  
   
   }
 
@@ -41,6 +50,18 @@ export class ArtisanProfileComponent implements OnInit {
     })
   }
 
+    GetEachArtisan(art) {
+    this.artis = art;
+    console.log(art);
+   }
+
+  
+   getArtisansBasedOnCategory(id) {
+     this.userService.GetJobsbasedOnCatgory(id).subscribe(data => {
+       this.Artisans = data.data;
+       console.log(this.Artisans);
+     })
+   }
   }
 
 

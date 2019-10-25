@@ -12,9 +12,9 @@ import { Response } from 'selenium-webdriver/http';
 })
 export class UserService {
 
-  url = 'http://168.172.188.153:5000/'; 
+  // url = 'http://168.172.188.153:5000/'; 
   //  url = 'http://168.172.186.39:5000/'; 
-  // url = 'http://localhost:5000/';
+  url = 'http://localhost:5000/';
   //  registerUrl = 'http://168.172.188.153:5000/artisan';
   // adminUrl = 'http://168.172.186.39:5000/artisan';
   // categoryUrl = 'http://168.172.186.39:5000/_category';
@@ -37,10 +37,11 @@ export class UserService {
   }
 
   userLogin(user) {
+
     // this.users.loginuser
     // this.users.users = console.log(Response.name)
     this.$isLoggedIn.emit(user);
-    return this.httpClient.post<any>(this.url + '_login', user);
+    return this.httpClient.post<any>(this.url + '_login', user); 
   }
 
   getCategory() {
@@ -100,6 +101,8 @@ export class UserService {
   //   return JSON.parse(localStorage.getItem('loggedIn')|| this.loggedInStatus.toString())
   // }
  
-  
+  GetJobsbasedOnCatgory(id: number) {
+    return this.httpClient.get<any>(this.url + 'job/catID/' + id);
+  }
 
 }
