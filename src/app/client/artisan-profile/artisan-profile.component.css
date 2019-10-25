@@ -7,3 +7,10 @@ img{
     height: 5%;
     text-align: left;
   }
+.box{
+    width: 250px;
+    height: 350px;
+    padding: 20px;
+    margin: 100px auto;
+    box-shadow: 0px 0px 10px 2px rgb(66, 148, 66);
+}

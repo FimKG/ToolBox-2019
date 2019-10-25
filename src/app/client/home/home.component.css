@@ -1,3 +1,6 @@
+
+
+
 .button {
     display: inline-block;
     border-radius: 4px;
@@ -99,34 +102,3 @@ img{
   margin: 100px auto;
   box-shadow: 0px 0px 10px 2px rgb(66, 148, 66);
 }
-/* .col{
-  width: 25%;
-  float: left;
-  padding: 0px 10px;
-}
-
-.row::after {
-  
-  content: "";
-  display: table;
-  clear: both;
-}
-
-@media screen and(max-width:600px)
-{
-  .col{
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-.card{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 2);
-  max-width: 300px;
-  margin: auto;
-  background-color: white;
-  text-align: center;
-  border-radius: 40px;
-  padding-bottom: 15px;
-
-} */
