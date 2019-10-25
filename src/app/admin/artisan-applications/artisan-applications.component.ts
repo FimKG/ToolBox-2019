@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import {AdminServiceService} from '../../admin-service.service';
 
 @Component({
@@ -12,6 +12,25 @@ export class ArtisanApplicationsComponent implements OnInit {
   applications: any;
   categories: any;
   approvedArt: any;
+  apps: any;
+
+  // @Input() artApplications = {
+
+    email: '';
+    contacts: '';
+    name:'';
+    surname:'';
+    catID:'';
+    artID:'';
+    address:'';
+    address2:'';
+    password:'';
+    status:'';
+    reason:'';
+    artApplications:any;
+
+  // }
+
 
   constructor(private adminservice: AdminServiceService) { }
 
@@ -53,5 +72,23 @@ export class ArtisanApplicationsComponent implements OnInit {
     })
   }
 
+  getApprovedApplications(address, address2, artID, catID, password, email, name, surname, contacts, status, reason) {
+    this.adminservice.getApprovedApplications(address, address2, artID, catID, password, email, name, surname, contacts, status, reason).subscribe()
+  }
+
+  GetApp(application){
+    this.artApplications = application;
+  }
+
+  getDeclinedApplications() {
+    this.adminservice.getDeclinedApplications(this.artApplications).subscribe()
+  }
+
  
+
+  
+
+
+
+
 }
