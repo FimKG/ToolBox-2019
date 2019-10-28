@@ -15,24 +15,36 @@ export class ArtisanApplicationsComponent implements OnInit {
   apps: any;
   
 
-  // @Input() artApplications = {
+   @Input() artApplications = {
 
-    email: '';
-    contacts: '';
-    name:'';
-    surname:'';
-    catID:'';
-    artID:'';
-    address:'';
-    address2:'';
-    password:'';
-    status:'';
-    reason:'';
-    artApplications:any;
-    artApplications2:any;
+    email: '',
+    contacts: '',
+    name:'',
+    surname:'',
+    catID:'',
+    artID:'',
+    address:'',
+    address2:'',
+    password:'',
+    status:'',
+    reason:''
+  }
 
-  // }
+  
+  @Input() artApplications2 = {
 
+    email: '',
+    contacts: '',
+    name:'',
+    surname:'',
+    catID:'',
+    artID:'',
+    address:'',
+    address2:'',
+    password:'',
+    status:'',
+    reason:''
+  }
 
   constructor(private adminservice: AdminServiceService) { }
 
@@ -74,9 +86,9 @@ export class ArtisanApplicationsComponent implements OnInit {
     })
   }
 
-  // GetApp2(application){
-  //   this.artApplications2 = application;
-  // }
+  GetApp2(application){
+    this.artApplications2 = application;
+  }
 
   getApprovedApplications() {
     this.adminservice.getApprovedApplications(this.artApplications2).subscribe()
@@ -90,12 +102,5 @@ export class ArtisanApplicationsComponent implements OnInit {
   getDeclinedApplications() {
     this.adminservice.getDeclinedApplications(this.artApplications).subscribe()
   }
-
- 
-
-  
-
-
-
 
 }

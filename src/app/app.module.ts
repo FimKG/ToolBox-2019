@@ -1,6 +1,7 @@
-import { BrowserModule }  from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ConfirmPassword } from './client/register/register.component';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,9 +26,10 @@ import { ArtisanApplicationsComponent } from './admin/artisan-applications/artis
 import { ApprovedComponent } from './admin/approved/approved.component';
 import { DeclinedComponent } from './admin/declined/declined.component';
 import { ApplicationComponent } from './client/application/application.component';
-import { TokenInterceptorService }  from './token-interceptor.service';
+import { TokenInterceptorService } from './token-interceptor.service';
 import { UserProfileComponent } from './client/user-profile/user-profile.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
+// import {  } from '../';
 
 
 @NgModule({
@@ -51,25 +53,26 @@ import {NgxPaginationModule} from 'ngx-pagination';
     DeclinedComponent,
     ApplicationComponent,
     UserProfileComponent,
-    
-    
+    ConfirmPassword
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-     FormsModule,
+    FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule
-    
+
 
   ],
   providers: [AuthGuard,
-  {
-    provide : HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
-    multi: true
-  }],
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

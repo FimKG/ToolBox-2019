@@ -55,7 +55,7 @@ export class AdminServiceService {
 
   //get all  clients Applications
   getAllArtisanApplication() {
-    return this.http.get<any>('http://168.172.188.153:5000/artisan');
+    return this.http.get<any>('http://168.172.188.153:5000/allapp');
   }
 
   //Get All artisans
@@ -96,20 +96,21 @@ export class AdminServiceService {
 
   public getArtisanData(user) {
     // console.log(user) Aletta Incorrect API address
-    return this.http.post<any>('http://168.172.188.153:5000/art/register', user, {});
+    return this.http.post<any>('http://168.172.188.153:5000/artisan', user);
   }
 
   getUpdated(jobpp) {
     return this.http.post<any>('http://168.172.188.153:5000/client/update', jobpp, {});
   }
+
   getStatus(clientID)
     {
       return this.http.post<any>('http://168.172.188.153:5000/clientStatus',{clientID});
       
     }
 
-    newClient(jobpp){
-      return this.http.post<any>('http://168.172.188.153:5000/client', jobpp, {});
+    newClient(user){
+      return this.http.post<any>('http://168.172.186.39:5000/client', user);
     }
   
 
@@ -132,11 +133,13 @@ export class AdminServiceService {
     return this.http.post<any>('http://168.172.188.153:5000/artisan_status', {artID});
   }
 
+  //Get approved applications
   getApprovedApplications(artApplications2)
   {
     return this.http.post<any>('http://168.172.188.153:5000/artisan_approved',artApplications2, {});
   }
 
+  //get declined applications
   getDeclinedApplications(artApplications)
   {
     return this.http.post<any>('http://168.172.188.153:5000/artisan_declined',artApplications, {});

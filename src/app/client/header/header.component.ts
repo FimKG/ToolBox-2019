@@ -7,6 +7,7 @@ import { UserService } from './../../user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  users: any;
 
   constructor(private _userService : UserService) { }
 

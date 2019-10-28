@@ -16,8 +16,7 @@ export class HomeComponent implements OnInit {
   Artisans: any;
   categories: any;
   Posters: any;
-  // heading: any;
-  //  description: any
+ 
 
 
   ngOnInit() {
