@@ -55,7 +55,7 @@ export class AdminServiceService {
 
   //get all  clients Applications
   getAllArtisanApplication() {
-    return this.http.get<any>('http://168.172.188.153:5000/artisan');
+    return this.http.get<any>('http://168.172.188.153:5000/allapp');
   }
 
   //Get All artisans
@@ -102,6 +102,7 @@ export class AdminServiceService {
   getUpdated(jobpp) {
     return this.http.post<any>('http://168.172.188.153:5000/client/update', jobpp, {});
   }
+
   getStatus(clientID)
     {
       return this.http.post<any>('http://168.172.188.153:5000/clientStatus',{clientID});
@@ -132,11 +133,13 @@ export class AdminServiceService {
     return this.http.post<any>('http://168.172.188.153:5000/artisan_status', {artID});
   }
 
-  getApprovedApplications(address, address2, artID, catID, password, email, name, surname, contacts, status, reason)
+  //Get approved applications
+  getApprovedApplications(artApplications2)
   {
-    return this.http.post<any>('http://168.172.188.153:5000/artisan_approved', {address, address2, artID, catID, password, email, name, surname, contacts, status, reason});
+    return this.http.post<any>('http://168.172.188.153:5000/artisan_approved',artApplications2, {});
   }
 
+  //get declined applications
   getDeclinedApplications(artApplications)
   {
     return this.http.post<any>('http://168.172.188.153:5000/artisan_declined',artApplications, {});

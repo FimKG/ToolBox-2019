@@ -13,24 +13,38 @@ export class ArtisanApplicationsComponent implements OnInit {
   categories: any;
   approvedArt: any;
   apps: any;
+  
 
-  // @Input() artApplications = {
+   @Input() artApplications = {
 
-    email: '';
-    contacts: '';
-    name:'';
-    surname:'';
-    catID:'';
-    artID:'';
-    address:'';
-    address2:'';
-    password:'';
-    status:'';
-    reason:'';
-    artApplications:any;
+    email: '',
+    contacts: '',
+    name:'',
+    surname:'',
+    catID:'',
+    artID:'',
+    address:'',
+    address2:'',
+    password:'',
+    status:'',
+    reason:''
+  }
 
-  // }
+  
+  @Input() artApplications2 = {
 
+    email: '',
+    contacts: '',
+    name:'',
+    surname:'',
+    catID:'',
+    artID:'',
+    address:'',
+    address2:'',
+    password:'',
+    status:'',
+    reason:''
+  }
 
   constructor(private adminservice: AdminServiceService) { }
 
@@ -72,23 +86,21 @@ export class ArtisanApplicationsComponent implements OnInit {
     })
   }
 
-  getApprovedApplications(address, address2, artID, catID, password, email, name, surname, contacts, status, reason) {
-    this.adminservice.getApprovedApplications(address, address2, artID, catID, password, email, name, surname, contacts, status, reason).subscribe()
+  GetApp2(application){
+    this.artApplications2 = application;
+  }
+
+  getApprovedApplications() {
+    this.adminservice.getApprovedApplications(this.artApplications2).subscribe()
   }
 
   GetApp(application){
     this.artApplications = application;
+    this.artApplications2 = application;
   }
 
   getDeclinedApplications() {
     this.adminservice.getDeclinedApplications(this.artApplications).subscribe()
   }
-
- 
-
-  
-
-
-
 
 }
