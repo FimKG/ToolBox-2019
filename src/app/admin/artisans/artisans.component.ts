@@ -51,7 +51,7 @@ export class ArtisansComponent implements OnInit {
   }
 
   getAllArtisans() {
-    this.adminservice.getAllArtisanApplication().subscribe(data => {
+    this.adminservice. GetAllArtisans().subscribe(data => {
       this.artisans = data.data;
       console.log(data.data);
     })
