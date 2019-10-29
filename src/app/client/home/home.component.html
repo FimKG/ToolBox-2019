@@ -40,22 +40,21 @@
 </div>
 <!-- <p class="hover">Popular Artisans</p> -->
 
-
+<div class="margin" style="margin: 2% 0;"></div>
 <div class="row col-12" style="margin-left: 60px">
-  <div *ngFor="let record of Artisans; let i=index;" [ngClass]="col-md-2" id="spacing">
+  <div *ngFor="let approved of approveArtisans; let i=index;" [ngClass]="col-md-2" id="spacing">
     <div *ngIf="i<5">
-        
       <div class="box">
         <div class="card;" style="width: 16rem;">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjgMdfloucvzb8STD7HKhov-qoC8sJ0iJ3k1DlvB2G_t8rCB68"
             class="card-img-top" style="width: 70px;height: auto;padding-top: 10px" alt="...">
           <div class="card-body">
-            <h5>{{record.firstName +" "+ record.surname}}</h5>
+            <h5>{{approved.firstName +" "+ approved.surname}}</h5>
             <h5 class="card-title" *ngFor="let cat of categories; let i=index; ">
-              <h5 *ngIf="record.catID === cat.catID;" class="card-text" style="color: cadetblue;">{{cat.categoryName}}
+              <h5 *ngIf="approved.catID === cat.catID;" class="card-text" style="color: cadetblue;">{{cat.categoryName}}
               </h5>
-              <h5 *ngIf="record.catID === cat.catID;" class="card-text">{{cat.artisan}}</h5>
+              <h5 *ngIf="approved.catID === cat.catID;" class="card-text">{{cat.artisan}}</h5>
             </h5>
             <a href="artisan-profile" class="btn btn-secondary">View Artisan</a>
           </div>
