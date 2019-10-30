@@ -20,21 +20,21 @@
     <div class="btn-group" class="text-center">
 
 <div class="row col-12" style="margin-left: 60px">
-  <div *ngFor="let record of Artisans; let i=index;" [ngClass]="col-md-2" id="spacing">
+  <div *ngFor="let approved of approveArtisans; let i=index;" [ngClass]="col-md-2" id="spacing">
     <div class="box">
       <div class="card;" style="width: 16rem;">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjgMdfloucvzb8STD7HKhov-qoC8sJ0iJ3k1DlvB2G_t8rCB68"
           class="card-img-top" style="width: 150px;height: auto;padding-top: 10px" alt="...">
         <div class="card-body">
-          <h5>{{record.firstName +" "+ record.surname}}</h5>
+          <h5>{{approved.firstName +" "+ approved.surname}}</h5>
           <h5 class="card-title" *ngFor="let cat of categories; let i=index; ">
-            <h5 *ngIf="record.catID === cat.catID;" class="card-text" style="color: cadetblue;">{{cat.categoryName}}
+            <h5 *ngIf="approved.catID === cat.catID;" class="card-text" style="color: cadetblue;">{{cat.categoryName}}
             </h5>
-            <h5 *ngIf="record.catID === cat.catID;" class="card-text">{{cat.artisan}}</h5>
+            <h5 *ngIf="approved.catID === cat.catID;" class="card-text">{{cat.artisan}}</h5>
           </h5>
-          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalLong" (click)="GetEachArtisan(record)" >
-            VIEW INFO
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalLong" (click)="GetEachArtisan( approved)" >
+            VIEW b 
           </button>
           <!-- <button class="btn-sm btn-secondary" data-toggle="modal" data-target="JobDetails"
             (click)=" GetEachArtisan(record)">View Artisan</button>  -->
@@ -65,17 +65,65 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">ARTISAN INFO</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-       
-      </div>
+     
+        <b>First Name</b><br>
+  
+        <div class="form-group">
+            <input class="form-control" [(ngModel)]="artis.firstName">
+        </div>
+
+        <b>Last Name</b><br>
+  
+        <div class="form-group">
+            <input class="form-control" [(ngModel)]="artis.surname">
+        </div>
+
+
+        <b>Email</b><br>
+  
+        <div class="form-group">
+            <input class="form-control" [(ngModel)]="artis.email">
+        </div>
+
+        <b>Contacts</b><br>
+  
+        <div class="form-group">
+            <input class="form-control" [(ngModel)]="artis.contacts">
+        </div>
+      
+        <b>Category</b><br>
+  
+        <div class="form-group">
+            <input class="form-control" [(ngModel)]="artis.catID">
+        </div>
+
+        <b>Password</b><br>
+  
+        <div class="form-group">
+            <input class="form-control" [(ngModel)]="artis.password" >
+        </div>
+
+        <b>Address2</b><br>
+  
+        <div class="form-group">
+            <input class="form-control" [(ngModel)]="artis.address">
+        </div>
+
+        
+        <b>Address</b><br>
+  
+        <div class="form-group">
+            <input class="form-control" [(ngModel)]="artis.address">
+        </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+    
       </div>
     </div>
   </div>
