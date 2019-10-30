@@ -55,12 +55,12 @@ export class AdminServiceService {
 
   //get all  clients Applications
   getAllArtisanApplication() {
-    return this.http.get<any>('http://168.172.188.153:5000/allapp');
+    return this.http.get<any>('http://168.172.188.153:5000/artisan');
   }
 
   //Get All artisans
   GetAllArtisans() {
-    return this.http.get<any>('http://168.172.188.153:5000/artisan');
+    return this.http.get<any>('http://168.172.188.153:5000/allapp');
   }
 
   //get artisans based on category
