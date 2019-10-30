@@ -12,9 +12,9 @@ import { Response } from 'selenium-webdriver/http';
 })
 export class UserService {
 
-  url = 'http://168.172.188.153:5000/'; 
+  // url = 'http://168.172.188.153:5000/'; 
   //  url = 'http://168.172.186.39:5000/'; 
-  // url = 'http://localhost:5000/';
+  url = 'http://localhost:5000/';
   //  registerUrl = 'http://168.172.188.153:5000/artisan';
   // adminUrl = 'http://168.172.186.39:5000/artisan';
   // categoryUrl = 'http://168.172.186.39:5000/_category';

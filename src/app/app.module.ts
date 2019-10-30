@@ -29,6 +29,7 @@ import { ApplicationComponent } from './client/application/application.component
 import { TokenInterceptorService } from './token-interceptor.service';
 import { UserProfileComponent } from './client/user-profile/user-profile.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ClientProfileComponent } from './client/client-profile/client-profile.component';
 // import {  } from '../';
 
 
@@ -53,7 +54,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DeclinedComponent,
     ApplicationComponent,
     UserProfileComponent,
-    ConfirmPassword
+    ConfirmPassword,
+    ClientProfileComponent
 
 
   ],
