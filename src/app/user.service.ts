@@ -80,6 +80,9 @@ export class UserService {
   getAllArtisans() {
     return this.httpClient.get<any>(this.url + 'art/all');
   }
+  GetAllApprovedArtisans() {
+    return this.httpClient.get<any>(this.url + 'aprovedArt');
+  }
   getClients() {
     return this.httpClient.get<any>(this.url + 'client');
   }
