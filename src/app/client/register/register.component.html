@@ -6,6 +6,7 @@
   <div class="alert alert-danger" role="alert" *ngIf="error">
     An error occured. Here is the error : {{ errorMessage }}.
   </div>
+  <div class="margin"></div>
   <div class="alert alert-success" role="alert" *ngIf="savedChanges else showForm">
     New Account is created.<a href="login" class="alert-link">LOGIN</a> 
     <!-- <button class="btn btn-lg btn-success btn-block" routerLink="/login" type="button">Login</button> -->
@@ -13,7 +14,7 @@
   <div class="box">
     <form #form="ngForm">
 
-      <h2><i class="glyphicon glyphicon-log-in"></i>ToolBox Member Registration</h2>
+      <h2><i class="glyphicon glyphicon-log-in"></i>Poster Registration</h2>
       <br>
 
       <br>

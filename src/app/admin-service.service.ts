@@ -60,7 +60,7 @@ export class AdminServiceService {
 
   //Get All artisans
   GetAllArtisans() {
-    return this.http.get<any>('http://168.172.188.153:5000/artisan');
+    return this.http.get<any>('http://168.172.188.153:5000/allapp');
   }
 
   //get artisans based on category
@@ -102,6 +102,7 @@ export class AdminServiceService {
   getUpdated(jobpp) {
     return this.http.post<any>('http://168.172.188.153:5000/client/update', jobpp, {});
   }
+
   getStatus(clientID)
     {
       return this.http.post<any>('http://168.172.188.153:5000/clientStatus',{clientID});
@@ -130,6 +131,18 @@ export class AdminServiceService {
   getArtisanStatus(artID)
   {
     return this.http.post<any>('http://168.172.188.153:5000/artisan_status', {artID});
+  }
+
+  //Get approved applications
+  getApprovedApplications(artApplications2)
+  {
+    return this.http.post<any>('http://168.172.188.153:5000/artisan_approved',artApplications2, {});
+  }
+
+  //get declined applications
+  getDeclinedApplications(artApplications)
+  {
+    return this.http.post<any>('http://168.172.188.153:5000/artisan_declined',artApplications, {});
   }
 
   

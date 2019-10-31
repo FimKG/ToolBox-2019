@@ -33,7 +33,7 @@
 
 
 
-  <div class="row col-12" style="margin-left: 60px">
+  <!-- <div class="row col-12" style="margin-left: 60px">
     <div *ngFor="let all of Posters; let i=index;" [ngClass]="col-md-2" id="spacing">
       
       <div class="card;" style="width: 16rem;"  >
@@ -48,6 +48,68 @@
                 <h5 *ngIf="all.surname === dec.service;" class="card-text">{{cat.all}}</h5>    
             </h5>
           <a href="posted-jobs" class="btn btn-secondary">View More</a>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="site-section bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+          <h2 class="mb-5 h3">Recent Jobs</h2>
+          <div class="rounded border jobs-wrap" *ngFor="let all of Posters; let i=index;"  id="spacing" >
+  
+            <div  class="job-item d-block d-md-flex align-items-center  border-bottom fulltime" >
+              <div class="company-logo blank-logo text-center text-md-left pl-3">
+                <img src="../../../assets/images/member.png" alt="Image" class="img-fluid mx-auto">
+              </div>
+              <div class="job-details h-100" >
+                <div class="p-3 align-self-center" >
+                  <h3 >{{all.name +" "+ all.surname}}</h3>
+                  <div class="d-block d-lg-flex">
+                    <div class="mr-3" style="color: darkgray;"><span class="icon-suitcase mr-1"></span> {{all.job_heading }}</div>
+                    <div class="mr-3" style="color: darkgray;"><span class="icon-room mr-1"></span> wanted: {{all.categoryName}}</div>
+                    <div style="color: darkgray;"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</div>
+                    <button type="button" class="btn btn-outline-success">view job</button>
+                  </div>
+                </div>
+              </div>
+              <div class="job-category align-self-center">
+                <div class="p-3">
+                  <!-- <span class="text-info p-2 rounded border border-info">Full Time</span> -->
+                </div>
+              </div> 
+            </div>
+  
+          </div>
+  
+          <!-- <div class="col-md-12 text-center mt-5">
+            <a href="#" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Show More
+              Jobs</a>
+          </div> -->
+        </div>
+        <div class="col-md-4 block-16" data-aos="fade-up" data-aos-delay="200">
+          <div class="d-flex mb-0">
+            <h2 class="mb-5 h3 mb-0">Featured Jobs</h2>
+            <!-- <div class="ml-auto mt-1"><a href="#" class="owl-custom-prev">Prev</a> / <a href="#"
+                class="owl-custom-next">Next</a></div> -->
+          </div>
+  
+          <div class="nonloop-block-16 owl-carousel" *ngFor="let all of Posters; let i=index;">
+  
+            <div class="border rounded p-4 bg-white"*ngIf="i<2">
+              <h2 class="h5">{{all.name +" "+ all.surname}}</h2>
+              <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
+              <p>
+                <span class="d-block"><span class="icon-suitcase"></span>{{all.job_heading }}</span>
+                <span class="d-block"><span class="icon-room"></span>  wanted: {{all.categoryName}}</span>
+                <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
+              </p>
+              <p class="mb-0">{{all.full_description}}</p>
+            </div>
+  
+          </div>
+  
         </div>
       </div>
     </div>

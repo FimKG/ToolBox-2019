@@ -4,4 +4,15 @@
 	width:210px;
 	font-size:40px;
 	font-family:Century Gothic;
+	/* position: fixed; */
+}
+.navbar {
+	/* background: darkgray !important; */
+	position: fixed;
+	top: 0;
+	z-index: 99;
+	margin-bottom: 113px;
+	width: 100%;
+	left: 0;
+
 }

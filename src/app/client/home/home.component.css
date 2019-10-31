@@ -92,13 +92,33 @@
 
 img{
   width: 15%;
-  height: 5%;
-  text-align: left;
+  height: 20%;
+  text-align: center;
 }
 .box{
-  width: 250px;
-  height: 350px;
+  width: auto;
+  height: auto;
   padding: 20px;
   margin: 100px auto;
   box-shadow: 0px 0px 10px 2px rgb(66, 148, 66);
+}
+
+.margin {
+  margin: 10% 0;
+
+}
+.parallax {
+  background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../../../assets/images/hero_1.jpg) repeat fixed 50%;
+  text-align: center;
+}
+.parallax-inner {
+	padding-top: 10%;
+	padding-bottom: 10%;
+}
+h1 {
+	text-align: center;
+	font-size: 200%;
+	color: #FFF;
+	text-transform: uppercase;
+	letter-spacing: 3px;
 }

@@ -23,7 +23,9 @@
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Category</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">E-mail</th>
+                  
+                    <th scope="col">Approve/Decline</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -37,10 +39,11 @@
                           </div> 
                       </div>
                     </td>
-                   
+                      
+                    <td >{{application.email}}</td>
                     <td>
-                        <button type="button" class="btn btn-outline-success">Approve</button>&nbsp;
-                        <button type="button" class="btn btn-outline-danger"  data-toggle="modal" data-target="#Declined">Decline</button>
+                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#Approved" (click)="GetApp(application)">Approve</button>&nbsp;
+                        <button type="button" class="btn btn-outline-danger"  data-toggle="modal" data-target="#Declined"  (click)="GetApp(application)">Decline</button>
         
                     </td>
                   </tr>
@@ -52,13 +55,8 @@
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 
-
-
-
-
-
-    <!-- Modal -->
-      <div class="modal fade" id="Declined" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal let application of applications declined -->
+      <div class="modal fade" id="Declined" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngFor="let application of applications">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -68,21 +66,163 @@
               </button>
             </div>
             <div class="modal-body">
+
+              
+                <div class="form-group">
+                    <label for="artID">Artisan ID</label>
+                    <input type="text" class="form-control"  aria-describedby="artIdHelp"  [(ngModel)]="artApplications.artID">
+                   
+               </div>
+
+               
+               <div class="form-group">
+                  <label for="catID">Category ID</label>
+                  <input type="text" class="form-control"  aria-describedby="catIdHelp"  [(ngModel)]="artApplications.catID">
+                 
+             </div>
+
+              
+
+                <div class="form-group">
+                    <label for="firstName">First name</label>
+                    <input type="text" class="form-control"  aria-describedby="firstNameHelp" placeholder="Enter first name" [(ngModel)]="artApplications.firstName">
+                   
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last name</label>
+                    <input type="text" class="form-control"  aria-describedby="lastNameHelp" placeholder="Enter last name" [(ngModel)]="artApplications.surname">
+                   
+                </div>
              
-                
-                
-            
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="artApplications.email">
+                   
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="Phone">Phone</label>
+                      <input type="phone" class="form-control"  aria-describedby="phoneHelp" placeholder="Phone number" [(ngModel)]="artApplications.contacts">
+                     
+                    </div>
+
+                   <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control"  aria-describedby="addressHelp" placeholder="Address" [(ngModel)]="artApplications.address">
+                       
+                   </div>
+
+                   <div class="form-group">
+                      <label for="address2">Address2</label>
+                      <input type="text" class="form-control"  aria-describedby="address2Help" placeholder="Address2" [(ngModel)]="artApplications.address2">
+                     
+                 </div>
+
+                 <div class="form-group">
+                    <label for="Status">Status</label>
+                    <input type="text" class="form-control"  aria-describedby="statusHelp"  [(ngModel)]="artApplications.status">
+                   
+               </div>
+
+                  
                 <div class="form-group">
                   <label for="exampleFormControlTextarea1">Why Decline this Application</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="message" ></textarea>
                 </div>
              
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="getDeclinedApplications()">Send message</button>
             </div>
           </div>
         </div>
       </div>
+
+
+         <!-- Modal let application of applications Approved -->
+         <div class="modal fade" id="Approved" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngFor="let application of applications">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Reasons for Rejection</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+  
+                
+                  <div class="form-group">
+                      <label for="artID">Artisan ID</label>
+                      <input type="text" class="form-control"  aria-describedby="artIdHelp"  [(ngModel)]="artApplications2.artID">
+                     
+                 </div>
+  
+                 
+                 <div class="form-group">
+                    <label for="catID">Category ID</label>
+                    <input type="text" class="form-control"  aria-describedby="catIdHelp"  [(ngModel)]="artApplications2.catID">
+                   
+               </div>
+  
+                
+  
+                  <div class="form-group">
+                      <label for="firstName">First name</label>
+                      <input type="text" class="form-control"  aria-describedby="firstNameHelp" placeholder="Enter first name" [(ngModel)]="artApplications2.firstName">
+                     
+                  </div>
+  
+                  <div class="form-group">
+                      <label for="lastName">Last name</label>
+                      <input type="text" class="form-control"  aria-describedby="lastNameHelp" placeholder="Enter last name" [(ngModel)]="artApplications2.surname">
+                     
+                  </div>
+               
+                  <div class="form-group">
+                      <label for="email">Email address</label>
+                      <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="artApplications2.email">
+                     
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="Phone">Phone</label>
+                        <input type="phone" class="form-control"  aria-describedby="phoneHelp" placeholder="Phone number" [(ngModel)]="artApplications2.contacts">
+                       
+                      </div>
+  
+                     <div class="form-group">
+                          <label for="address">Address</label>
+                          <input type="text" class="form-control"  aria-describedby="addressHelp" placeholder="Address" [(ngModel)]="artApplications2.address">
+                         
+                     </div>
+  
+                     <div class="form-group">
+                        <label for="address2">Address2</label>
+                        <input type="text" class="form-control"  aria-describedby="address2Help" placeholder="Address2" [(ngModel)]="artApplications2.address2">
+                       
+                   </div>
+  
+                   <div class="form-group">
+                      <label for="Status">Status</label>
+                      <input type="text" class="form-control"  aria-describedby="statusHelp"  [(ngModel)]="artApplications2.status">
+                     
+                 </div>
+  
+                    
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Why Decline this Application</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="message" ></textarea>
+                  </div>
+               
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="getApprovedApplications()">Send message</button>
+              </div>
+            </div>
+          </div>
+        </div>
 </main>
