@@ -38,14 +38,14 @@ export class JobPosterComponent implements OnInit {
    )
  }
   
-  newClient() {
-    this.adminservice.newClient(this.jobpp)
-      .subscribe(
-        res => console.log(),
-        err => console.log()
-      )
+  // newClient() {
+  //   this.adminservice.newClient(this.jobpp)
+  //     .subscribe(
+  //       res => console.log(),
+  //       err => console.log()
+  //     )
 
-  }
+  // }
   
 
   ngOnInit() {
