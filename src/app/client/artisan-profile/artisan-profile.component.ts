@@ -7,7 +7,7 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./artisan-profile.component.css']
 })
 export class ArtisanProfileComponent implements OnInit {
-  Artisans: any;
+  approveArtisans: any;
   categories: any;
  
   constructor(private userService: UserService) { }
@@ -20,19 +20,18 @@ export class ArtisanProfileComponent implements OnInit {
     artID:''
   }
   ngOnInit() {
-    this.gettingAllArtisans();
+    this.gettingApprovedArt();
     this.gettingAllCategories();
     this.userInfo();
   
   
   }
 
-  gettingAllArtisans()
-  {
-    this.userService.getAllArtisans().subscribe(data=>{
-      this.Artisans = data.results,
-      console.log(this.Artisans);
-    });
+  gettingApprovedArt(){
+    this.userService.GetAllApprovedArtisans().subscribe(data=>{
+      this.approveArtisans = data.data;
+       console.log(this.approveArtisans)
+     })
   }
 
   gettingAllCategories()
@@ -58,8 +57,8 @@ export class ArtisanProfileComponent implements OnInit {
   
    getArtisansBasedOnCategory(id) {
      this.userService.GetJobsbasedOnCatgory(id).subscribe(data => {
-       this.Artisans = data.data;
-       console.log(this.Artisans);
+       this.approveArtisans = data.data;
+       console.log(this.approveArtisans);
      })
    }
   }

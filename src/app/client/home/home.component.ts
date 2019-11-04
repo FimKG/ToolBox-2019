@@ -12,6 +12,7 @@ import { AdminServiceService } from '../../admin-service.service';
 export class HomeComponent implements OnInit {
 
  
+  approveArtisans: any;
   Artisans: any;
   categories: any;
   Posters: any;
@@ -20,18 +21,25 @@ export class HomeComponent implements OnInit {
 constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.gettingAllArtisans();
+    // this.gettingAllArtisans();
     this.gettingAllCategories();
     this.gettingAllJobs();
+    this.gettingApprovedArt();
   
   }
 
-  gettingAllArtisans()
-  {
-    this.userService.getAllArtisans().subscribe(data=>{
-      this.Artisans = data.results,
-      console.log(this.Artisans);
-    });
+  // gettingAllArtisans()
+  // {
+  //   this.userService.getAllArtisans().subscribe(data=>{
+  //     this.Artisans = data.results,
+  //     console.log(this.Artisans);
+  //   });
+  // }
+  gettingApprovedArt(){
+    this.userService.GetAllApprovedArtisans().subscribe(data=>{
+      this.approveArtisans = data.data;
+       console.log(this.approveArtisans)
+     })
   }
 
   gettingAllCategories()
