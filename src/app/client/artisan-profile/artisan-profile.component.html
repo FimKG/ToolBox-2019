@@ -65,61 +65,39 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">ARTISAN INFO</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle" style="text-align: center;">ARTISAN INFO</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-     
-        <b>First Name</b><br>
-  
-        <div class="form-group">
-            <input class="form-control" [(ngModel)]="artis.firstName">
-        </div>
+    
+      <div class="container" style="text-align: left;">
 
-        <b>Last Name</b><br>
-  
-        <div class="form-group">
-            <input class="form-control" [(ngModel)]="artis.surname">
-        </div>
+        <hr>
+        <b>First Name :</b> {{artis.firstName}}
+        <br>
+        <br>
+        <b>Surname :</b> {{artis.surname}}
+        <br>
+        <br>
+        <b>Email :</b> {{artis.email}}
+        <br>
+        <br>
+        <b>Contacts :</b> {{artis.contacts}}
+        <br>
+        <br>
+        <b>Category :</b> {{artis.catID}}
+        <br>
+        <br>
+        <b>Address :</b> {{artis.address}}
+        <br>
+        <br>
+        <b>Address2 :</b> {{artis.address2}}
+      <hr>
+      </div>
 
 
-        <b>Email</b><br>
   
-        <div class="form-group">
-            <input class="form-control" [(ngModel)]="artis.email">
-        </div>
-
-        <b>Contacts</b><br>
-  
-        <div class="form-group">
-            <input class="form-control" [(ngModel)]="artis.contacts">
-        </div>
-      
-        <b>Category</b><br>
-  
-        <div class="form-group">
-            <input class="form-control" [(ngModel)]="artis.catID">
-        </div>
-
-        <b>Password</b><br>
-  
-        <div class="form-group">
-            <input class="form-control" [(ngModel)]="artis.password" >
-        </div>
-
-        <b>Address2</b><br>
-  
-        <div class="form-group">
-            <input class="form-control" [(ngModel)]="artis.address">
-        </div>
-
-        
-        <b>Address</b><br>
-  
-        <div class="form-group">
-            <input class="form-control" [(ngModel)]="artis.address">
-        </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -127,14 +105,14 @@
       </div>
     </div>
   </div>
-</div>
+</div> 
 
 
 
 <!--NEW MODAL-->
 
 
-<br>
+ <br>
 <br>
 <br>
 <br>
@@ -156,4 +134,4 @@
     </li>
   </ul>
 </nav>
-<div style="margin-top: 13%"></div>
+<div style="margin-top: 13%"></div> 
