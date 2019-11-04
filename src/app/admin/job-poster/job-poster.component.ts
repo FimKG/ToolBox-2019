@@ -12,9 +12,13 @@ export class JobPosterComponent implements OnInit {
   categories: any;
   clientID: '';
 
+<<<<<<< HEAD
    @Input() 
   
   jobpp = {
+=======
+ @Input() jobpp = {
+>>>>>>> origin/sandile
     name: '',
     surname: '',
     email: '',
@@ -24,8 +28,11 @@ export class JobPosterComponent implements OnInit {
     address2: '',
     clientID: ''
   }
+<<<<<<< HEAD
    //For the data that needs to be send to the table
    @Input() sendData = { name: '', surname: '', email: '', password: '',contacts: '', address: '', address2: '', clientID: '' }
+=======
+>>>>>>> origin/sandile
 
   constructor(private adminservice: AdminServiceService) { }
 
@@ -46,6 +53,19 @@ export class JobPosterComponent implements OnInit {
   //     )
 
   // }
+<<<<<<< HEAD
+=======
+
+  newClients() {
+
+    return this.adminservice.newClient(this.jobpp).subscribe( res =>{
+      console.log(res)
+     },
+     err =>{ console.log(err.message)}
+   )
+   
+ }
+>>>>>>> origin/sandile
   
 
   ngOnInit() {

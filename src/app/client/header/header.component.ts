@@ -8,6 +8,7 @@ import { UserService } from './../../user.service';
 })
 export class HeaderComponent implements OnInit {
   users: any;
+  adminLoginData = {}
 
   constructor(private _userService : UserService) { }
 
@@ -21,5 +22,16 @@ export class HeaderComponent implements OnInit {
       console.log("user data pleasse", data);
     })
   }
+
+  adminLogin()
+  {
+    this._userService.adminLogin(this.adminLoginData).subscribe(
+
+      response=> console.log(response),
+      error=> console.log(error)
+    )
+  }
+  
+
 
 }

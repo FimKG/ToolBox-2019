@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
             
     //         console.log(this.loginuser)
     //  this.users = this.loginUserData;
+    
     this.userService.userLogin(this.loginUserData) 
       .subscribe(
         res => {
