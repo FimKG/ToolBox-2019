@@ -30,6 +30,7 @@
                   <input [(ngModel)]="loginUserData.password" type="password" name="password" id="password" class="form-control"
                     placeholder="" #Password="ngModel" required minlength="8" maxlength="20" ngModel>
                 </div>
+
                 <div class="alert alert-danger" role="alert" *ngIf="Password.invalid && (Password.dirty || Password.touched)">
                   Please enter a valid password between 8 to 20 chars.
                 </div>
@@ -63,7 +64,7 @@
                     member?Apply now.</a><br>
                     <a routerLink="/register" data toggle="modal" data-target=".bd-example-modal-lg">Or register as a job poster</a><br>
 
-
+                    
 
                 </div>
               </form>

@@ -43,13 +43,13 @@ export class ArtisansComponent implements OnInit {
 
   getData() {
 
-     return this.adminservice.getArtisanData(this.sendData).subscribe( (res) =>{
+     return this.adminservice.getArtisanData(this.sendData).subscribe(res =>{
        console.log(res)
       },
-      (err) =>{ console.log(err)}
+      err =>{ console.log(err.message)}
     )
   }
-
+  
   getAllArtisans() {
     this.adminservice. GetAllArtisans().subscribe(data => {
       this.artisans = data.data;

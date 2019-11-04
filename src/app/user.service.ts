@@ -7,6 +7,7 @@ import { LoginComponent } from './client/login/login.component'
 import { Response } from 'selenium-webdriver/http';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -43,6 +44,12 @@ export class UserService {
     this.$isLoggedIn.emit(user);
     return this.httpClient.post<any>(this.url + '_login', user); 
   }
+
+  adminLogin(user)
+  {
+    return this.httpClient.post<any>(this.url + '_login', user);
+  }
+
 
   getCategory() {
     return this.httpClient.get<any>(this.url + '_category');

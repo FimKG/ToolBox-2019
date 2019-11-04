@@ -99,6 +99,10 @@ export class AdminServiceService {
     return this.http.post<any>('http://168.172.188.153:5000/artisan', user);
   }
 
+  public newClient(usr){
+      return this.http.post<any>('http://168.172.186.39:5000/client', usr);
+  }
+
   getUpdated(jobpp) {
     return this.http.post<any>('http://168.172.188.153:5000/client/update', jobpp, {});
   }
@@ -108,11 +112,6 @@ export class AdminServiceService {
       return this.http.post<any>('http://168.172.188.153:5000/clientStatus',{clientID});
       
     }
-
-    newClient(user){
-      return this.http.post<any>('http://168.172.186.39:5000/client', user);
-    }
-  
 
   //update Job posted
   getJobPostedUpdate(jobsPosted)
@@ -147,3 +146,4 @@ export class AdminServiceService {
 
   
 }
+
