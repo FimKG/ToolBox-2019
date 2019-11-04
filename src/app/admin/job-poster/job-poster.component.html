@@ -139,35 +139,35 @@
             <b> Name</b><br>
 
             <div class="form-group">
-              <input class="form-control" [(ngModel)]="jobpp.name">
+              <input class="form-control" [(ngModel)]="sendData.name">
             </div>
 
 
             <b>Surname</b><br>
             <div class="form-group">
-              <input class="form-control" [(ngModel)]="jobpp.surname">
+              <input class="form-control" [(ngModel)]="sendData.surname">
             </div>
 
             <b>Email</b><br>
             <div class="form-group">
-              <input class="form-control" [(ngModel)]="jobpp.email">
+              <input class="form-control" [(ngModel)]="sendData.email">
             </div>
             <b>Password</b><br>
             <div class="form-group">
-              <input class="form-control" [(ngModel)]="jobpp.password">
+              <input class="form-control" [(ngModel)]="sendData.password">
             </div>
 
             <b>Contacts</b><br>
             <div class="form-group">
-              <input class="form-control" [(ngModel)]="jobpp.contacts">
+              <input class="form-control" [(ngModel)]="sendData.contacts">
             </div>
             <b>Address</b><br>
             <div class="form-group">
-              <input class="form-control" [(ngModel)]="jobpp.address">
+              <input class="form-control" [(ngModel)]="sendData.address">
             </div>
             <b>Address2</b><br>
             <div class="form-group">
-              <input class="form-control" [(ngModel)]="jobpp.address2">
+              <input class="form-control" [(ngModel)]="sendData.address2">
             </div>
 
 
@@ -177,7 +177,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" (click)="newClient()">Submit</button>
+          <button type="button" class="btn btn-default" (click)="getData()">Submit</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>

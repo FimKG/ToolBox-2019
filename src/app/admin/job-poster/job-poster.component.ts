@@ -12,28 +12,40 @@ export class JobPosterComponent implements OnInit {
   categories: any;
   clientID: '';
 
-  // @Input() 
+   @Input() 
   
   jobpp = {
-    // name: '',
-    // surname: '',
-    // email: '',
-    // password: '',
-    // contacts: '',
-    // address: '',
-    // address2: '',
-    // clientID: ''
+    name: '',
+    surname: '',
+    email: '',
+    password: '',
+    contacts: '',
+    address: '',
+    address2: '',
+    clientID: ''
   }
-  constructor(private adminservice: AdminServiceService) { }
-  
-  newClient() {
-    this.adminservice.newClient(this.jobpp)
-      .subscribe(
-        res => console.log(),
-        err => console.log()
-      )
+   //For the data that needs to be send to the table
+   @Input() sendData = { name: '', surname: '', email: '', password: '',contacts: '', address: '', address2: '', clientID: '' }
 
-  }
+  constructor(private adminservice: AdminServiceService) { }
+
+  getData() {
+
+    return this.adminservice.newClient(this.sendData).subscribe( (res) =>{
+      console.log(res)
+     },
+     (err) =>{ console.log(err)}
+   )
+ }
+  
+  // newClient() {
+  //   this.adminservice.newClient(this.jobpp)
+  //     .subscribe(
+  //       res => console.log(),
+  //       err => console.log()
+  //     )
+
+  // }
   
 
   ngOnInit() {
