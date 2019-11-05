@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
     this._userService.adminLogin(this.adminLoginData).subscribe(
 
       response=> console.log(response),
-      error=> console.log(error)
+      err=> console.log(err)
     )
   }
   
