@@ -62,21 +62,21 @@
        </ul> -->
   <ul class="nav navbar-nav navbar-right">
     <!-- <li><a routerLink="/admin-dashboard"><span class="glyphicon glyphicon-log-in"></span> Admin Login</a></li> -->
-    <a href="#" data-toggle="modal" data-target="#adminLogin">Admin login</a>
+    <a  data-toggle="modal" data-target="#adminLogin"  >Admin login</a>
   </ul>
   </div>
 </nav>
 
 
-<div class="modal fade" id="adminLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal fade" id="adminLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-center">
       <div class="modal-dialog .modal-align-center">
           <div class="modal-content">
               <div class="modal-header">
                   <h4 class="modal-title" id="myModalLabel">Login as Admin</h4>
-                  <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
 
-                  </button> -->
+                  </button>
               </div>
 
               <div class="modal-body">
@@ -86,9 +86,9 @@
                  
               </div> 
                  <label for="email">E-mail</label>
-                  <input  class="form-control" type="email" placeholder="E-mail"><br>
+                  <input [(ngModel)]="adminLoginData.email" class="form-control" type="email" placeholder="E-mail"><br>
                   <label for="email">Password</label>
-                  <input  class="form-control" type="password" placeholder="Password"><br>
+                  <input  [(ngModel)]="adminLoginData.password" class="form-control" type="password" placeholder="Password"><br>
               <div class="checkbox">
                   <label>
                       <input type="checkbox"> Remember me
@@ -98,12 +98,12 @@
 
               </div>
               <div class="modal-footer">
-                  <button type="button" class="btn btn-primary"  (click)="adminLogin()">Sign-in</button>
+                  <button  type="button" class="btn btn-primary" data-dismiss="modal" (click)="adminLogin()" routerLink="/admin-dashboard">Sign-in</button>
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
           </div>
       </div>
   </div>
-</div>
+</div> 
 
 <router-outlet></router-outlet>
