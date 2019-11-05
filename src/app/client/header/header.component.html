@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link"  routerLink="/home">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
       </li>
       <!-- <li>
           <a class="nav-link" style="cursor: pointer;" *ngIf="_userService.loggedIn()" routerLink="/home" routerLinkActive='active' (click)="_userService.artProfile()">Home</a>
@@ -18,45 +18,92 @@
       <li class="nav-item">
         <a class="nav-link" data-toggle="modal" data-target="#exampleModalLong">
           about</a>
-      
+
       </li>
       <li class="nav-item ">
         <a class="nav-link" *ngIf="!_userService.loggedIn()" routerLinkActive='active' routerLink="/login">login</a>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link" *ngIf="!_userService.loggedIn()" routerLinkActive='active' routerLink="/register">Sign Up & Post A Job</a>
+      <!-- <li class="nav-item ">
+        <a class="nav-link" *ngIf="!_userService.loggedIn()" routerLinkActive='active' routerLink="/register">Poster applications</a>
+      </li> -->
+      <li>
+        <a class="nav-link" style="cursor: pointer;" *ngIf="_userService.loggedIn()" routerLinkActive='active'
+          (click)="_userService.artProfile()" (click)="newUser()">Profile</a>
       </li>
       <li>
-        <a class="nav-link" style="cursor: pointer;" *ngIf="_userService.loggedIn()" routerLinkActive='active' (click)="_userService.artProfile()" (click)="newUser()">Profile</a>
+        <a class="nav-link" style="cursor: pointer;" *ngIf="_userService.loggedIn()"
+          (click)="_userService.logoutUser()">Logout</a>
       </li>
-      <li>
-        <a class="nav-link" style="cursor: pointer;" *ngIf="_userService.loggedIn()" (click)="_userService.logoutUser()">Logout</a>
-      </li>
-      
-      <li class="nav-item ">
+
+      <!-- <li class="nav-item ">
         <a class="nav-link" *ngIf="!_userService.loggedIn()" routerLinkActive='active' routerLink="/application">Artisan Applications</a>
-      </li>
-      
-      
-      <!-- <li class="nav-item dropdown">
+      </li> -->
+
+
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          Help
+          Sign up
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">How the Website Works </a>
-        </div>
-      </li> -->
-    </ul>
-    <!-- <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item ">
+        <a class="nav-link" *ngIf="!_userService.loggedIn()" routerLinkActive='active' routerLink="/register">Poster
+          applications</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" *ngIf="!_userService.loggedIn()" routerLinkActive='active' routerLink="/application">Artisan
+          Applications</a>
+      </li>
+  </div>
+  </li>
+  </ul>
+  <!-- <ul class="nav navbar-nav navbar-right">
          <button class="button" style="vertical-align:middle" data-toggle="modal" data-target="#exampleModalCenter01"><span> Admin LogIn </span></button>
        </ul> -->
-    <ul class="nav navbar-nav navbar-right">
-      <li><a routerLink="/admin-dashboard"><span class="glyphicon glyphicon-log-in"></span> Admin Login</a></li>
-    </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <!-- <li><a routerLink="/admin-dashboard"><span class="glyphicon glyphicon-log-in"></span> Admin Login</a></li> -->
+    <a href="#" data-toggle="modal" data-target="#adminLogin">Admin login</a>
+  </ul>
   </div>
-
-  
 </nav>
+
+
+<div class="modal fade" id="adminLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-center">
+      <div class="modal-dialog .modal-align-center">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel">Login as Admin</h4>
+                  <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+
+                  </button> -->
+              </div>
+
+              <div class="modal-body">
+
+                <div id="div-login-msg">
+                  <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                 
+              </div> 
+                 <label for="email">E-mail</label>
+                  <input  class="form-control" type="email" placeholder="E-mail"><br>
+                  <label for="email">Password</label>
+                  <input  class="form-control" type="password" placeholder="Password"><br>
+              <div class="checkbox">
+                  <label>
+                      <input type="checkbox"> Remember me
+                  </label>
+              </div>
+
+
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary"  (click)="adminLogin()">Sign-in</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
 <router-outlet></router-outlet>

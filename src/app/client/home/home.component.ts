@@ -3,6 +3,7 @@ import { UserService } from 'src/app/user.service';
 import { AdminServiceService } from '../../admin-service.service';
 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,15 +11,14 @@ import { AdminServiceService } from '../../admin-service.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
- 
  
   approveArtisans: any;
   Artisans: any;
   categories: any;
   Posters: any;
- 
 
+
+constructor(private userService: UserService) { }
 
   ngOnInit() {
     // this.gettingAllArtisans();
@@ -57,6 +57,8 @@ export class HomeComponent implements OnInit {
        console.log(this.Posters);
     });
   }
+
+  
 
 }
 
