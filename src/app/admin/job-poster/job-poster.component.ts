@@ -14,8 +14,7 @@ export class JobPosterComponent implements OnInit {
 
    @Input() 
   
-  
- @Input() jobpp = {
+  jobpp = {
     name: '',
     surname: '',
     email: '',
@@ -47,16 +46,6 @@ export class JobPosterComponent implements OnInit {
   //     )
 
   // }
-
-  newClients() {
-
-    return this.adminservice.newClient(this.jobpp).subscribe( res =>{
-      console.log(res)
-     },
-     err =>{ console.log(err.message)}
-   )
-   
- }
   
 
   ngOnInit() {
