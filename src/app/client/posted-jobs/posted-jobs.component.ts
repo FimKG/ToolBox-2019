@@ -10,6 +10,7 @@ export class PostedJobsComponent implements OnInit {
 
   categories: any;
   Posters: any;
+  jobposterArray: any;
 
 
   constructor(private _userService : UserService) { }
@@ -19,6 +20,7 @@ export class PostedJobsComponent implements OnInit {
     this.getAllPostedJob();
     this.getCat();
     this.userInfo();
+    this.getClients();
   }
 
   getAllPostedJob()
@@ -27,6 +29,12 @@ export class PostedJobsComponent implements OnInit {
       this.Posters = data.data,
        console.log(this.Posters);
     });
+  }
+  getClients() {
+    this._userService.getClients().subscribe(data => {
+      this.jobposterArray = data.data;
+      //console.log(data.data);
+    })
   }
 
   getCat()

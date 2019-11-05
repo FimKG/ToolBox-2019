@@ -38,24 +38,19 @@
       <!-- <li class="nav-item ">
         <a class="nav-link" *ngIf="!_userService.loggedIn()" routerLinkActive='active' routerLink="/application">Artisan Applications</a>
       </li> -->
-
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Sign up
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <li class="nav-item ">
-        <a class="nav-link" *ngIf="!_userService.loggedIn()" routerLinkActive='active' routerLink="/register">Poster
-          applications</a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" *ngIf="!_userService.loggedIn()" routerLinkActive='active' routerLink="/application">Artisan
+  <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sign up
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown" *ngIf="!_userService.loggedIn()">
+       
+        <a class="dropdown-item" *ngIf="!_userService.loggedIn()" routerLink="/application">Artisan
           Applications</a>
-      </li>
-  </div>
-  </li>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" *ngIf="!_userService.loggedIn()" routerLinkActive='active' routerLink="/register">Poster
+          applications</a>
+      </div>
+    </li>
   </ul>
   <!-- <ul class="nav navbar-nav navbar-right">
          <button class="button" style="vertical-align:middle" data-toggle="modal" data-target="#exampleModalCenter01"><span> Admin LogIn </span></button>
