@@ -12,7 +12,9 @@ export class JobPosterComponent implements OnInit {
   categories: any;
   clientID: '';
 
- @Input() jobpp = {
+   @Input() 
+  
+  jobpp = {
     name: '',
     surname: '',
     email: '',
@@ -22,8 +24,19 @@ export class JobPosterComponent implements OnInit {
     address2: '',
     clientID: ''
   }
+   //For the data that needs to be send to the table
+   @Input() sendData = { name: '', surname: '', email: '', password: '',contacts: '', address: '', address2: '', clientID: '' }
 
   constructor(private adminservice: AdminServiceService) { }
+
+  getData() {
+
+    return this.adminservice.newClient(this.sendData).subscribe( (res) =>{
+      console.log(res)
+     },
+     (err) =>{ console.log(err)}
+   )
+ }
   
   // newClient() {
   //   this.adminservice.newClient(this.jobpp)
@@ -33,16 +46,6 @@ export class JobPosterComponent implements OnInit {
   //     )
 
   // }
-
-  newClients() {
-
-    return this.adminservice.newClient(this.jobpp).subscribe( res =>{
-      console.log(res)
-     },
-     err =>{ console.log(err.message)}
-   )
-   
- }
   
 
   ngOnInit() {
