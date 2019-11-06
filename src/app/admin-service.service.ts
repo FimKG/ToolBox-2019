@@ -107,11 +107,21 @@ export class AdminServiceService {
     return this.http.post<any>('http://168.172.188.153:5000/client/update', jobpp, {});
   }
 
+  //Changing status from inactive to active
   getStatus(clientID)
     {
       return this.http.post<any>('http://168.172.188.153:5000/clientStatus',{clientID});
       
     }
+
+    //Changing status from inactive to active
+    getStatus2(clientID)
+    {
+      return this.http.post<any>('http://168.172.188.153:5000/clientStatus2',{clientID});
+      
+    }
+
+  
 
   //update Job posted
   getJobPostedUpdate(jobsPosted)

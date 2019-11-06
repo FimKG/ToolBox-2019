@@ -91,7 +91,8 @@ export class ArtisanApplicationsComponent implements OnInit {
   }
 
   getApprovedApplications() {
-    this.adminservice.getApprovedApplications(this.artApplications2).subscribe()
+    this.adminservice.getApprovedApplications(this.artApplications2).subscribe(data =>{this.GetAllApplications();
+    })
   }
 
   GetApp(application){

@@ -9,6 +9,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class ArtisansComponent implements OnInit {
   artisans: any;
+
   categories: any;
   artisanFm: FormGroup;
   artID: '';
@@ -21,11 +22,12 @@ export class ArtisansComponent implements OnInit {
     name: '',
     surname: '',
     description: '',
-    artID:''
+    artID: ''
   }
 
   //For the data that needs to be send to the table
   @Input() sendData = { firstName: '', surname: '', email: '', contacts: '', address: '', address2: '', password: '', catID: '' }
+ 
 
   constructor(private adminservice: AdminServiceService) { }
 
@@ -43,25 +45,22 @@ export class ArtisansComponent implements OnInit {
 
   getData() {
 
-     return this.adminservice.getArtisanData(this.sendData).subscribe(res =>{
-       console.log(res)
-      },
-      err =>{ console.log(err.message)}
+    return this.adminservice.getArtisanData(this.sendData).subscribe(res => {
+      console.log(res)
+    },
+      err => { console.log(err.message) }
     )
   }
-  
+
   getAllArtisans() {
-    this.adminservice. GetAllArtisans().subscribe(data => {
-      this.artisans = data.data;
-      console.log(data.data);
-    })
+    this.adminservice.GetAllArtisans().subscribe(data => { this.artisans = data.data; })
   }
 
   getCategories() {
 
     this.adminservice.GetAllCategories().subscribe(resp => {
       this.categories = resp.data;
-      console.log(this.categories);
+      // console.log(this.categories);
     })
   }
 

@@ -55,7 +55,13 @@ export class JobPosterComponent implements OnInit {
   }
 
   getStatus(clientID) {
-    this.adminservice.getStatus(clientID).subscribe()
+    this.adminservice.getStatus(clientID).subscribe(data=>{this.getClients();
+    })
+  }
+
+  getStatus2(clientID) {
+    this.adminservice.getStatus2(clientID).subscribe(data=>{this.getClients();
+    })
   }
 
   getClients() {
