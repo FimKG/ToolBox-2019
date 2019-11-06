@@ -12,53 +12,72 @@ import { AdminServiceService } from '../../admin-service.service';
 export class HomeComponent implements OnInit {
 
  
+
+
   approveArtisans: any;
   Artisans: any;
   categories: any;
   Posters: any;
+  selectedCategory: any;
+  postedJobs: any;
+
 
 
 constructor(private userService: UserService) { }
 
   ngOnInit() {
-    // this.gettingAllArtisans();
     this.gettingAllCategories();
     this.gettingAllJobs();
     this.gettingApprovedArt();
-  
+    this.getPostedJobs();
+
   }
 
-  // gettingAllArtisans()
-  // {
-  //   this.userService.getAllArtisans().subscribe(data=>{
-  //     this.Artisans = data.results,
-  //     console.log(this.Artisans);
-  //   });
-  // }
-  gettingApprovedArt(){
-    this.userService.GetAllApprovedArtisans().subscribe(data=>{
+
+  gettingApprovedArt() {
+    this.userService.GetAllApprovedArtisans().subscribe(data => {
       this.approveArtisans = data.data;
-       console.log(this.approveArtisans)
-     })
-  }
-
-  gettingAllCategories()
-  {
-    this.userService.getCategory().subscribe(data=>{
-      this.categories = data.data;
-      console.log(data.data);
+      // console.log(this.approveArtisans)
     })
   }
 
-  gettingAllJobs()
-  {
-    this.userService.GetJobs().subscribe(data=>{
-      this.Posters = data.data,
-       console.log(this.Posters);
+  gettingAllCategories() {
+    this.userService.getCategory().subscribe(data => {
+      this.categories = data.data;
+      // console.log(data.data);
+    })
+  }
+
+  gettingAllJobs() {
+    this.userService.GetJobs().subscribe(data => {
+      this.Posters = data.data
+        // console.log(this.Posters);
     });
   }
 
-  
+  // +++++++++++++++++++++++++++++++++++++++++++
+  // getSelectedCat(category) {
+  //   this.selectedCategory = category.catID;
+  //   // console.log(this.selectedCategory);
+  //   this.getArtisansBasedOnCategory(this.selectedCategory);
+
+  // }
+  // ==========================================================================
+  getArtisansBasedOnCategory(id) {
+    this.userService.GetJobsbasedOnCatgory(id).subscribe(
+      data => {
+      this.postedJobs = data;
+    })
+  }
+
+  // ?======================================
+  getPostedJobs() {
+    this.userService.GetJobs().subscribe(data => {
+      this.postedJobs = data.results;
+      // console.log(this.postedJobs);
+    })
+
+  }
 
 }
 

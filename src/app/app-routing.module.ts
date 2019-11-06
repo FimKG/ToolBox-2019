@@ -7,6 +7,7 @@ import {RegisterComponent} from './client/register/register.component';
 import {LoginComponent} from './client/login/login.component';
 import {ApplicationComponent} from './client/application/application.component';
 import { UserProfileComponent } from './client/user-profile/user-profile.component';
+import { ClientProfileComponent } from './client/client-profile/client-profile.component';
 
 //Admin Components
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'application', component: ApplicationComponent },
       { path: 'user-profile', component: UserProfileComponent },
+      { path: 'client-profile', component: ClientProfileComponent },
       
      
       
