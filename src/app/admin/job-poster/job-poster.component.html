@@ -49,7 +49,8 @@
             <!-- GetEachClient -->
           <button class="btn-sm btn-info btn-sm" (click)="GetEachClient(jobposter)" data-toggle="modal"
             data-target="#myModal">view</button>&nbsp;
-          <button class="btn- btn-danger btn-sm" (click)="getStatus(jobposter.clientID)">Delete</button>
+          <button class="btn- btn-success btn-sm" (click)="getStatus(jobposter.clientID)">Activate</button>&nbsp;
+          <button class="btn- btn-danger btn-sm" (click)="getStatus2(jobposter.clientID)">Inactivate</button>
 
 
         </td>
@@ -136,53 +137,28 @@
             <b> Name</b><br>
 
             <div class="form-group">
-<<<<<<< HEAD
-              <input class="form-control" type="text" [(ngModel)]="jobpp.name" name="name">
-=======
+              <!-- <input class="form-control" type="text" [(ngModel)]="jobpp.name" name="name"> -->
               <input class="form-control" [(ngModel)]="sendData.name">
->>>>>>> origin/sandile
             </div>
 
 
             <b>Surname</b><br>
             <div class="form-group">
-<<<<<<< HEAD
-              <input class="form-control" type="text" [(ngModel)]="jobpp.surname" name="surname">
-=======
+              <!-- <input class="form-control" type="text" [(ngModel)]="jobpp.surname" name="surname"> -->
               <input class="form-control" [(ngModel)]="sendData.surname">
->>>>>>> origin/sandile
             </div>
 
             <b>Email</b><br>
             <div class="form-group">
-<<<<<<< HEAD
-              <input class="form-control" type="email" [(ngModel)]="jobpp.email" name="email">
-            </div>
-            <b>Password</b><br>
-            <div class="form-group">
-              <input class="form-control" type="password" [(ngModel)]="jobpp.password" name="password">
-=======
               <input class="form-control" [(ngModel)]="sendData.email">
             </div>
             <b>Password</b><br>
             <div class="form-group">
               <input class="form-control" [(ngModel)]="sendData.password">
->>>>>>> origin/sandile
             </div>
 
             <b>Contacts</b><br>
             <div class="form-group">
-<<<<<<< HEAD
-              <input class="form-control" type="text" [(ngModel)]="jobpp.contacts" name="contacts">
-            </div>
-            <b>Address</b><br>
-            <div class="form-group">
-              <input class="form-control" type="text" [(ngModel)]="jobpp.address" name="address">
-            </div>
-            <b>Address2</b><br>
-            <div class="form-group">
-              <input class="form-control" type="text" [(ngModel)]="jobpp.address2" name="address2">
-=======
               <input class="form-control" [(ngModel)]="sendData.contacts">
             </div>
             <b>Address</b><br>
@@ -192,7 +168,6 @@
             <b>Address2</b><br>
             <div class="form-group">
               <input class="form-control" [(ngModel)]="sendData.address2">
->>>>>>> origin/sandile
             </div>
 
 
@@ -203,11 +178,7 @@
         </div>
         
         <div class="modal-footer">
-<<<<<<< HEAD
-          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="newClients()">Submit</button>
-=======
           <button type="button" class="btn btn-default" (click)="getData()">Submit</button>
->>>>>>> origin/sandile
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
 
