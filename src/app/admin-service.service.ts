@@ -154,6 +154,5 @@ export class AdminServiceService {
     return this.http.post<any>('http://168.172.188.153:5000/artisan_declined',artApplications, {});
   }
 
-  
 }
 

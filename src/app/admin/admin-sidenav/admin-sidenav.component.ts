@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-admin-sidenav',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminSidenavComponent implements OnInit {
 
+
   constructor() { }
 
+
+  
+
   ngOnInit() {
+
   }
+
+ 
 
 }

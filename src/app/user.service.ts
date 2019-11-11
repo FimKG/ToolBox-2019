@@ -45,17 +45,17 @@ export class UserService {
     return this.httpClient.post<any>(this.url + '_login', user); 
   }
 
-  adminLogin(user)
-  {
-    return this.httpClient.post<any>(this.url + '_login', user);
-  }
-
+ 
 
   getCategory() {
     return this.httpClient.get<any>(this.url + '_category');
   }
 
-  
+ adminLogin(user)
+  {
+    return this.httpClient.post<any>(this.url + '_login', user);
+  }
+
   loggedIn()
   {
     return !!localStorage.getItem('token') 
@@ -66,14 +66,14 @@ export class UserService {
     localStorage.removeItem('token')
     this._router.navigate(['/login'])
   }
-  artProfile(){
-    this._router.navigate(['/user-profile'])
-  }
-
+ 
   getToken(){
      return localStorage.getItem('token')
   }
 
+ artProfile(){
+    this._router.navigate(['/user-profile'])
+  }
 
   public getClient(user)
   {
