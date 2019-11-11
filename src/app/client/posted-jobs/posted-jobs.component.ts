@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../user.service';
 
 @Component({
@@ -14,6 +14,16 @@ export class PostedJobsComponent implements OnInit {
 
 
   constructor(private _userService : UserService) { }
+  @Input() poster = {
+    name: '',
+    surname: '',
+    job_heading: '',
+    full_description: '',
+    contacts: '',
+    email: '',
+    category: '',
+    job_id: ''
+  }
 
   ngOnInit()
   {
@@ -48,4 +58,9 @@ export class PostedJobsComponent implements OnInit {
       console.log("user data pleasse", data);
     })
   }
+  GetEachPoster(art) {
+    this.poster = art;
+    console.log(art);
+   }
+
 }

@@ -70,7 +70,7 @@
                     <div class="mr-3" style="color: darkgray;"><span class="icon-suitcase mr-1"></span>Name: {{all.name +" "+ all.surname}}</div>
                     <div class="mr-3" style="color: darkgray;"><span class="icon-room mr-1"></span> wanted: {{all.categoryName}}</div>
                     <div style="color: darkgray;"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</div>
-                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalScrollable">view job</button>
+                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalScrollable" (click)="GetEachPoster(approved)">view job</button>
                   </div>
                 </div>
               </div>
@@ -125,26 +125,26 @@
 
 
       <!-- Modal -->
-      <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true" *ngFor="let all of Posters; let i=index;">
+      <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h3 class="modal-title" id="exampleModalScrollableTitle">{{all.name +" "+ all.surname}}</h3>
+              <h3 class="modal-title" id="exampleModalScrollableTitle">{{poster.name +" "+ poster.surname}}</h3>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <h5>Job-Description: {{all.job_heading }}</h5>
+              <h5>Job-Description: {{poster.job_heading }}</h5>
               
-              <p>wanted: {{all.categoryName}}</p>
+              <!-- <p>wanted: {{cat.categoryName}}</p> -->
               <div class="form-group">
                   <h5>Full Job Description</h5>
-                      <p class="mb-0">{{all.full_description}}</p>
+                      <p class="mb-0">{{poster.full_description}}</p>
                 </div>
-                 <h6>Job Details</h6>
-                 <br>{{all.contacts}}
-                 <br>{{all.email}}
+                 <h6>Contact Information</h6>
+                 <br>{{poster.contacts}}
+                 <br>{{poster.email}}
                
             </div>
             <div class="modal-footer">
