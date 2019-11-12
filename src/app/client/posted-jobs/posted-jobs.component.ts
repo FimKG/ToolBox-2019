@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../user.service';
 
 @Component({
@@ -10,15 +10,27 @@ export class PostedJobsComponent implements OnInit {
 
   categories: any;
   Posters: any;
+  jobposterArray: any;
 
 
   constructor(private _userService : UserService) { }
+  @Input() poster = {
+    name: '',
+    surname: '',
+    job_heading: '',
+    full_description: '',
+    contacts: '',
+    email: '',
+    category: '',
+    job_id: ''
+  }
 
   ngOnInit()
   {
     this.getAllPostedJob();
     this.getCat();
     this.userInfo();
+    this.getClients();
   }
 
   getAllPostedJob()
@@ -27,6 +39,12 @@ export class PostedJobsComponent implements OnInit {
       this.Posters = data.data,
        console.log(this.Posters);
     });
+  }
+  getClients() {
+    this._userService.getClients().subscribe(data => {
+      this.jobposterArray = data.data;
+      //console.log(data.data);
+    })
   }
 
   getCat()
@@ -40,4 +58,9 @@ export class PostedJobsComponent implements OnInit {
       console.log("user data pleasse", data);
     })
   }
+  // GetEachPoster(art) {
+  //   this.poster = art;
+  //   console.log(art);
+  //  }
+
 }

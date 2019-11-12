@@ -23,14 +23,14 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  adminLogin()
-  {
-    this._userService.adminLogin(this.adminLoginData).subscribe(
+  // adminLogin()
+  // {
+  //   this._userService.adminLogin(this.adminLoginData).subscribe(
 
-      response=> console.log(response),
-      err=> console.log(err)
-    )
-  }
+  //     response=> console.log(response),
+  //     err=> console.log(err)
+  //   )
+  // }
   
 
 

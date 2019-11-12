@@ -65,12 +65,12 @@
               </div>
               <div class="job-details h-100" >
                 <div class="p-3 align-self-center" >
-                  <h3 >{{all.name +" "+ all.surname}}</h3>
+                  <h3 >{{all.job_heading }}</h3>
                   <div class="d-block d-lg-flex">
-                    <div class="mr-3" style="color: darkgray;"><span class="icon-suitcase mr-1"></span> {{all.job_heading }}</div>
+                    <div class="mr-3" style="color: darkgray;"><span class="icon-suitcase mr-1"></span>Name: {{all.name +" "+ all.surname}}</div>
                     <div class="mr-3" style="color: darkgray;"><span class="icon-room mr-1"></span> wanted: {{all.categoryName}}</div>
                     <div style="color: darkgray;"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</div>
-                    <button type="button" class="btn btn-outline-success">view job</button>
+                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalScrollable" (click)="GetEachPoster(approved)">view job</button>
                   </div>
                 </div>
               </div>
@@ -98,10 +98,10 @@
           <div class="nonloop-block-16 owl-carousel" *ngFor="let all of Posters; let i=index;">
   
             <div class="border rounded p-4 bg-white"*ngIf="i<2">
-              <h2 class="h5">{{all.name +" "+ all.surname}}</h2>
+              <h2 class="h5">{{all.job_heading }}</h2>
               <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
               <p>
-                <span class="d-block"><span class="icon-suitcase"></span>{{all.job_heading }}</span>
+                <span class="d-block"><span class="icon-suitcase"></span>Name: {{all.name +" "+ all.surname}}</span>
                 <span class="d-block"><span class="icon-room"></span>  wanted: {{all.categoryName}}</span>
                 <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
               </p>
@@ -129,27 +129,23 @@
         <div class="modal-dialog modal-dialog-scrollable" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+              <h3 class="modal-title" id="exampleModalScrollableTitle">{{poster.name +" "+ poster.surname}}</h3>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-                    A small company in TUT is looking for an intern with possibility of full-time employment after the internship.
-
-                   <br> Requirements:-
-                    
-                   <br> 1. Grade 12
-                    
-                   <br> 2. Presentable
-                    
-                   <br> 3. College Diploma/Certificate
-                    
-                   <br> 4. No job experience (Experience advantageous)
-                    
-                   <br> Salary/Stipent is R3 500,00 per month and subject to review after six (6) Months.
-                    
-                   <br>Please email detailed Cv to emplyment@simplex-za.co.za.
+            <div class="modal-body" >
+              <h5>Job-Description:{{poster.job_heading }}</h5>
+              
+             
+              <div class="form-group">
+                  <h5>Full Job Description</h5>
+                      <p class="mb-0">{{poster.full_description}}</p>
+                </div>
+                 <h6>Contact Information</h6>
+                 <br>{{poster.contacts}}
+                 <br>{{poster.email}}
+               
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

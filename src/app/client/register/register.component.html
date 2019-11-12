@@ -16,16 +16,14 @@
 
       <h2><i class="glyphicon glyphicon-log-in"></i>Poster Registration</h2>
       <br>
-
-      <br>
       <div>
         <div class="row">
           <div class="col">
             <label for="Fname">First Name</label>
-            <input [(ngModel)]="registerUserData.name" name="name" type="text" class="form-control"
-              placeholder="First name" #Fname="ngModel" autofocus required name ngModel>
+            <input [(ngModel)]="registerUserData.name" name="firstname" type="text" class="form-control"
+              placeholder="First name" #firstname="ngModel" autofocus required firstname ngModel>
           </div>
-          <div class="alert alert-danger" role="alert" *ngIf="Fname.invalid && (Fname.dirty || Fname.touched)">
+          <div class="alert alert-danger" role="alert" *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">
             Please enter a valid first name.
           </div>
 
